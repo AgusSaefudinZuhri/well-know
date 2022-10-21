@@ -1,0 +1,26 @@
+# BEGIN
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+
+# RewriteBase /moss
+
+# RewriteRule ^index\$ -[L]
+
+# RewriteCond %{REQUEST_FILENAME} !-f
+
+# RewriteCond %{REQUEST_FILENAME} !-d
+
+# RewriteRule . /moss/member/register.php?ref=$1 [L]
+
+Options +FollowSymLinks
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ ../member/register.php?ref=$1 [L]
+
+
+</IfModule>
+
+
+# END

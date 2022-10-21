@@ -1,0 +1,9 @@
+[27-Mar-2019 11:11:10 UTC] PHP Deprecated:  mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/extrogate/public_html/admin/hackUnilevel.php on line 41
+[27-Mar-2019 11:11:10 UTC] PHP Warning:  mysql_query(): Access denied for user ''@'localhost' (using password: NO) in /home/extrogate/public_html/admin/hackUnilevel.php on line 41
+[27-Mar-2019 11:11:10 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/extrogate/public_html/admin/hackUnilevel.php on line 41
+[27-Mar-2019 11:11:10 UTC] PHP Deprecated:  mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/extrogate/public_html/admin/hackUnilevel.php on line 42
+[27-Mar-2019 11:11:10 UTC] PHP Warning:  mysql_query(): Access denied for user ''@'localhost' (using password: NO) in /home/extrogate/public_html/admin/hackUnilevel.php on line 42
+[27-Mar-2019 11:11:10 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/extrogate/public_html/admin/hackUnilevel.php on line 42
+[27-Mar-2019 11:11:10 UTC] PHP Deprecated:  mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/extrogate/public_html/admin/hackUnilevel.php on line 43
+[27-Mar-2019 11:11:10 UTC] PHP Warning:  mysql_query(): Access denied for user ''@'localhost' (using password: NO) in /home/extrogate/public_html/admin/hackUnilevel.php on line 43
+[27-Mar-2019 11:11:10 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/extrogate/public_html/admin/hackUnilevel.php on line 43

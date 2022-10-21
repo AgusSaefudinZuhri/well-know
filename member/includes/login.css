@@ -1,0 +1,13 @@
+body {
+  	/* Margin bottom by footer height */
+  	margin-bottom: 0;
+  	/*background: url(../images/bg.gif) repeat !important;*/
+}
+
+.login .form-signin {
+  max-width: 400px;
+  padding: 20px;
+  margin: 0 auto;
+  background: none !important;
+ 
+}

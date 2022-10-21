@@ -1,0 +1,724 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: coba002\n"
+"POT-Creation-Date: 2016-03-18 13:50+0700\n"
+"PO-Revision-Date: 2016-03-25 23:03+0700\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: message1;message2;message3;message4\n"
+"Last-Translator: \n"
+"Language: en_US\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "ADMIN AREA"
+msgstr "ADMIN AREA"
+
+msgid "DASHBOARD"
+msgstr "DASHBOARD"
+
+msgid "MANAJEMEN KARTU"
+msgstr "CARD MANAGEMENT"
+
+msgid "MEMBER"
+msgstr "MEMBER"
+
+msgid "BONUS"
+msgstr "BONUS"
+
+msgid "AUTOMAINTAIN"
+msgstr "AUTOMAINTAIN"
+
+msgid "REWARD"
+msgstr "REWARD"
+
+msgid "ADMIN"
+msgstr "ADMIN"
+
+msgid "Data Member Baru"
+msgstr "New Member Info"
+
+msgid "Pendaftaran & Upgrade vs. Bonus"
+msgstr "Registration & Upgrade vs. Bonus"
+
+msgid "logout"
+msgstr "logout"
+
+msgid "Member Baru"
+msgstr "New Member"
+
+msgid "Daftar & Upgrade"
+msgstr "Registration & Upgrade"
+
+msgid "Komisi"
+msgstr "Bonus"
+
+msgid "MEMBER BARU"
+msgstr "NEW MEMBER"
+
+msgid "HARI INI"
+msgstr "TODAY"
+
+msgid "BULAN INI"
+msgstr "THIS MONTH"
+
+msgid "DATA BONUS"
+msgstr "BONUS INFO"
+
+msgid "BLM DIBAYAR"
+msgstr "UNPAID"
+
+msgid "PERMOHONAN"
+msgstr "REQUEST"
+
+msgid "SALDO"
+msgstr "SALDO"
+
+msgid "WARNING"
+msgstr "WARNING"
+
+msgid "MOHON MENUNGGU"
+msgstr "PLEASE WAIT"
+
+msgid "Memuat Halaman"
+msgstr "Loading Page"
+
+msgid "WARNING REWARD"
+msgstr "WARNING REWARD"
+
+msgid "KI"
+msgstr "LF"
+
+msgid "KA"
+msgstr "RI"
+
+msgid "No"
+msgstr "No"
+
+msgid "UserID"
+msgstr "UserID"
+
+msgid "Nama Member"
+msgstr "Member Name"
+
+msgid "Jaringan"
+msgstr "Network"
+
+msgid "KIRI"
+msgstr "LEFT"
+
+msgid "KANAN"
+msgstr "RIGHT"
+
+msgid "Kualifikasi"
+msgstr "Qualification"
+
+msgid "batal"
+msgstr "cancel"
+
+msgid "BATAL"
+msgstr "CANCEL"
+
+msgid "GANTI PASSWORD"
+msgstr "CHANGE PASSWORD"
+
+msgid "UBAH PASSWORD"
+msgstr "CHANGE PASSWORD"
+
+msgid "Password Baru"
+msgstr "New Password"
+
+msgid "simpan"
+msgstr "save"
+
+msgid "KARTU"
+msgstr "CARD"
+
+msgid "DAFTAR TRANSFER"
+msgstr "TRANSFER LIST"
+
+msgid "TRANSFER YG DIPILIH"
+msgstr "TRANSFER THE SELECTED"
+
+msgid "TRANSFER MASSAL"
+msgstr "MASS TRANSFER"
+
+msgid "Jenis"
+msgstr "Type"
+
+msgid "Belum Aktif"
+msgstr "Not Active"
+
+msgid "Sudah Aktif"
+msgstr "Active"
+
+msgid "Semua"
+msgstr "All"
+
+msgid "Param"
+msgstr "Param"
+
+msgid "Posisi"
+msgstr "Position"
+
+msgid "Kartu"
+msgstr "Card"
+
+msgid "cari"
+msgstr "search"
+
+msgid "Serial"
+msgstr "Serial"
+
+msgid "PIN"
+msgstr "PIN"
+
+msgid "ID Member"
+msgstr "Member ID"
+
+msgid "Tgl. Generate"
+msgstr "Generation Date"
+
+msgid "Tgl. Aktivasi"
+msgstr "Activation Date"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Jumlah"
+msgstr "Total"
+
+msgid "TRANSFER YANG  DIPILIH"
+msgstr "TRANSFER THE SELECTED"
+
+msgid "TRANSFER KARTU"
+msgstr "TRANSFER THE CARDS "
+
+msgid "YG DIPILIH"
+msgstr "THAT HAS BEEN SELECTED"
+
+msgid "UserID Member"
+msgstr "UserID Member"
+
+msgid "transfer"
+msgstr "transfer"
+
+msgid "TRANSFER MASAL"
+msgstr "MASS TRANSFER"
+
+msgid "TRANSFER MASAL KARTU"
+msgstr "MASS CARD TRANSFER"
+
+msgid "Jumlah Kartu"
+msgstr "Number of Cards"
+
+msgid "Tgl. Transfer"
+msgstr "Transfer Date"
+
+msgid "s/d"
+msgstr "untill"
+
+msgid "Kode Transfer"
+msgstr "Transfer Code"
+
+msgid "Nama"
+msgstr "Name"
+
+msgid "Jml. Kartu"
+msgstr "No. of Cards"
+
+msgid "Jenis Kartu"
+msgstr "Card Type"
+
+msgid "Diblokir"
+msgstr "Blocked"
+
+msgid "Tidak Diblokir"
+msgstr "Not Blocked"
+
+msgid "Berangkat"
+msgstr "Depart"
+
+msgid "Sudah Berangkat"
+msgstr "Departed"
+
+msgid "Belum Berangkat"
+msgstr "Not Departed"
+
+msgid "Parameter"
+msgstr "Parameter"
+
+msgid "ID Sponsor"
+msgstr "Sponsor ID"
+
+msgid "ID Upline"
+msgstr "Upline ID"
+
+msgid "Sponsor"
+msgstr "Sponsor"
+
+msgid "Upline"
+msgstr "Upline"
+
+msgid "Saldo Automaintain"
+msgstr "Saldo Automaintain"
+
+msgid "Total Komisi"
+msgstr "Total Bonus"
+
+msgid "Member"
+msgstr "Member"
+
+msgid "DOWNLOAD DAFTAR"
+msgstr "DOWNLOAD LIST"
+
+msgid "blokir"
+msgstr "block"
+
+msgid "buka blokir"
+msgstr "unblock"
+
+msgid "MANAJEMEN MEMBER"
+msgstr "MEMBER MANAGEMENT"
+
+msgid "MANAJEMEN BONUS"
+msgstr "BONUS MANAGEMENT"
+
+msgid "BELUM DIBAYAR"
+msgstr "UNPAID"
+
+msgid "SUDAH DIBAYAR"
+msgstr "PAID"
+
+msgid "BAYAR YG DIPILIH"
+msgstr "PAID THE SELECTED"
+
+msgid "Tgl Catat"
+msgstr "Record Date"
+
+msgid "Tgl"
+msgstr "Date"
+
+msgid "Bank"
+msgstr "Bank"
+
+msgid "No. Rekening"
+msgstr "Account No"
+
+msgid "Atas Nama"
+msgstr "On Behalf"
+
+msgid "Bonus"
+msgstr "Bonus"
+
+msgid "By. Adm"
+msgstr "Adm Cost"
+
+msgid "Auto"
+msgstr "Auto"
+
+msgid "Bayar"
+msgstr "Pay"
+
+msgid "TOTAL (SELURUH) YANG BELUM DIBAYAR"
+msgstr "TOTAL (ALL) UNPAID"
+
+msgid "Transaksi"
+msgstr "Transaction"
+
+msgid "KONFIRMASI PEMBAYARAN"
+msgstr "PAYMENT CONFIRMATION"
+
+msgid "Konfirmasi melakukan pembayaran?"
+msgstr "Confirm the Payment?"
+
+msgid "LIHAT RINCIAN BONUS"
+msgstr "BONUS DETAILS"
+
+msgid "RINCIAN PERHITUNGAN BONUS"
+msgstr "BONUS CALCULATION DETAIL"
+
+msgid "NO"
+msgstr "NO"
+
+msgid "DARI"
+msgstr "FROM"
+
+msgid "NILAI"
+msgstr "VALUE"
+
+msgid "SUBTOTAL"
+msgstr "SUBTOTAL"
+
+msgid "TOTAL BONUS"
+msgstr "TOTAL BONUS"
+
+msgid "TUTUP"
+msgstr "CLOSE"
+
+msgid "TIDAK ADA %s UNTUK TANGGAL TERSEBUT"
+msgstr "THERE ARE NO %s ON REGARDING DATE"
+
+msgid "EDIT DATA MEMBER"
+msgstr "EDIT MEMBER DATA"
+
+msgid "DATA MEMBER"
+msgstr "MEMBER DATA"
+
+msgid "Upline Langsung"
+msgstr "Direct Upline"
+
+msgid "Password Saat Ini"
+msgstr "Current Password"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Konfirmasi Password"
+msgstr "Confirm New Password"
+
+msgid "Nama Lengkap"
+msgstr "Full Name"
+
+msgid "No. KTP"
+msgstr "ID Card No."
+
+msgid "Tgl. Lahir"
+msgstr "Birth Date"
+
+msgid "Jenis Kelamin"
+msgstr "Gender"
+
+msgid "Pria"
+msgstr "Male"
+
+msgid "Wanita"
+msgstr "Femail"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Alamat Lengkap"
+msgstr "Full Address"
+
+msgid "Kota"
+msgstr "City"
+
+msgid "Propinsi"
+msgstr "Province"
+
+msgid "Kode Pos"
+msgstr "Postal Code"
+
+msgid "Telepon"
+msgstr "Phone"
+
+msgid "Handphone"
+msgstr "Handphone"
+
+msgid "Tgl. Aktif"
+msgstr "Activation Date"
+
+msgid "Belum"
+msgstr "not yet"
+
+msgid "Sudah"
+msgstr "done"
+
+msgid "UBAH DATA"
+msgstr "CHANGE DATA"
+
+msgid "UPGRADE MEMBER"
+msgstr "UPGRADE MEMBER"
+
+msgid "sudah memiliki Jenis Keanggotaan tertinggi."
+msgstr "already has the highest Member Type."
+
+msgid "Upgrade tidak dapat dilakukan."
+msgstr "Upgrade process cannot be processed."
+
+msgid "tutup"
+msgstr "close"
+
+msgid "Upgrade ke"
+msgstr "Upgrade to"
+
+msgid "upgrade"
+msgstr "upgrade"
+
+msgid "Periode"
+msgstr "Period"
+
+msgid "TIDAK ADA DATA"
+msgstr "THERE ARE NO DATA"
+
+msgid "TOTAL (SELURUH) TRANSAKSI PEMBAYARAN"
+msgstr "TOTAL (ALL) PAYMENT TRANSACTION"
+
+msgid "PERMOHONAN PENARIKAN"
+msgstr "WITHDRAWAL REQUEST"
+
+msgid "ID Permohonan"
+msgstr "Request ID"
+
+msgid "Saldo pd saat Permohonan"
+msgstr "Balance at Request"
+
+msgid "Nilai Penarikan"
+msgstr "Withdrawal Value"
+
+msgid "Konfirmasi Penghapusan Permohonan Pencairan Automaintain?"
+msgstr "Confirm to delete the Automaintain Withdrawal Request?"
+
+msgid "DAFTAR TRANSAKSI"
+msgstr "TRANSACTION LIST"
+
+msgid "SALDO AWAL PERIODE"
+msgstr "BEGINING BALANCE"
+
+msgid "SALDO AKHIR PERIODE"
+msgstr "END BALANCE"
+
+msgid "Trx ID"
+msgstr "Trx ID"
+
+msgid "Jenis Transaksi"
+msgstr "Transaction Type"
+
+msgid "PENARIKAN"
+msgstr "WITHDRAWAL"
+
+msgid "CAIRKAN YG DIPILIH"
+msgstr "WITHDRAW THE SELECTED"
+
+msgid "Syarat"
+msgstr "Condition"
+
+msgid "# Member pd saat permohonan"
+msgstr "# Member at Request"
+
+msgid "Hadiah"
+msgstr "Reward"
+
+msgid "DAFTAR REWARD"
+msgstr "REWARD LIST"
+
+msgid "MANAJEMEN PENGGUNA"
+msgstr "USER MANAGEMENT"
+
+msgid "PENGGUNA"
+msgstr "USERS"
+
+msgid "GRUP PENGGUNA"
+msgstr "USER GROUP"
+
+msgid "HAK AKSES"
+msgstr "ACCESS RIGHTS"
+
+msgid "Tambah Pengguna"
+msgstr "Add Users"
+
+msgid "UserName"
+msgstr "UserName"
+
+msgid "Grup Pengguna"
+msgstr "User Group"
+
+msgid "EDIT PENGGUNA"
+msgstr "EDIT USERS"
+
+msgid "Nama Pengguna"
+msgstr "User Name"
+
+msgid "Konfirmasi Hapus Pengguna?"
+msgstr "Confirm to delete the user?"
+
+msgid "Nama Grup"
+msgstr "Group Name"
+
+msgid "Tambah Grup Pengguna"
+msgstr "Add User Group"
+
+msgid "Keterangan"
+msgstr "Note"
+
+msgid "Tindakan"
+msgstr "Action"
+
+msgid "EDIT GRUP PENGGUNA"
+msgstr "EDIT USER GROUP"
+
+msgid "Konfirmasi Hapus Grup Pengguna?"
+msgstr "Confirm to delete User Group?"
+
+msgid "EDIT HAK AKSES"
+msgstr "USERS RIGHTS"
+
+msgid "EDIT HAK AKSES GRUP PENGGUNA"
+msgstr "EDIT USER RIGHTS FOR GROUP USERS"
+
+msgid "Konfigurasi"
+msgstr "Configuration"
+
+msgid "Manajemen Pengguna"
+msgstr "User Management"
+
+msgid "Manajemen Kartu"
+msgstr "Card Management"
+
+msgid "Manajemen Member"
+msgstr "Member Management"
+
+msgid "Manajemen Komisi"
+msgstr "Bonus Management"
+
+msgid "Manajemen Automaintain"
+msgstr "Automaintain Management"
+
+msgid "Manajemen Reward"
+msgstr "Reward Management"
+
+msgid "KONFIGURASI"
+msgstr "CONFIGURATION"
+
+msgid "UMUM"
+msgstr "GENERAL"
+
+msgid "Nilai Parameter"
+msgstr "Parameter Value"
+
+msgid "JENIS MEMBER"
+msgstr "MEMBER TYPE"
+
+msgid "Tambah Jenis Member"
+msgstr "Add Member Type"
+
+msgid "TAMBAH JENIS MEMBER"
+msgstr "ADD MEMBER TYPE"
+
+msgid "Jenis Member"
+msgstr "Member Type"
+
+msgid "Nama Paket"
+msgstr "Package Name"
+
+msgid "Nilai Paket"
+msgstr "Package Value"
+
+msgid "Icon Link"
+msgstr "Icon Link"
+
+msgid "Tingkatan Reward"
+msgstr "Reward Levels"
+
+msgid "edit"
+msgstr "edit"
+
+msgid "aktifkan"
+msgstr "activate"
+
+msgid "non-aktifkan"
+msgstr "deactivate"
+
+msgid "Aktif"
+msgstr "Aktive"
+
+msgid "Nama Jenis Member"
+msgstr "Member Type Name"
+
+msgid "EDIT JENIS MEMBER"
+msgstr "EDIT MEMBER TYPE"
+
+msgid "JENIS BONUS"
+msgstr "BONUS TYPE"
+
+msgid "Tambah Jenis Bonus"
+msgstr "Add Bonus Type"
+
+msgid "Nama Bonus"
+msgstr "Bonus Name"
+
+msgid "Nilai Bonus"
+msgstr "Bonus Value"
+
+msgid "Script Perhitungan"
+msgstr "Calculation Script"
+
+msgid "Konfirmasi Penon-aktifkan Jenis Komisi?"
+msgstr "Confirm the deactivation of the Bonus Type?"
+
+msgid "Tdk Aktif"
+msgstr "Not Active"
+
+msgid "Konfirmasi Aktivasi Jenis Komisi?"
+msgstr "Confirm the Activation of Bonus Type?"
+
+msgid "Jenis Komisi berhasil di-Non-Aktif-kan"
+msgstr "Bonus Type has been deactivate"
+
+msgid "PROSES BERHASIL"
+msgstr "PROCESS IS SUCCEED"
+
+msgid "Jenis Komisi berhasil di-Aktif-kan"
+msgstr "Bonus Type is Active"
+
+msgid "Nama Jenis Bonus"
+msgstr "Bonus Type Name"
+
+msgid "JENIS REWARD"
+msgstr "REWARD TYPE"
+
+msgid "Tambah Jenis Reward"
+msgstr "Add Reward Type"
+
+msgid "TAMBAH JENIS REWARD"
+msgstr "ADD REWARD TYPE"
+
+msgid "Nama Reward"
+msgstr "Reward Type"
+
+msgid "Kualifikasi Kiri"
+msgstr "Left Qualification"
+
+msgid "Kualifikasi Kanan"
+msgstr "Right Qualification"
+
+msgid "EDIT JENIS REWARD"
+msgstr "EDIT REWARD TYPE"
+
+msgid "Konfirmasi Penon-aktifkan Jenis Reward?"
+msgstr "Confirm the deactivation of Reward Type?"
+
+msgid "Konfirmasi Aktivasi Jenis Reward?"
+msgstr "Confirm the Activation of Reward Type?"
+
+msgid "Jenis Reward berhasil di-Non-Aktif-kan"
+msgstr "Reward Type has been deactivate"
+
+msgid "Jenis Reward berhasil di-Aktif-kan"
+msgstr "Reward Type has been activate"
+
+msgid "Nama Jenis Reward"
+msgstr "Reward Type Name"
+
+msgid "TEMPLATE EMAIL"
+msgstr "EMAIL TEMPLATE"
+
+msgid "Nama Template"
+msgstr "Template Name"
+
+msgid "EDIT DATA TEMPLATE EMAIL"
+msgstr "EDIT EMAIL TEMPLATE"
+
+msgid "Memperbaharui Data ..."
+msgstr "Renewed Data ..."
+
+msgid "Transfer berhasil dibatalkan"
+msgstr "Transfer has been canceled"
+
+msgid "Kesalahan Proses"
+msgstr "Error in Process"
