@@ -159,9 +159,9 @@ function cekJMember( x ) {
 	switch(x) {
 		<?php 
 			$cTxt = "SELECT * FROM g_jpackage WHERE status='1' ORDER BY (hargapv*1)";
-			$cQry = mysql_query($cTxt);
+			$cQry = mysqli_query($cTxt);
 
-			while( $cRow = mysql_fetch_array($cQry)) { ?>
+			while( $cRow = mysqli_fetch_array($cQry)) { ?>
 		case "<?php echo $cRow["id"];?>" : 
 			var ndReg = <?php echo xNumber(number_format($cRow["hargapv"],2));?>;
 			var fnRcv = <?php echo xNumber(number_format($cRow["hargapv"] * ( $cRow["hasilprc"] / 100 ),2));?>;
@@ -278,8 +278,8 @@ function cekThis(y) {
 			<input name="nmsponsor" id="nmsponsor" type="text" class="default form-control" value="<?php 
 				if(isset($_GET["sponsor"])) {
 					$spTxt	= "SELECT * FROM g_member WHERE userid='".$_GET["sponsor"]."'";
-					$spQry	= mysql_query( $spTxt );
-					$spRow	= mysql_fetch_array( $spQry );
+					$spQry	= mysqli_query( $spTxt );
+					$spRow	= mysqli_fetch_array( $spQry );
 					echo $spRow["nmmember"]; 
 				}
 				else echo $_SESSION["nmmember"]; 
@@ -449,8 +449,8 @@ function cekThis(y) {
             <select class="default form-control" id="negara" name="negara" type="text" required >
             <option value="" selected="selected" disabled="disabled" ><?php echo T_("Select");?></option>
     <?php 
-        $cqry=mysql_query("SELECT * FROM g_negara WHERE status='1' ORDER BY nmnegara");
-        while($crow=mysql_fetch_array($cqry)) { ?>
+        $cqry=mysqli_query("SELECT * FROM g_negara WHERE status='1' ORDER BY nmnegara");
+        while($crow=mysqli_fetch_array($cqry)) { ?>
                   <option value="<?php echo $crow["id"]; ?>" ><?php echo $crow["nmnegara"];?></option>
         <?php } ?>              
             </select>

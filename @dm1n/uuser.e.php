@@ -1,5 +1,5 @@
 <?php include_once('includes/config.php'); 
-$row=mysql_fetch_array(mysql_query("SELECT * FROM g_users WHERE username='".$_GET["id"]."'"));
+$row=mysqli_fetch_array(mysqli_query("SELECT * FROM g_users WHERE username='".$_GET["id"]."'"));
 ?>
 <script type="application/javascript" language="javascript">
 </script>
@@ -39,8 +39,8 @@ $row=mysql_fetch_array(mysql_query("SELECT * FROM g_users WHERE username='".$_GE
     <td>
         <select id="grup" name="grup" class="default" style="width: 150px;" required >
         <option value="" disabled="disabled" selected="selected"></option>
-        <?php $qrz=mysql_query("SELECT * FROM g_guser WHERE id!='0' ORDER BY nama");
-        while($zrow=mysql_fetch_array($qrz)) { ?>
+        <?php $qrz=mysqli_query("SELECT * FROM g_guser WHERE id!='0' ORDER BY nama");
+        while($zrow=mysqli_fetch_array($qrz)) { ?>
         <?php //if($zrow["id"]=='1' or ($zrow["status"]=='0' and $zrow["id"]==$row["grupid"])) { ?>
         <option value="<?php echo $zrow["id"];?>" <?php if($zrow["id"]==$row["grupid"]) echo 'selected="selected"';?> <?php if($zrow["status"]=='0') echo 'disabled="disabled"';?> ><?php echo $zrow["nama"];?></option>
         <?php //} 

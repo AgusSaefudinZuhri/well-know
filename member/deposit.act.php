@@ -19,9 +19,9 @@
 			$kursid		= $_POST["kursid"];
 			$tgltrx		= $_POST["tgltrx"];
 			$extakunid	= $_POST["extakunid"];
-			$yourname	= mysql_real_escape_string($_POST["yourname"]);
-			$yourbank	= mysql_real_escape_string($_POST["yourbank"]);
-			$trxdoc		= mysql_real_escape_string( str_replace( "|","/", $_POST["trxdoc"]) );
+			$yourname	= mysqli_real_escape_string($_POST["yourname"]);
+			$yourbank	= mysqli_real_escape_string($_POST["yourbank"]);
+			$trxdoc		= mysqli_real_escape_string( str_replace( "|","/", $_POST["trxdoc"]) );
 		
 			$insTxt1	= "
 						INSERT INTO g_wmt4 (
@@ -68,12 +68,12 @@
 						);
 					";
 					//	echo $insTxt1;
-					$insQry1	= mysql_query( $insTxt1 );
+					$insQry1	= mysqli_query( $insTxt1 );
 					
 					$id		= mysql_insert_id();
 					$refno1	= $refno.$id;
 					$updTxt1= "UPDATE g_wmt4 SET refno='".$refno1."' WHERE id='".$id."'";
-					$updQry1= mysql_query( $updTxt1 );
+					$updQry1= mysqli_query( $updTxt1 );
 
 
 //				echo $insTxt1. " ". $insTxt2;
@@ -98,9 +98,9 @@
 			$kursid		= $_POST["kursid"];
 			$tgltrx		= $tglaktif;
 			$extakunid	= $_POST["extakunid"];
-			$yourname	= mysql_real_escape_string($_POST["yourname"]);
-			$yourbank	= mysql_real_escape_string($_POST["yourbank"]);
-			$trxdoc		= mysql_real_escape_string( str_replace( "|","/", $_POST["trxdoc"]) );
+			$yourname	= mysqli_real_escape_string($_POST["yourname"]);
+			$yourbank	= mysqli_real_escape_string($_POST["yourbank"]);
+			$trxdoc		= mysqli_real_escape_string( str_replace( "|","/", $_POST["trxdoc"]) );
 			//echo $trxvalue."<=".$balance;
 		if($trxvalue<=$balance ) { //} and $trxvalue!='0') {
 			$insTxt1	= "
@@ -148,12 +148,12 @@
 						);
 					";
 					//	echo $insTxt1;
-					$insQry1	= mysql_query( $insTxt1 );
+					$insQry1	= mysqli_query( $insTxt1 );
 					
 					$id		= mysql_insert_id();
 					$refno1	= $refno.$id;
 					$updTxt1= "UPDATE g_wmt4 SET refno='".$refno1."' WHERE id='".$id."'";
-					$updQry1= mysql_query( $updTxt1 );
+					$updQry1= mysqli_query( $updTxt1 );
 
 
 //				echo $insTxt1. " ". $insTxt2;

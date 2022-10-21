@@ -2,8 +2,8 @@
 //echo print_r($_REQUEST);
 $error = 0;
 if( isset($_GET["ref"]) and $_GET["ref"]!='master' ) {
-	$rQry = mysql_query("SELECT * FROM g_member WHERE userid='".$_GET["ref"]."' AND parentstatus='1' ");	
-	if(mysql_num_rows($rQry)=='0') $error = 1;
+	$rQry = mysqli_query("SELECT * FROM g_member WHERE userid='".$_GET["ref"]."' AND parentstatus='1' ");	
+	if(mysqli_num_rows($rQry)=='0') $error = 1;
 //	echo "masuk";
 }
 else $error = 1;
@@ -167,7 +167,7 @@ function cTglLahir() {
 			<?php  } 
 			else { 
 
-				$rRow = mysql_fetch_array($rQry);
+				$rRow = mysqli_fetch_array($rQry);
 			?>
 
 				<div class="form-group">
@@ -276,8 +276,8 @@ function cTglLahir() {
 						<select class="default form-control" id="negara" name="negara" type="text" required >
 						<option value="" selected="selected" disabled="disabled" ><?php echo T_("Select");?></option>
 				<?php 
-					$cqry=mysql_query("SELECT * FROM g_negara WHERE status='1' ORDER BY nmnegara");
-					while($crow=mysql_fetch_array($cqry)) { ?>
+					$cqry=mysqli_query("SELECT * FROM g_negara WHERE status='1' ORDER BY nmnegara");
+					while($crow=mysqli_fetch_array($cqry)) { ?>
 							  <option value="<?php echo $crow["id"]; ?>" ><?php echo $crow["nmnegara"];?></option>
 					<?php } ?>              
 						</select>

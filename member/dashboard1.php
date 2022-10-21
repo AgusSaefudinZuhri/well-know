@@ -7,8 +7,8 @@
 			WHERE a.userid = '".$_SESSION["userid"]."'
 			";
 //echo $txt;
-	$qry = mysql_query( $txt );
-	$xRow = mysql_fetch_array( $qry );
+	$qry = mysqli_query( $txt );
+	$xRow = mysqli_fetch_array( $qry );
 
 	$fTxt = "
 			SELECT 
@@ -17,8 +17,8 @@
 			FROM g_wfund a
 			WHERE a.userid = '".$_SESSION["userid"]."' AND a.status IN ('0', '1')
 			";
-	$fQry = mysql_query( $fTxt );
-	$fRow = mysql_fetch_array( $fQry );
+	$fQry = mysqli_query( $fTxt );
+	$fRow = mysqli_fetch_array( $fQry );
 
 	$kTxt = "
 			SELECT 
@@ -29,8 +29,8 @@
 			FROM g_wfund a
 			WHERE a.userid = '".$_SESSION["userid"]."' AND a.status IN ( '0', '1' )
 			";
-	$kQry = mysql_query( $kTxt );
-	$kRow = mysql_fetch_array( $kQry );
+	$kQry = mysqli_query( $kTxt );
+	$kRow = mysqli_fetch_array( $kQry );
 //	echo $fTxt;
   
 	?>

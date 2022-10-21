@@ -24,7 +24,7 @@ switch($_GET["a"]) {
 				tglaktif	= '".$tglaktif."', 
 				waktuaktif	= '".$waktuaktif."'
 			WHERE userid='".$userid."'";
-		$write1 = mysql_query( $updTxt1 );
+		$write1 = mysqli_query( $updTxt1 );
 
 		$updTxt2	= "
 			UPDATE g_unilevel 
@@ -33,7 +33,7 @@ switch($_GET["a"]) {
 				tglaktif	= '".$tglaktif."', 
 				waktuaktif	= '".$waktuaktif."'
 			WHERE userid='".$userid."'";
-		$write2 = mysql_query( $updTxt2 );
+		$write2 = mysqli_query( $updTxt2 );
 		
 			
 		if( !$write1 or !$write2 ) $error='1';
@@ -44,19 +44,19 @@ switch($_GET["a"]) {
 		if($error=='0') {
 			
 				$mbrTxt = "SELECT * FROM g_member WHERE userid = '".$userid."'";
-				$mbrQry	= mysql_query( $mbrTxt );
-				$mbrRow = mysql_fetch_array( $mbrQry );
+				$mbrQry	= mysqli_query( $mbrTxt );
+				$mbrRow = mysqli_fetch_array( $mbrQry );
 			
 				
-				$msg1=mysql_fetch_array(mysql_query("SELECT * FROM g_temail WHERE id='1'"));
+				$msg1=mysqli_fetch_array(mysqli_query("SELECT * FROM g_temail WHERE id='1'"));
 	
 	
 				$to1		= $mbrRow["email"];
-				$subject1	= T_('New Member Info').' '.mysql_real_escape_string($_POST["nmmember"]);
+				$subject1	= T_('New Member Info').' '.mysqli_real_escape_string($_POST["nmmember"]);
 				$message1	= nl2br(
 					str_replace('[userid]', $userid, 
 					str_replace('[password]', $mbrRow["xpass"], 
-					str_replace("[nmmember]", mysql_real_escape_string($mbrRow["nmmember"]), 
+					str_replace("[nmmember]", mysqli_real_escape_string($mbrRow["nmmember"]), 
 					str_replace('[urllink]','<a href="'.$bsMbrlink.'">Login Now</a>', 
 					
 					htmlspecialchars_decode( $msg1["cttemplate"] )
@@ -88,11 +88,11 @@ switch($_GET["a"]) {
 			SET 
 				status		= '99'
 			WHERE userid='".$userid."'";
-		$write1 = mysql_query( $updTxt1 );
+		$write1 = mysqli_query( $updTxt1 );
 
 		$updTxt2= "UPDATE g_unilevel SET status='99' WHERE userid='".$userid."'";
 			
-		$write2 = mysql_query( $updTxt2 );
+		$write2 = mysqli_query( $updTxt2 );
 			
 		if( !$write1 or !$write2 ) $error='1';
 

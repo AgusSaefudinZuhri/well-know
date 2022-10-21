@@ -28,11 +28,11 @@
 
 	if( $tEcho == '1' ) echo '<br/>'.nl2br($rTxt).'<br/>';
 
-	$rQry	= mysql_query( $rTxt );
+	$rQry	= mysqli_query( $rTxt );
 	
-	while( $rRow = mysql_fetch_array( $rQry ) ) {
+	while( $rRow = mysqli_fetch_array( $rQry ) ) {
 		
 		$updTxt	= "UPDATE g_member SET jmemberid='".$jmemberid."' WHERE userid='".$rRow["unplid"]."'";
-		$updQry	= mysql_query( $updTxt );
+		$updQry	= mysqli_query( $updTxt );
 
 	}

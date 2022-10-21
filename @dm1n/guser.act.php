@@ -3,19 +3,19 @@ include('includes/config.php');
 
 switch($_GET["a"]) {
 	case "0":	
-		$cek=mysql_num_rows(mysql_query("SELECT * FROM g_guser WHERE nama='".$_POST["nama"]."'"));
+		$cek=mysqli_num_rows(mysqli_query("SELECT * FROM g_guser WHERE nama='".$_POST["nama"]."'"));
 	
 		if($cek>0) echo T_("The Group Name you choose is already taken. Please choose another Group Name.");
 		else {
-			$simpan=mysql_query("
+			$simpan=mysqli_query("
 				INSERT INTO g_guser(
 					nama, 
 					keterangan, 
 					status
 					) 
 				VALUES(
-					'".mysql_real_escape_string($_POST["nama"])."',
-					'".mysql_real_escape_string($_POST["keterangan"])."', 
+					'".mysqli_real_escape_string($_POST["nama"])."',
+					'".mysqli_real_escape_string($_POST["keterangan"])."', 
 					'1'
 					)"
 				);
@@ -26,16 +26,16 @@ switch($_GET["a"]) {
 		break;
 	
 	case "1":
-		$cek=mysql_num_rows(mysql_query("SELECT * FROM g_guser WHERE nama='".$_POST["nama"]."' AND id!='".$_GET["id"]."'"));
+		$cek=mysqli_num_rows(mysqli_query("SELECT * FROM g_guser WHERE nama='".$_POST["nama"]."' AND id!='".$_GET["id"]."'"));
 	
 		if($cek>0) echo T_("The Group Name you choose is already taken. Please choose another Group Name.");
 		else {
 
-		$update=mysql_query("
+		$update=mysqli_query("
 			UPDATE g_guser 
 			SET 
-			nama		='".mysql_real_escape_string($_POST["nama"])."',
-			keterangan	='".mysql_real_escape_string($_POST["keterangan"])."'
+			nama		='".mysqli_real_escape_string($_POST["nama"])."',
+			keterangan	='".mysqli_real_escape_string($_POST["keterangan"])."'
 			WHERE id	='".$_GET["id"]."'
 			");
 			

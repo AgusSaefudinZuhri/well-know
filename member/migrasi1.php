@@ -9,9 +9,9 @@
 		WHERE a.jpackage!='0' AND a.kontrakid='0'
 		"; 
 			
-	$cQry	= mysql_query( $cTxt );
+	$cQry	= mysqli_query( $cTxt );
 	
-	while( $cRow = mysql_fetch_array( $cQry ) ) {
+	while( $cRow = mysqli_fetch_array( $cQry ) ) {
 		
 		$tqry = "
 			INSERT INTO g_kontrak (
@@ -34,11 +34,11 @@
 			);
 		";
 			
-		$insQry	= mysql_query( $tqry );
+		$insQry	= mysqli_query( $tqry );
 		
 		$kontrakid		= mysql_insert_id();
 		
-		$updQry3= mysql_query( $updTxt3 );
+		$updQry3= mysqli_query( $updTxt3 );
 
 		
 		for( $i = 1; $i <= $contractPeriod; $i++ ) {
@@ -68,12 +68,12 @@
 					'0'			
 				)
 				";
-				$roiQry = mysql_query( $roiTxt );
+				$roiQry = mysqli_query( $roiTxt );
 		}
 
 
 		$updTxt = "UPDATE g_member SET kontrakid='".$kontrakid."' WHERE userid='".$cRow["userid"]."'";
-		$updQry	= mysql_query( $updTxt );
+		$updQry	= mysqli_query( $updTxt );
 
 
 	}

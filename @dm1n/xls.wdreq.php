@@ -130,7 +130,7 @@ if($_GET["vf"]=='') $vf="ALL"; else $vf="%".$_GET["vf"]."%";
 		GROUP BY a.userid, a.refno
 		ORDER BY a.tglinput DESC, a.waktuinput DESC";
 		
-		$qry = mysql_query( $tqry );
+		$qry = mysqli_query( $tqry );
 		
 		$worksheet1->write_string(1,1, "WITHDRAWAL REQUEST");
 
@@ -172,7 +172,7 @@ if($_GET["vf"]=='') $vf="ALL"; else $vf="%".$_GET["vf"]."%";
 		$j      = 1;
 
 		
-		while($row=mysql_fetch_array($qry)) { 
+		while($row=mysqli_fetch_array($qry)) { 
 
 			if($row["tglinput"]=="") $tgltransaksi="";
 			else $tgltransaksi = date('d M Y', strtotime($row["tglinput"]))." ".$row["waktuinput"];
@@ -232,7 +232,7 @@ if($_GET["vf"]=='') $vf="ALL"; else $vf="%".$_GET["vf"]."%";
 		if(isset($_POST["clat"][$i])) $clatitude=$_POST["clat"][$i]; else $clatitude='';
 		if(isset($_POST["clong"][$i])) $clongitude=$_POST["clong"][$i]; else $clongitude='';
 
-		$simpan=mysql_query("
+		$simpan=mysqli_query("
 			INSERT INTO t_gis(
 				id, 
 				roadid, 
@@ -279,7 +279,7 @@ if($_GET["vf"]=='') $vf="ALL"; else $vf="%".$_GET["vf"]."%";
 		}
 		if($error=='0') echo 'success';
 		else {
-			$prepare=mysql_query("DELETE FROM t_gis WHERE roadid='".$id."'");
+			$prepare=mysqli_query("DELETE FROM t_gis WHERE roadid='".$id."'");
 			echo 'error';
 		}
 		*/

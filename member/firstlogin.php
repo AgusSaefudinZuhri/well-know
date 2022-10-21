@@ -1,6 +1,6 @@
 <?php include_once('includes/config.php');
 
-$row=mysql_fetch_array(mysql_query("
+$row=mysqli_fetch_array(mysqli_query("
 	SELECT a.*
 	FROM g_member a
 	WHERE a.userid='".$_SESSION["userid"]."'
@@ -22,7 +22,7 @@ $row=mysql_fetch_array(mysql_query("
 	
 	";
 //	echo $tTxt;
-	$tBalance	= mysql_fetch_array(mysql_query($tTxt));
+	$tBalance	= mysqli_fetch_array(mysqli_query($tTxt));
 	$cbReg		= $tBalance["breg"];
 //echo $_SESSION['firstlogin'];
  ?>
@@ -76,9 +76,9 @@ function cekJMember( x ) {
 	switch(x) {
 		<?php 
 			$cTxt = "SELECT * FROM g_jpackage WHERE status='1' ORDER BY (hargapv*1)";
-			$cQry = mysql_query($cTxt);
+			$cQry = mysqli_query($cTxt);
 
-			while( $cRow = mysql_fetch_array($cQry)) { ?>
+			while( $cRow = mysqli_fetch_array($cQry)) { ?>
 		case "<?php echo $cRow["id"];?>" : 
 			var ndReg = <?php echo xNumber(number_format($cRow["hargapv"],2));?>;
 			var fnRcv = <?php echo xNumber(number_format($cRow["hargapv"] * ( $cRow["hasilprc"] / 100 ),2));?>;
@@ -153,9 +153,9 @@ function cekJMember( x ) {
                 <option value="" selected="selected" disabled="disabled" ><?php echo T_("Select");?></option>
                 <?php 
                 $cTxt = "SELECT * FROM g_jpackage WHERE status='1' ORDER BY (hargapv*1)";
-                $cQry = mysql_query($cTxt);
+                $cQry = mysqli_query($cTxt);
                 
-                while( $cRow = mysql_fetch_array($cQry)) { ?>
+                while( $cRow = mysqli_fetch_array($cQry)) { ?>
                 <option value="<?php echo $cRow["id"];?>"><?php echo $cRow["nmjpackage"];?> | <?php echo $syscurrency." ". number_format($cRow["hargapv"],2);?></option>        
                 <?php } ?>
             </select>

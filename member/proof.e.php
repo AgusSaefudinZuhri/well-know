@@ -1,5 +1,5 @@
 <?php include_once('includes/config.php');
-$row=mysql_fetch_array(mysql_query("
+$row=mysqli_fetch_array(mysqli_query("
 	SELECT a.*, IFNULL( b.cid, '0' ) cid
 	FROM g_member a
 	LEFT JOIN ( SELECT userid, count(id) cid FROM g_trfproof WHERE status = '0' GROUP BY userid ) b ON a.userid=b.userid

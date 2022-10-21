@@ -4,11 +4,11 @@ include('includes/config.php');
 	switch($_GET["a"]) {
 		case "0":
 			
-			$id 	= mysql_real_escape_string($_POST["id"]);
+			$id 	= mysqli_real_escape_string($_POST["id"]);
 			$cekTxt	= "SELECT * FROM g_kurs WHERE id = '".$id."'";
-			$cekQry	= mysql_query( $cekTxt );
+			$cekQry	= mysqli_query( $cekTxt );
 			
-			if( mysql_num_rows( $cekQry ) == 0 ) {
+			if( mysqli_num_rows( $cekQry ) == 0 ) {
 			
 			$txt = "
 				INSERT INTO g_kurs(
@@ -20,14 +20,14 @@ include('includes/config.php');
 					) 
 				VALUES(
 					'".$id."',
-					'".mysql_real_escape_string($_POST["nmkurs"])."', 
+					'".mysqli_real_escape_string($_POST["nmkurs"])."', 
 					'".xNumber($_POST["excbuy"])."', 
 					'".xNumber($_POST["excsell"])."',
 					'1' 
 					)
 				";
 			//echo $txt;
-			$simpan=mysql_query($txt);
+			$simpan=mysqli_query($txt);
 		
 			if($simpan) echo 'success';
 			else echo $errTxt;
@@ -39,12 +39,12 @@ include('includes/config.php');
 			$txt = "
 				UPDATE g_kurs 
 				SET 
-					nmkurs	= '".mysql_real_escape_string($_POST["nmkurs"])."', 
+					nmkurs	= '".mysqli_real_escape_string($_POST["nmkurs"])."', 
 					excbuy	= '".xNumber($_POST["excbuy"])."', 
 					excsell	= '".xNumber($_POST["excsell"])."'
 				WHERE id='".$_GET["id"]."'";
 //			echo $txt;
-			$simpan=mysql_query($txt);
+			$simpan=mysqli_query($txt);
 			
 			if($simpan) echo 'success';
 			else echo $errTxt;		

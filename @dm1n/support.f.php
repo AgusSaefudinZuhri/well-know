@@ -36,19 +36,19 @@ $tqry	=	"
 		WHERE a.status IN ( '1') 
 		".$where;
 
-$qry0	= mysql_query($tqry);
+$qry0	= mysqli_query($tqry);
 
-$numRows	= mysql_num_rows($qry0);
+$numRows	= mysqli_num_rows($qry0);
 $pages		= ceil( $numRows /$perpage);
 
-$qry=mysql_query($tqry.$limit);
+$qry=mysqli_query($tqry.$limit);
 
 if(isset($_GET["pg"])) $x=($_GET["pg"]-1)*$perpage+1; else $x=1;
 
-while($row=mysql_fetch_array($qry)) { 
+while($row=mysqli_fetch_array($qry)) { 
 	$aTxt = "SELECT * FROM g_tiketdt WHERE tiketid = '".$row["id"]."' ORDER BY id DESC";
-	$aQry = mysql_query( $aTxt );
-	$aRow = mysql_fetch_array( $aQry );
+	$aQry = mysqli_query( $aTxt );
+	$aRow = mysqli_fetch_array( $aQry );
 	?>
 <tr class="tContent<?php if(($x-1)%2) echo ' genap';?>" style=" <?php if($row["stupdate"]==0) echo 'font-weight: bold;'; ?>" >
     <td style="text-align:center;vertical-align: middle;"><?php echo $x; ?></td>

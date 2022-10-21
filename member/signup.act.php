@@ -19,8 +19,8 @@ include("lib/qr/qrcode.php");
 	$refno			= date('YmdHis', strtotime($hariini));
 
 	$cekPassTxt		= "SELECT * FROM g_member WHERE userid='".$_SESSION["userid"]."'";
-	$cekPassQry		= mysql_query($cekPassTxt);
-	$cekPassRow		= mysql_fetch_array( $cekPassQry );
+	$cekPassQry		= mysqli_query($cekPassTxt);
+	$cekPassRow		= mysqli_fetch_array( $cekPassQry );
 
 	if(sha1($_POST["password2"])==$cekPassRow["password2"] or (isset($_GET["x"]) and $_GET["x"]=='1')) {
 //		echo 'xxx';
@@ -30,7 +30,7 @@ include("lib/qr/qrcode.php");
 		WHERE noktp = '".mysql_escape_string($_POST["noktp"])."'
 		";
 		
-	if( mysql_num_rows(mysql_query($cKTPTxt))==0 ) {
+	if( mysqli_num_rows(mysqli_query($cKTPTxt))==0 ) {
 		
 		
 	$cUseridTxt = "
@@ -39,7 +39,7 @@ include("lib/qr/qrcode.php");
 		WHERE userid = '".mysql_escape_string($_POST["useridx"])."'
 		";
 		
-	if(mysql_num_rows(mysql_query($cUseridTxt))==0 and $_POST["useridx"]!=$company_userid) {
+	if(mysqli_num_rows(mysqli_query($cUseridTxt))==0 and $_POST["useridx"]!=$company_userid) {
 		
 		$cParentStatusTxt = "
 			SELECT * 
@@ -48,11 +48,11 @@ include("lib/qr/qrcode.php");
 			AND parentstatus='1' AND status='1'
 			";
 		//echo $cParentStatusTxt;
-		$cParentStatusQry = mysql_query($cParentStatusTxt);
+		$cParentStatusQry = mysqli_query($cParentStatusTxt);
 			
-		if(mysql_num_rows($cParentStatusQry)>0) {
+		if(mysqli_num_rows($cParentStatusQry)>0) {
 
-			$rSponsor	= mysql_fetch_array($cParentStatusQry);
+			$rSponsor	= mysqli_fetch_array($cParentStatusQry);
 			$unilevel	= $rSponsor["unilevel"]+1;
 			
 			if($_POST["passwordx"]==$_POST["passwordx2"]) {
@@ -60,34 +60,34 @@ include("lib/qr/qrcode.php");
 
 // PERSIAPAN DATA DASAR
 
-				$userid		= mysql_real_escape_string($_POST["useridx"]);
+				$userid		= mysqli_real_escape_string($_POST["useridx"]);
 				$password 	= sha1($_POST["passwordx"]);
-				$xpass 		= mysql_real_escape_string($_POST["passwordx"]);
+				$xpass 		= mysqli_real_escape_string($_POST["passwordx"]);
 				$password2	= sha1($_POST["npass2"]);
-				$xpass2		= mysql_real_escape_string($_POST["npass2"]);
+				$xpass2		= mysqli_real_escape_string($_POST["npass2"]);
 
 				$parentid	= $_POST["useridx"];			 //penting; 
-				$sponsor	= mysql_real_escape_string($_POST["sponsordst"]);
-				$email		= mysql_real_escape_string($_POST["email"]);
+				$sponsor	= mysqli_real_escape_string($_POST["sponsordst"]);
+				$email		= mysqli_real_escape_string($_POST["email"]);
 				
 				$initpkg	= $_POST["jpackage"];
 				$jpackage	= $_POST["jpackage"];
 				$negara		= $_POST["negara"];
 				$broker		= ""; //$_POST["broker"];
-				$alamat		= mysql_real_escape_string($_POST["alamat"]);
-				$kota		= mysql_real_escape_string($_POST["kota"]);
-				$propinsi	= mysql_real_escape_string($_POST["propinsi"]);
-				$kodepos	= mysql_real_escape_string($_POST["kodepos"]);
-				$nohp1		= mysql_real_escape_string($_POST["nohp1"]);
-				$noktp		= mysql_real_escape_string($_POST["noktp"]);
-				$nmbank		= mysql_real_escape_string($_POST["nmbank"]); 
-				$cabbank	= mysql_real_escape_string($_POST["cabbank"]);
-				$norek		= mysql_real_escape_string($_POST["norek"]);
-				$atasnama	= mysql_real_escape_string($_POST["atasnama"]);
-				$swiftcode	= mysql_real_escape_string($_POST["swiftcode"]);
+				$alamat		= mysqli_real_escape_string($_POST["alamat"]);
+				$kota		= mysqli_real_escape_string($_POST["kota"]);
+				$propinsi	= mysqli_real_escape_string($_POST["propinsi"]);
+				$kodepos	= mysqli_real_escape_string($_POST["kodepos"]);
+				$nohp1		= mysqli_real_escape_string($_POST["nohp1"]);
+				$noktp		= mysqli_real_escape_string($_POST["noktp"]);
+				$nmbank		= mysqli_real_escape_string($_POST["nmbank"]); 
+				$cabbank	= mysqli_real_escape_string($_POST["cabbank"]);
+				$norek		= mysqli_real_escape_string($_POST["norek"]);
+				$atasnama	= mysqli_real_escape_string($_POST["atasnama"]);
+				$swiftcode	= mysqli_real_escape_string($_POST["swiftcode"]);
 				$stsecret	= $_POST["scquestion"];
-				$secretanswer= mysql_real_escape_string($_POST["scquestiontxt"]);
-				$ktplink	= mysql_real_escape_string( str_replace( "|","/", $_POST["ktpdoc"] ) );						
+				$secretanswer= mysqli_real_escape_string($_POST["scquestiontxt"]);
+				$ktplink	= mysqli_real_escape_string( str_replace( "|","/", $_POST["ktpdoc"] ) );						
 			
 		$tgllahir = $_POST["tltahun"]."-".$_POST["tlbulan"]."-".$_POST["tlhari"];
 					
@@ -175,7 +175,7 @@ include("lib/qr/qrcode.php");
 							'".$password."',
 							'".$xpass2."',
 							'".$password2."',
-							'".mysql_real_escape_string($_POST["nmmember"])."',
+							'".mysqli_real_escape_string($_POST["nmmember"])."',
 							'".$parentid."',
 							'".$upline."',
 							'".$posisi."',
@@ -221,13 +221,13 @@ include("lib/qr/qrcode.php");
 							)
 						";
 
-			$simpan=mysql_query($stxt);
+			$simpan=mysqli_query($stxt);
 		
 	
 	
-			$uniQry = mysql_query("SELECT * FROM g_unilevel WHERE userid='".$sponsor."'");
+			$uniQry = mysqli_query("SELECT * FROM g_unilevel WHERE userid='".$sponsor."'");
 	
-			while($unRow=mysql_fetch_array($uniQry)) {
+			while($unRow=mysqli_fetch_array($uniQry)) {
 				$unilevel0Txt = "
 					INSERT INTO g_unilevel (
 						userid,
@@ -259,7 +259,7 @@ include("lib/qr/qrcode.php");
 					)
 				";
 //				echo $unilevel0Txt;
-				$upline0 = mysql_query($unilevel0Txt);
+				$upline0 = mysqli_query($unilevel0Txt);
 				
 			}
 	
@@ -293,7 +293,7 @@ include("lib/qr/qrcode.php");
 						'0'
 					)
 				";
-			$unilevel = mysql_query($unilevelTxt);
+			$unilevel = mysqli_query($unilevelTxt);
 	
 			
 	// SELESAI PROSES INPUTING
@@ -314,17 +314,17 @@ include("lib/qr/qrcode.php");
 				
 				/*
 				
-				$sponsor=mysql_fetch_array(mysql_query("SELECT * FROM g_member WHERE userid='".$sponsor."'"));
+				$sponsor=mysqli_fetch_array(mysqli_query("SELECT * FROM g_member WHERE userid='".$sponsor."'"));
 				
-				$msg1=mysql_fetch_array(mysql_query("SELECT * FROM g_temail WHERE id='1'"));
+				$msg1=mysqli_fetch_array(mysqli_query("SELECT * FROM g_temail WHERE id='1'"));
 	
 	
 				$to1		= $email;
-				$subject1	= T_('New Member Info').' '.mysql_real_escape_string($_POST["nmmember"]);
+				$subject1	= T_('New Member Info').' '.mysqli_real_escape_string($_POST["nmmember"]);
 				$message1	= nl2br(
 					str_replace('[userid]', $userid, 
 					str_replace('[password]', $xpass, 
-					str_replace("[nmmember]", mysql_real_escape_string($_POST["nmmember"]), 
+					str_replace("[nmmember]", mysqli_real_escape_string($_POST["nmmember"]), 
 					str_replace('[nmsponsor]', $sponsor["nmmember"], 
 					str_replace('[mailsponsor]', $sponsor["email"], 
 					str_replace('[hpsponsor]', $sponsor["nohp1"],

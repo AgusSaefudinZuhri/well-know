@@ -1,12 +1,12 @@
 <?php include_once('includes/config.php');
-$row=mysql_fetch_array(mysql_query("
+$row=mysqli_fetch_array(mysqli_query("
 	SELECT a.*, b.nmjpackage
 	FROM g_member a
 	LEFT JOIN g_jpackage b ON a.jpackage = b.id
 	WHERE a.userid='".$_SESSION["userid"]."'
 	"));
 
-$funds=mysql_fetch_array(mysql_query("
+$funds=mysqli_fetch_array(mysqli_query("
 	SELECT a.*, SUM( IF( a.jtransaksi='0', a.trxvalue,'0' ) ) - SUM( IF( a.jtransaksi='1', a.trxvalue,'0' ) ) jnilai, SUM( IF( a.jtransaksi='0', a.idrvalue,'0' ) ) - SUM( IF( a.jtransaksi='1', a.idrvalue,'0' ) ) ijnilai
 	FROM g_wfund a
 	WHERE a.userid='".$_SESSION["userid"]."' AND a.status IN ('0','1')
@@ -67,8 +67,8 @@ function kValue( xx, x, y ) {
     <div class="col-sm-8">
    	<?php 
 		$paketTxt = "SELECT *, ( hargavl * 1 ) xval  FROM g_jpackage WHERE status='1' ORDER BY xval";
-		$paketQry = mysql_query( $paketTxt );
-		while( $paketRow = mysql_fetch_array( $paketQry ) ) { ?>
+		$paketQry = mysqli_query( $paketTxt );
+		while( $paketRow = mysqli_fetch_array( $paketQry ) ) { ?>
    
         <div class="radio col-sm-12">
 			<label class="col-sm-12">

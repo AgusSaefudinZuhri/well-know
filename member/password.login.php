@@ -1,5 +1,5 @@
 <?php include_once('includes/config.php');
-$row=mysql_fetch_array(mysql_query("
+$row=mysqli_fetch_array(mysqli_query($GLOBALS['$link'], "
 	SELECT a.* 
 	FROM g_member a
 	WHERE a.userid='".$_SESSION["userid"]."'

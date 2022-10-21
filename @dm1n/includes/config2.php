@@ -36,7 +36,7 @@ function ubahangka($angka) {
 }
 
 /*function get_option($id, $x) {
-	$ncek=mysql_fetch_array(mysql_query("SELECT * FROM e_huser WHERE username='".$id."' AND pmeter='".$x."'"));
+	$ncek=mysqli_fetch_array(mysqli_query("SELECT * FROM e_huser WHERE username='".$id."' AND pmeter='".$x."'"));
 	return $ncek["pvalue"];
 }*/
 $perpage = 20;

@@ -124,67 +124,67 @@ Stack trace:
 [12-Mar-2019 11:42:14 Asia/Jakarta] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:14 Asia/Jakarta] PHP Warning:  mysql_connect(): Headers and client library minor version mismatch. Headers:100219 Library:100313 in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:15 Asia/Jakarta] PHP Notice:  Undefined variable: regMin in /home/lcenvtsm/public_html/member/includes/config.php on line 183
-[12-Mar-2019 11:42:15 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:15 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:15 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:15 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:15 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:15 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:15 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:15 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:15 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:15 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
 [12-Mar-2019 04:42:18 UTC] PHP Fatal error:  Call to undefined function detect_ie() in /home/lcenvtsm/public_html/member/index.php on line 19
 [12-Mar-2019 04:42:21 UTC] PHP Fatal error:  Call to undefined function detect_ie() in /home/lcenvtsm/public_html/member/index.php on line 19
 [12-Mar-2019 11:42:30 Asia/Jakarta] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:30 Asia/Jakarta] PHP Warning:  mysql_connect(): Headers and client library minor version mismatch. Headers:100219 Library:100313 in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:30 Asia/Jakarta] PHP Notice:  Undefined variable: regMin in /home/lcenvtsm/public_html/member/includes/config.php on line 183
-[12-Mar-2019 11:42:30 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:30 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:30 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:30 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:30 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:30 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:30 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:30 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:30 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:30 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
 [12-Mar-2019 11:42:53 Asia/Jakarta] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:53 Asia/Jakarta] PHP Warning:  mysql_connect(): Headers and client library minor version mismatch. Headers:100219 Library:100313 in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:53 Asia/Jakarta] PHP Notice:  Undefined variable: regMin in /home/lcenvtsm/public_html/member/includes/config.php on line 183
-[12-Mar-2019 11:42:53 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:53 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:53 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:53 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:53 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:53 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:53 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:53 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:53 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:53 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
 [12-Mar-2019 11:42:56 Asia/Jakarta] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_connect(): Headers and client library minor version mismatch. Headers:100219 Library:100313 in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:56 Asia/Jakarta] PHP Notice:  Undefined variable: regMin in /home/lcenvtsm/public_html/member/includes/config.php on line 183
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
 [12-Mar-2019 11:42:56 Asia/Jakarta] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_connect(): Headers and client library minor version mismatch. Headers:100219 Library:100313 in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:56 Asia/Jakarta] PHP Notice:  Undefined variable: regMin in /home/lcenvtsm/public_html/member/includes/config.php on line 183
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
 [12-Mar-2019 11:42:56 Asia/Jakarta] PHP Notice:  Undefined variable: dBackground in /home/lcenvtsm/public_html/member/master.php on line 2
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/dashboard.php on line 12
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/dashboard.php on line 22
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/dashboard.php on line 33
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/wd.h.f.php on line 48
-[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/wd.h.f.php on line 56
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/dashboard.php on line 12
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/dashboard.php on line 22
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/dashboard.php on line 33
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_num_rows() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/wd.h.f.php on line 48
+[12-Mar-2019 11:42:56 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/wd.h.f.php on line 56
 [12-Mar-2019 11:42:59 Asia/Jakarta] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysql_connect(): Headers and client library minor version mismatch. Headers:100219 Library:100313 in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:59 Asia/Jakarta] PHP Notice:  Undefined variable: regMin in /home/lcenvtsm/public_html/member/includes/config.php on line 183
-[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
 [12-Mar-2019 11:42:59 Asia/Jakarta] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysql_connect(): Headers and client library minor version mismatch. Headers:100219 Library:100313 in /home/lcenvtsm/public_html/member/includes/config.php on line 10
 [12-Mar-2019 11:42:59 Asia/Jakarta] PHP Notice:  Undefined variable: regMin in /home/lcenvtsm/public_html/member/includes/config.php on line 183
-[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
-[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
+[12-Mar-2019 11:42:59 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/lcenvtsm/public_html/member/includes/config.php on line 72
 [12-Mar-2019 11:42:59 Asia/Jakarta] PHP Notice:  Undefined variable: funds in /home/lcenvtsm/public_html/member/gjaringan.php on line 44
 [12-Mar-2019 11:42:59 Asia/Jakarta] PHP Notice:  Undefined variable: limit in /home/lcenvtsm/public_html/member/gjaringan.f.php on line 41
 [12-Mar-2019 11:42:59 Asia/Jakarta] PHP Notice:  Undefined variable: limit in /home/lcenvtsm/public_html/member/gjaringan.f.php on line 43

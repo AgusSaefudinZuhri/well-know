@@ -1,19 +1,20 @@
 <?php
-error_reporting(0);
+error_reporting(1);
 session_start();
 date_default_timezone_set("Asia/Jakarta");
-$host="localhost";
-$user="extrogat_dhisca";
-$pass="**Dh15ca83##";
+$host="localhost:3306";
+$user="root";
+$pass="";
 $db="extrogat_trading";
-//$website="http://localhost/akunting";
-$link = mysql_connect($host, $user, $pass);
+$website="http://well-know.test";
+$link = mysqli_connect($host, $user, $pass);
 if (!$link) {
     die('Not connected : ' . mysql_error());
 }
 
 // make foo the current db
-$db_selected = mysql_select_db($db, $link);
+$db_selected = mysqli_select_db($link, $db);
+
 
 if (!$db_selected) {
     die ('Can\'t use foo : ' . mysql_error());
@@ -21,12 +22,12 @@ if (!$db_selected) {
 
 /*
 function get_woption_value ($z) {
-	$vow=mysql_fetch_array(mysql_query("SELECT * FROM w_option WHERE id='".$z."'"));
+	$vow=mysqli_fetch_array(mysqli_query("SELECT * FROM w_option WHERE id='".$z."'"));
 	return $vow["optvalue"];
 }
 
 function get_woption_header ($z) {
-	$vow=mysql_fetch_array(mysql_query("SELECT * FROM w_option WHERE id='".$z."'"));
+	$vow=mysqli_fetch_array(mysqli_query("SELECT * FROM w_option WHERE id='".$z."'"));
 	return $vow["optheader"];
 }
 */
@@ -51,7 +52,7 @@ function ubahangka($angka) {
 
 /*
 function get_woption($id) {
-	$ncek=mysql_fetch_array(mysql_query("SELECT * FROM w_option WHERE id='".$id."'"));
+	$ncek=mysqli_fetch_array(mysqli_query("SELECT * FROM w_option WHERE id='".$id."'"));
 	return $ncek["optvalue"];
 }
 */
@@ -64,26 +65,46 @@ function shortName ( $x ) {
 }
 
 function get_goption($id) {
-	$ncek=mysql_fetch_array(mysql_query("SELECT * FROM g_option WHERE id='".$id."'"));
+	$host="localhost:3306";
+$user="root";
+$pass="";
+	$link = mysqli_connect($host, $user, $pass);
+	$ncek=mysqli_fetch_array(mysqli_query($link, "SELECT * FROM g_option WHERE id='".$id."'"));
 	return $ncek["optvalue"];
 }
 
 function get_woption($id) {
-	$ncek=mysql_fetch_array(mysql_query("SELECT * FROM w_option WHERE id='".$id."'"));
+	$host="localhost:3306";
+$user="root";
+$pass="";
+	$link = mysqli_connect($host, $user, $pass);
+	$ncek=mysqli_fetch_array(mysqli_query($link, "SELECT * FROM w_option WHERE id='".$id."'"));
 	return $ncek["optvalue"];
 }
 function get_woption_value ($z) {
-	$vow=mysql_fetch_array(mysql_query("SELECT * FROM w_option WHERE id='".$z."'"));
+	$host="localhost:3306";
+$user="root";
+$pass="";
+	$link = mysqli_connect($host, $user, $pass);
+	$vow=mysqli_fetch_array(mysqli_query($link, "SELECT * FROM w_option WHERE id='".$z."'"));
 	return $vow["optvalue"];
 }
 
 function get_woption_header ($z) {
-	$vow=mysql_fetch_array(mysql_query("SELECT * FROM w_option WHERE id='".$z."'"));
+	$host="localhost:3306";
+	$user="root";
+	$pass="";
+	$link = mysqli_connect($host, $user, $pass);
+	$vow=mysqli_fetch_array(mysqli_query($link, "SELECT * FROM w_option WHERE id='".$z."'"));
 	return $vow["optheader"];
 }
 
 function xNumber($x) {
-	return str_replace(",","", mysql_real_escape_string($x));
+// 	$host="localhost:3306";
+// $user="root";
+// $pass="";
+// 	$link = mysqli_connect($host, $user, $pass);
+	return str_replace(",","", mysqli_real_escape_string($GLOBALS['link'], $x));
 }
 
 function defCustStatus($x) {
@@ -109,7 +130,11 @@ switch( $x ) {
 		while($ok!=1) {
 			$Allowed_Charaters	= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 			$novoucher			= substr(str_shuffle($Allowed_Charaters), 0, 10);
-			$cek=mysql_num_rows(mysql_query("SELECT * FROM g_card WHERE novoucher='".$novoucher."'"));
+			$host="localhost:3306";
+$user="root";
+$pass="";
+	$link = mysqli_connect($host, $user, $pass);
+			$cek=mysqli_num_rows(mysqli_query($link, "SELECT * FROM g_card WHERE novoucher='".$novoucher."'"));
 			if($cek==0) $ok=1;
 		}		
 		return $novoucher;	

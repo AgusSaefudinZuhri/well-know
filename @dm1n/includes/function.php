@@ -1,7 +1,7 @@
 <?php 
 include_once('config.php'); 
 function sanitize_input($txt) {
-	return htmlspecialchars(mysql_real_escape_string($txt));
+	return htmlspecialchars(mysqli_real_escape_string($txt));
 }
 
 function out_decode($txt) {
@@ -10,12 +10,12 @@ function out_decode($txt) {
 
 function make_slug($txt) {
 	$slug=str_replace("'","",str_replace('"','',str_replace(" ","-",str_replace("&","",strtolower(strip_tags($txt))))));
-	$test=mysql_num_rows(mysql_query("SELECT * FROM w_pcontent WHERE pslug='".$slug."'"));
+	$test=mysqli_num_rows(mysqli_query("SELECT * FROM w_pcontent WHERE pslug='".$slug."'"));
 	if($test>0) {
 		$ok=0;
 		$hitz=1;
 		while($ok!=1) {
-			if(mysql_num_rows(mysql_query("SELECT * FROM w_pcontent WHERE pslug='".$slug.$hitz."'"))==0) {
+			if(mysqli_num_rows(mysqli_query("SELECT * FROM w_pcontent WHERE pslug='".$slug.$hitz."'"))==0) {
 				$slug=$slug.$hitz;
 				$ok=1;				
 			}
@@ -27,12 +27,12 @@ function make_slug($txt) {
 
 function make_slug2($txt, $id) {
 	$slug=str_replace("'","",str_replace('"','',str_replace(" ","-",str_replace("&","",strtolower(strip_tags($txt))))));
-	$test=mysql_num_rows(mysql_query("SELECT * FROM w_pcontent WHERE pslug='".$slug."' AND pid!='".$id."'"));
+	$test=mysqli_num_rows(mysqli_query("SELECT * FROM w_pcontent WHERE pslug='".$slug."' AND pid!='".$id."'"));
 	if($test>0) {
 		$ok=0;
 		$hitz=1;
 		while($ok!=1) {
-			if(mysql_num_rows(mysql_query("SELECT * FROM w_pcontent WHERE pslug='".$slug.$hitz."' AND pid!='".$id."'"))==0) {
+			if(mysqli_num_rows(mysqli_query("SELECT * FROM w_pcontent WHERE pslug='".$slug.$hitz."' AND pid!='".$id."'"))==0) {
 				$slug=$slug.$hitz;
 				$ok=1;				
 			}
@@ -44,12 +44,12 @@ function make_slug2($txt, $id) {
 
 function make_cslug($txt) {
 	$slug=str_replace("'","",str_replace('"','',str_replace(" ","-",str_replace("&","",strtolower(strip_tags($txt))))));
-	$test=mysql_num_rows(mysql_query("SELECT * FROM w_ccontent WHERE cslug='".$slug."'"));
+	$test=mysqli_num_rows(mysqli_query("SELECT * FROM w_ccontent WHERE cslug='".$slug."'"));
 	if($test>0) {
 		$ok=0;
 		$hitz=1;
 		while($ok!=1) {
-			if(mysql_num_rows(mysql_query("SELECT * FROM w_ccontent WHERE cslug='".$slug.$hitz."'"))==0) {
+			if(mysqli_num_rows(mysqli_query("SELECT * FROM w_ccontent WHERE cslug='".$slug.$hitz."'"))==0) {
 				$slug=$slug.$hitz;
 				$ok=1;				
 			}
@@ -61,12 +61,12 @@ function make_cslug($txt) {
 
 function make_cslug2($txt, $id) {
 	$slug=str_replace("'","",str_replace('"','',str_replace(" ","-",str_replace("&","",strtolower(strip_tags($txt))))));
-	$test=mysql_num_rows(mysql_query("SELECT * FROM w_ccontent WHERE cslug='".$slug."' AND cid!='".$id."'"));
+	$test=mysqli_num_rows(mysqli_query("SELECT * FROM w_ccontent WHERE cslug='".$slug."' AND cid!='".$id."'"));
 	if($test>0) {
 		$ok=0;
 		$hitz=1;
 		while($ok!=1) {
-			if(mysql_num_rows(mysql_query("SELECT * FROM w_ccontent WHERE cslug='".$slug.$hitz."' AND cid!='".$id."'"))==0) {
+			if(mysqli_num_rows(mysqli_query("SELECT * FROM w_ccontent WHERE cslug='".$slug.$hitz."' AND cid!='".$id."'"))==0) {
 				$slug=$slug.$hitz;
 				$ok=1;				
 			}
@@ -78,12 +78,12 @@ function make_cslug2($txt, $id) {
 
 
 function ubahppath($id,$ppath) {
-	$cqry=mysql_query("SELECT * FROM w_pages WHERE pparent='".$id."'");
-	if(mysql_num_rows($cqry)>0) {
-		while($crow=mysql_fetch_array($cqry)) {
+	$cqry=mysqli_query("SELECT * FROM w_pages WHERE pparent='".$id."'");
+	if(mysqli_num_rows($cqry)>0) {
+		while($crow=mysqli_fetch_array($cqry)) {
 			$npath=$ppath.".".sprintf('%02d',$crow["porder"]).sprintf('%03d',$crow["id"]);
 			//echo $npath;
-			$ubah=mysql_query("UPDATE w_pages SET ppath='".$npath."' WHERE id='".$crow["id"]."'");
+			$ubah=mysqli_query("UPDATE w_pages SET ppath='".$npath."' WHERE id='".$crow["id"]."'");
 			ubahppath($crow["id"],$npath);
 		}
 	}

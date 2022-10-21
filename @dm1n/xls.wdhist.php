@@ -139,7 +139,7 @@ if(isset($_GET["nf"]) and $_GET["nf"]!='') { $vf1 .= " To ".date('d M Y', strtot
 		GROUP BY a.userid, a.refno
 		ORDER BY a.tglinput DESC, a.waktuinput DESC";
 		
-		$qry = mysql_query( $tqry );
+		$qry = mysqli_query( $tqry );
 		
 		$worksheet1->write_string(1,1, "WITHDRAWAL HISTORY");
 
@@ -182,7 +182,7 @@ if(isset($_GET["nf"]) and $_GET["nf"]!='') { $vf1 .= " To ".date('d M Y', strtot
 		$j      = 1;
 
 		
-		while($row=mysql_fetch_array($qry)) { 
+		while($row=mysqli_fetch_array($qry)) { 
 
 			$tglinput = date('d M Y', strtotime($row["tglinput"]))." ".$row["waktuinput"];
 			$tglapprove = date('d M Y', strtotime($row["tglapprove"]))." ".$row["waktuapprove"];
@@ -243,7 +243,7 @@ if(isset($_GET["nf"]) and $_GET["nf"]!='') { $vf1 .= " To ".date('d M Y', strtot
 		if(isset($_POST["clat"][$i])) $clatitude=$_POST["clat"][$i]; else $clatitude='';
 		if(isset($_POST["clong"][$i])) $clongitude=$_POST["clong"][$i]; else $clongitude='';
 
-		$simpan=mysql_query("
+		$simpan=mysqli_query("
 			INSERT INTO t_gis(
 				id, 
 				roadid, 
@@ -290,7 +290,7 @@ if(isset($_GET["nf"]) and $_GET["nf"]!='') { $vf1 .= " To ".date('d M Y', strtot
 		}
 		if($error=='0') echo 'success';
 		else {
-			$prepare=mysql_query("DELETE FROM t_gis WHERE roadid='".$id."'");
+			$prepare=mysqli_query("DELETE FROM t_gis WHERE roadid='".$id."'");
 			echo 'error';
 		}
 		*/

@@ -5,7 +5,7 @@ switch($_GET["a"]) {
 	case "0" :
 		if($_POST["npass"]==$_POST["kpass"]) {
 		
-			$cek = mysql_fetch_array(mysql_query("SELECT * FROM g_member WHERE userid='".$_GET["id"]."'"));
+			$cek = mysqli_fetch_array(mysqli_query("SELECT * FROM g_member WHERE userid='".$_GET["id"]."'"));
 		//	echo $cek["password"]."==".sha1($_POST["cpass"]);
 			if($cek["password"]==sha1($_POST["cpass"])) {	
 				$tqry="
@@ -14,7 +14,7 @@ switch($_GET["a"]) {
 					WHERE userid='".$_GET["id"]."'
 				";
 		//		echo $tqry;	
-				$simpan=mysql_query($tqry);
+				$simpan=mysqli_query($tqry);
 				
 				if($simpan) echo 'success';
 				else echo $salahProses; 
@@ -27,7 +27,7 @@ switch($_GET["a"]) {
 	case "1" :
 		if($_POST["npass2"]==$_POST["kpass2"]) {
 		
-			$cek = mysql_fetch_array(mysql_query("SELECT * FROM g_member WHERE userid='".$_GET["id"]."'"));
+			$cek = mysqli_fetch_array(mysqli_query("SELECT * FROM g_member WHERE userid='".$_GET["id"]."'"));
 		//	echo $cek["password"]."==".sha1($_POST["cpass"]);
 			if($cek["password2"]==sha1($_POST["cpass2"]) or $cek["password2"]=='') {	
 				$tqry="
@@ -36,7 +36,7 @@ switch($_GET["a"]) {
 					WHERE userid='".$_GET["id"]."'
 				";
 		//		echo $tqry;	
-				$simpan=mysql_query($tqry);
+				$simpan=mysqli_query($tqry);
 				
 				if($simpan) echo 'success';
 				else echo $salahProses; 

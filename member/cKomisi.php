@@ -3,11 +3,11 @@
 
 //Persiapan Data
 
-$bQry = mysql_query("SELECT * FROM g_jkomisi WHERE status='1' AND freqjkomisi='1' ORDER BY id");
+$bQry = mysqli_query("SELECT * FROM g_jkomisi WHERE status='1' AND freqjkomisi='1' ORDER BY id");
 
 
 	
-while($bRow=mysql_fetch_array($bQry)) {
+while($bRow=mysqli_fetch_array($bQry)) {
 	
 	$jkomisi[]	= array(
 			"jkomisiid" => $bRow["id"],
@@ -19,10 +19,10 @@ while($bRow=mysql_fetch_array($bQry)) {
 
 //echo print_r($jkomisi);
 
-$pQry = mysql_query("SELECT * FROM g_jpackage WHERE status='1' ORDER BY (minvalue*1) ASC");
+$pQry = mysqli_query("SELECT * FROM g_jpackage WHERE status='1' ORDER BY (minvalue*1) ASC");
 
 	$xjp =1;
-while($pRow=mysql_fetch_array($pQry)) {
+while($pRow=mysqli_fetch_array($pQry)) {
 	
 	$jpackage[$xjp]	= array(
 			"jpackageid" => $pRow["id"],				
@@ -38,10 +38,10 @@ while($pRow=mysql_fetch_array($pQry)) {
 
 //echo print_r($jpackage);
 
-$uQry = mysql_query("SELECT * FROM g_junilevel WHERE status='1' ORDER BY (minsponsor*1) ASC");
+$uQry = mysqli_query("SELECT * FROM g_junilevel WHERE status='1' ORDER BY (minsponsor*1) ASC");
 
 $u = 1;
-while($uRow=mysql_fetch_array($uQry)) {
+while($uRow=mysqli_fetch_array($uQry)) {
 	
 	$junilevel[$u]	= array(
 			"junilevelid"=> $uRow["id"],				
@@ -95,9 +95,9 @@ while($uRow=mysql_fetch_array($uQry)) {
 		";
 
 //echo $kmTxt.'<br/>';
-	$kmQry = mysql_query( $kmTxt );
+	$kmQry = mysqli_query( $kmTxt );
 
-	while( $kmRow = mysql_fetch_array($kmQry)) {
+	while( $kmRow = mysqli_fetch_array($kmQry)) {
 		
 		$tglwaktumulai = date('Y-m-d H:i:s');
 		echo $tglwaktumulai.'<br/>';
@@ -112,9 +112,9 @@ while($uRow=mysql_fetch_array($uQry)) {
 			";
 			//AND b.userid IS NOT NULL
 //echo $dtTxt;
-		$dtQry	= mysql_query($dtTxt);
+		$dtQry	= mysqli_query($dtTxt);
 		
-		while($dtRow = mysql_fetch_array($dtQry)) {
+		while($dtRow = mysqli_fetch_array($dtQry)) {
 			
 			$jkomisiid		= '';
 			$nmjkomisi		= '';
@@ -169,12 +169,12 @@ while($uRow=mysql_fetch_array($uQry)) {
 				tglselesai	= '".date('Y-m-d', strtotime($tglwaktuselesai))."',
 				waktuselesai= '".date('H:i:s', strtotime($tglwaktuselesai))."'
 			WHERE id = '".$kmRow["id"]."'";
-		mysql_query($upd1Txt);
+		mysqli_query($upd1Txt);
 		$upd2Txt = "
 			UPDATE g_csvdt 
 			SET status		= '11'
 			WHERE csvid = '".$kmRow["id"]."'";
-		mysql_query($upd2Txt);
+		mysqli_query($upd2Txt);
 		
 		//echo $tglwaktuselesai.'<br/>';
 		

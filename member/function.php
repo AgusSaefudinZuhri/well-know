@@ -44,12 +44,12 @@ function xinsert ($userid, $jmember, $x, $sisahu, $sponsor, $parentid, $upline, 
 					";
 //		echo $insTxt;
 		
-		$insert = mysql_query( $insTxt );
+		$insert = mysqli_query( $insTxt );
 
-		$uqry = mysql_query("SELECT * FROM g_upline WHERE userid='".$upline."'");
+		$uqry = mysqli_query("SELECT * FROM g_upline WHERE userid='".$upline."'");
 
-		while($urow=mysql_fetch_array($uqry)) {
-			$upline0 = mysql_query("
+		while($urow=mysqli_fetch_array($uqry)) {
+			$upline0 = mysqli_query("
 				INSERT INTO g_upline (
 					userid,
 					uplid,
@@ -88,7 +88,7 @@ function xinsert ($userid, $jmember, $x, $sisahu, $sponsor, $parentid, $upline, 
 			
 		}
 
-			$upline = mysql_query("
+			$upline = mysqli_query("
 				INSERT INTO g_upline (
 					userid,
 					uplid,
@@ -147,10 +147,10 @@ function caripm ($id,$pos) {
 	AND a.posisi='".$pos."'
 	AND a.status='1'
 	";
-	$cqry=mysql_query( $ctxt );
+	$cqry=mysqli_query( $ctxt );
 
-	if(mysql_num_rows($cqry)>0) {
-		$cari=mysql_fetch_array($cqry);
+	if(mysqli_num_rows($cqry)>0) {
+		$cari=mysqli_fetch_array($cqry);
 		if($cari["parentstatus"]!='1') $return = caripm ($cari["userid"],$pos);
 		else $return = $cari["userid"]."|".$cari["upline"];
 	}

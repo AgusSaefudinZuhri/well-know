@@ -7,7 +7,7 @@ $txt	= "
 		WHERE a.userid = '".$_GET["id"]."'
 			";
 //echo $txt;
-$row	= mysql_fetch_array(mysql_query($txt));
+$row	= mysqli_fetch_array(mysqli_query($txt));
 
 
 ?>

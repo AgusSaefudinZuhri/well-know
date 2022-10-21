@@ -5,7 +5,7 @@ $txt	= "
 	FROM g_member a
 	WHERE a.userid='".$_GET["id"]."'
 	";
-$row	= mysql_fetch_array(mysql_query( $txt ));
+$row	= mysqli_fetch_array(mysqli_query( $txt ));
 ?>
 
 </script> 

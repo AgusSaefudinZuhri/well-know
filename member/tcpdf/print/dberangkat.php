@@ -2,14 +2,14 @@
 require_once('tcpdf_include.php');
 include('../../includes/config.php');
 
-$mrow=mysql_fetch_array(mysql_query("
+$mrow=mysqli_fetch_array(mysqli_query("
 	SELECT a.*, b.nmtujuanw, b.hari, b.malam, b.airportid, c.nmairport FROM g_berangkat a
 	LEFT JOIN g_tujuanw b ON a.tujuanid=b.id
 	LEFT JOIN g_airport c ON b.airportid=c.kdairport
 	WHERE a.id='".$_GET["id"]."'"));
 if($mrow["status"]=='99') $where0= ""; else $where0=" a.status!='99' AND ";
 
-$qry=mysql_query("
+$qry=mysqli_query("
 	SELECT a.*, b.nmmaskapai bmaskapainm, c.nmmaskapai pmaskapainm, d.nmairport bnmairport, e.nmairport pnmairport
 	FROM g_brgdetail a 
 	LEFT JOIN g_maskapai b ON a.bmaskapai=b.id
@@ -78,7 +78,7 @@ $pdf->AddPage();
 </tr>
 ';
 $x=1;
-	while($row=mysql_fetch_array($qry)) {
+	while($row=mysqli_fetch_array($qry)) {
 	$echo.= '
 <tr >
 <td style="text-align:left;">'.$x.'</td>

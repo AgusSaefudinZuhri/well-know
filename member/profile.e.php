@@ -1,5 +1,5 @@
 <?php include_once('includes/config.php');
-$row=mysql_fetch_array(mysql_query("
+$row=mysqli_fetch_array(mysqli_query("
 	SELECT a.* 
 	FROM g_member a
 	WHERE a.userid='".$_SESSION["userid"]."'
@@ -193,8 +193,8 @@ function copyToClipboard(element) {
             <select class="default form-control" id="negara" name="negara" type="text" required >
             <?php if($row["negara"]=='0') { ?><option value="" selected="selected" disabled="disabled" ><?php echo T_("Select");?></option><?php } ?>
     <?php 
-        $cqry=mysql_query("SELECT * FROM g_country WHERE status='1' ORDER BY nmcountry");
-        while($crow=mysql_fetch_array($cqry)) { ?>
+        $cqry=mysqli_query("SELECT * FROM g_country WHERE status='1' ORDER BY nmcountry");
+        while($crow=mysqli_fetch_array($cqry)) { ?>
                   <option value="<?php echo $crow["id"]; ?>" <?php if($row["negara"]==$crow["id"]) echo 'selected="selected"';?> ><?php echo $crow["nmcountry"];?></option>
         <?php } ?>              
             </select>

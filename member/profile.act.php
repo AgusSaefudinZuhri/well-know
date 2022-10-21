@@ -6,7 +6,7 @@ include('includes/config.php');
 switch($_GET["a"]) {
 	case "0":		
 
-		$cek = mysql_fetch_array(mysql_query("SELECT * FROM g_member WHERE userid='".$_SESSION["userid"]."'"));
+		$cek = mysqli_fetch_array(mysqli_query("SELECT * FROM g_member WHERE userid='".$_SESSION["userid"]."'"));
 		if($cek["password2"]==sha1($_POST["password2"])) {
 		
 		$tqry="
@@ -21,7 +21,7 @@ switch($_GET["a"]) {
 			WHERE userid='".$_GET["id"]."'
 		";
 //		echo $tqry;	
-		$simpan=mysql_query($tqry);
+		$simpan=mysqli_query($tqry);
 		if($simpan) { echo 'success'; }
 		else echo $salahProses; 
 		}
@@ -29,7 +29,7 @@ switch($_GET["a"]) {
 		break;
 
 	case "1":		
-		$cek = mysql_fetch_array(mysql_query("SELECT * FROM g_member WHERE userid='".$_SESSION["userid"]."'"));
+		$cek = mysqli_fetch_array(mysqli_query("SELECT * FROM g_member WHERE userid='".$_SESSION["userid"]."'"));
 //		echo $cek["password2"].'<br/>==<br/>'.sha1($_POST["password2"]);
 		if($cek["password2"]==sha1($_POST["password2"])) {
 			
@@ -44,7 +44,7 @@ switch($_GET["a"]) {
 			WHERE userid='".$_GET["id"]."'
 		";
 //		echo $tqry;	
-		$simpan=mysql_query($tqry);
+		$simpan=mysqli_query($tqry);
 		if($simpan) echo 'success';
 		else echo $salahProses; 
 		}
@@ -60,7 +60,7 @@ switch($_GET["a"]) {
 			WHERE userid='".$_GET["id"]."'
 		";
 //		echo $tqry;	
-		$simpan=mysql_query($tqry);
+		$simpan=mysqli_query($tqry);
 		if($simpan) echo 'success';
 		else echo $salahProses; 
 
@@ -78,7 +78,7 @@ switch($_GET["a"]) {
 			WHERE userid='".$_GET["id"]."'
 		";
 //		echo $tqry;	
-		$simpan=mysql_query($tqry);
+		$simpan=mysqli_query($tqry);
 		if($simpan) echo 'success';
 		else echo $salahProses; 
 
@@ -87,7 +87,7 @@ switch($_GET["a"]) {
 	case "100":	
 		
 //echo "SELECT * FROM g_member WHERE userid='".$_GET["id"]."'";
-		$cek = mysql_fetch_array(mysql_query("SELECT * FROM g_member WHERE userid='".$_GET["id"]."'"));
+		$cek = mysqli_fetch_array(mysqli_query("SELECT * FROM g_member WHERE userid='".$_GET["id"]."'"));
 		if($cek["password2"]== sha1($_POST["password2"])) {		
 //			echo 'xxx';
 		$tqry="
@@ -106,16 +106,16 @@ switch($_GET["a"]) {
 				NULL,
 				'".$_GET["id"]."',
 				'".xNumber( $_POST["trfvalue"] )."',
-				'".mysql_real_escape_string( str_replace( "|","/", $_POST["proofdoc"] ) )."',
-				'".mysql_real_escape_string( str_replace( "|","/", $_POST["ktpdoc"] ) )."',
-				'".mysql_real_escape_string( str_replace( "|","/", $_POST["walletdoc"] ) )."',				
+				'".mysqli_real_escape_string( str_replace( "|","/", $_POST["proofdoc"] ) )."',
+				'".mysqli_real_escape_string( str_replace( "|","/", $_POST["ktpdoc"] ) )."',
+				'".mysqli_real_escape_string( str_replace( "|","/", $_POST["walletdoc"] ) )."',				
 				'".date('Y-m-d')."',
 				'".date('H:i:s')."',
 				'0'
 			) 
 		";
 //		echo $tqry;	
-		$simpan=mysql_query($tqry);
+		$simpan=mysqli_query($tqry);
 		if($simpan) echo 'success';
 		else echo $salahProses; 
 		}
@@ -125,7 +125,7 @@ switch($_GET["a"]) {
 
 	case "4":	
 
-	$cek = mysql_fetch_array(mysql_query("SELECT * FROM g_member WHERE userid='".$_SESSION["userid"]."'"));
+	$cek = mysqli_fetch_array(mysqli_query("SELECT * FROM g_member WHERE userid='".$_SESSION["userid"]."'"));
 	if($cek["password2"]==sha1($_POST["password2"])) {
 
 		$hariini	= date( 'Y-m-d H:i:s' );
@@ -136,8 +136,8 @@ switch($_GET["a"]) {
 			
 	
 		$cTxt		= "SELECT * FROM g_jpackage WHERE id='".$_POST["jpackage"]."'";
-		$cQry		= mysql_query( $cTxt );
-		$cRow		= mysql_fetch_array( $cQry );
+		$cQry		= mysqli_query( $cTxt );
+		$cRow		= mysqli_fetch_array( $cQry );
 			
 		$trfvalue	= xNumber( $_POST["kvalue"][$_POST["jpackage"]] );
 		$userid		= $_GET["id"];
@@ -179,19 +179,19 @@ switch($_GET["a"]) {
 			);
 		";
 //		echo $tqry;	
-		$simpan=mysql_query($tqry);
+		$simpan=mysqli_query($tqry);
 
 		$id		= mysql_insert_id();
 		$refno1	= $refno.$id;
 		$updTxt3= "UPDATE g_wfund SET refno='".$refno1."' WHERE id='".$id."'";
-		$updQry3= mysql_query( $updTxt3 );
+		$updQry3= mysqli_query( $updTxt3 );
 
 
 		$updTxt = "
 			UPDATE g_member 
 			SET jpackage='".$_POST["jpackage"]."',initpackage='".$_POST["jpackage"]."', tglro='".$tglro."' 
 			WHERE userid='".$_GET["id"]."'";
-		$updQry	= mysql_query( $updTxt );
+		$updQry	= mysqli_query( $updTxt );
 		
 		if( $simpan and $updQry ) {
 			echo 'success';
@@ -229,7 +229,7 @@ switch($_GET["a"]) {
 			WHERE userid='".$_GET["id"]."'
 		";
 //		echo $tqry;	
-		$simpan=mysql_query($tqry);
+		$simpan=mysqli_query($tqry);
 		if($simpan) {$_SESSION["firstlogin"]='1';echo 'success';}
 		else echo $salahProses; 
 

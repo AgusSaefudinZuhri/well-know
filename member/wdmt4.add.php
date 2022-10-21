@@ -45,8 +45,8 @@
 		
 		WHERE a.id='".$_GET["id"]."'";
 	//echo $fTxt;
-	$fQry = mysql_query($fTxt);
-	$fRow = mysql_fetch_array($fQry);
+	$fQry = mysqli_query($fTxt);
+	$fRow = mysqli_fetch_array($fQry);
 	//echo $fRow["scwithdraw"];
   	include( $fRow["scwithdraw"] );
 	?>

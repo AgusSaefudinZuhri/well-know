@@ -17,7 +17,6 @@ include_once('includes/config.php');
 //	echo print_r($_POST);
 //echo print_r($_POST);
 if (detect_ie()) include('wrongbrowser.php');
-
 else {
 	if(isset($_SESSION["hasilStatus"])) include('register2.php');
 	else if(isset($_GET["msg"])) include('login.php');
@@ -29,13 +28,11 @@ else {
 					$_SESSION["hasilStatus"] = $hasilStatus;
 					$_SESSION["memberid"] = $userid;
 					header('Location: ./');
-
 				}
 		
-				else if(isset($_POST['u_username'], $_POST['u_password'],$_POST['submit-type']) and $_POST['submit-type']=='user_login')
+				else if($_POST['submit-type']=='user_login')
 			{	
-				//echo 'yyy';
-				$username = mysql_real_escape_string($_POST['u_username']);
+				$username = mysqli_real_escape_string($GLOBALS['$link'], $_POST['u_username']);
 				$password = $_POST['u_password'];
 		
 				$txt = "
@@ -50,12 +47,18 @@ else {
 					FROM g_member 
 					WHERE userid='".$username."' AND status='1'
 					";
-				$req = mysql_query( $txt );
+					$mysqli = new mysqli("localhost","root","","extrogat_trading");
+					// var_dump($_POST);
+					$username = mysqli_real_escape_string($link, $_POST['u_username']);
+					// $username = $_POST['u_username'];
+					$password = $_POST['u_password'];
+	
+					$req = $mysqli -> query("SELECT * FROM g_member WHERE userid='".$username."' AND status='1'");
 //					echo $txt;
-				$dn = mysql_fetch_array($req);
-	//			print_r($dn);
+				$dn = mysqli_fetch_array($req);
+				print_r($dn);
 		
-				if($dn['password']==sha1($password) and mysql_num_rows($req)>0)
+				if($dn['password']==sha1($password) and mysqli_num_rows($req)>0)
 				{	
 					
 					if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE)
@@ -76,7 +79,7 @@ else {
 					   $browser =  'Others';
 					
 					$updLoginTxt = "UPDATE g_session SET status='0' WHERE userid='".$dn['userid']."'";
-					mysql_query($updLoginTxt);
+					mysqli_query($GLOBALS['$link'], $updLoginTxt);
 					
 					$insSesTxt	 = "
 						INSERT INTO g_session (
@@ -103,7 +106,7 @@ else {
 							'1'
 						)
 					";
-					mysql_query($insSesTxt);
+					mysqli_query($GLOBALS['$link'], $insSesTxt);
 					
 					$form = false;
 					$_SESSION['userid'] 	= $dn['userid'];

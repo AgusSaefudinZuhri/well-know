@@ -1,6 +1,5 @@
 <?php include_once('includes/config.php');
-
-$funds=mysql_fetch_array(mysql_query("
+$funds=mysqli_fetch_array(mysqli_query(new mysqli("localhost","root","","extrogat_trading"), "
 	SELECT a.*, SUM( IF( a.jtransaksi='0', a.trxvalue,'0' ) ) - SUM( IF( a.jtransaksi='1', a.trxvalue,'0' ) ) jnilai
 	FROM g_komisi a
 	WHERE a.userid='".$_SESSION["userid"]."' AND a.status IN ('0','1') AND a.jkomisi='2'
@@ -19,7 +18,7 @@ function cekThis(y) {
 		$(y).val('');
 //		$(y).focus();
 	}
-	else if(tCek < <?php echo $wdMin;?>) {
+	else if(tCek < 8) {
 		$.messager.alert('<?php echo T_("Not Allowed");?>','<?php echo T_("The amount must be greater than ").$syscurrency." ".$wdMin;?>', 'error');
 		$(y).val('');
 		//$(y).focus();

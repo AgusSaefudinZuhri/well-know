@@ -8,7 +8,7 @@ $dari=$dr[2].'-'.$dr[0].'-'.$dr[1];
 $sampai=$sp[2].'-'.$sp[0].'-'.$sp[1];
 
 if($_GET["jns"]=='0') $where=""; else $where=" AND jenis='".$_GET["jns"]."'";
-$qry1=mysql_query("
+$qry1=mysqli_query("
 	SELECT aa.*, a.kode, b.nminstansi, c.nmukerja, e.nmmedia 
 	FROM e_pinjam aa 
 	LEFT JOIN e_arsip a ON aa.arsipid=a.id 
@@ -88,7 +88,7 @@ $pdf->AddPage();
 </tr>
 ';
 $x=1;
-	while($row=mysql_fetch_array($qry1)) {
+	while($row=mysqli_fetch_array($qry1)) {
 	if(is_null($row["kembalidt"])) $kembali=""; else $kembali = date('d M Y', strtotime($row["kembalidt"]));
 	$echo.= '
 <tr >

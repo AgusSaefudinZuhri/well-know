@@ -8,7 +8,7 @@ $dari=$dr[2].'-'.$dr[0].'-'.$dr[1];
 $sampai=$sp[2].'-'.$sp[0].'-'.$sp[1];
 
 if($_GET["jns"]=='0') $where=""; else $where=" AND jenis='".$_GET["jns"]."'";
-$qry1=mysql_query("
+$qry1=mysqli_query("
 	SELECT a.*, b.nminstansi, c.nmukerja, d.masalah, e.nmmedia 
 	FROM e_arsip a 
 	LEFT JOIN e_instansi b ON a.instansiid=b.id 
@@ -87,7 +87,7 @@ $pdf->AddPage();
 </tr>
 ';
 $x=1;
-	while($row=mysql_fetch_array($qry1)) {
+	while($row=mysqli_fetch_array($qry1)) {
 	switch($row["status"]) {
 	case "1": $status="Disimpan dan Dimusnahkan"; break;	
 	case "2": $status="Disimpan Permanen"; break;	

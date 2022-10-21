@@ -50,17 +50,17 @@ $tqry="
 	LEFT JOIN g_pairingupd b ON a.refno = b.refno AND a.userid = b.userid
 	WHERE a.userid =  '".$_SESSION["userid"]."' AND a.jtransaksi='0' AND a.jkomisi='2' ".$where;
 
-$qry0=mysql_query($tqry);
+$qry0=mysqli_query($tqry);
 
-$pages=ceil(mysql_num_rows($qry0)/$perpage);
+$pages=ceil(mysqli_num_rows($qry0)/$perpage);
 
-$qry=mysql_query($tqry.$limit);
+$qry=mysqli_query($tqry.$limit);
 
 // echo $tqry.$limit;
 
 if(isset($_GET["pg"])) $x=($_GET["pg"]-1)*$perpage+1; else $x=1;
 
-while($row=mysql_fetch_array($qry)) { ?>
+while($row=mysqli_fetch_array($qry)) { ?>
 <tr class="tContent <?php if(($x-1)%2) echo 'genap';?>" style=" <?php // if($row["jtransaksi"]=='1') echo 'font-style: italic; color: red;';?>" >
 <td style="text-align:center;"><?php echo $x; ?></td>
 <td style="text-align:center;"><?php echo $syscurrency." ".number_format( $row["lki"],2 );?></td>

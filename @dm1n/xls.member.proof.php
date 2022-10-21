@@ -136,7 +136,7 @@ else $where.=" AND a.parentstatus='1' ";
 		HAVING cid > 0
 		ORDER BY tglproses DESC, waktuproses DESC";
 		
-		$qry = mysql_query( $tqry );
+		$qry = mysqli_query( $tqry );
 		
 		$worksheet1->write_string(1,1, "PROOF UPLOADS");
 
@@ -169,7 +169,7 @@ else $where.=" AND a.parentstatus='1' ";
 		$j      = 1;
 
 		
-		while($row=mysql_fetch_array($qry)) { 
+		while($row=mysqli_fetch_array($qry)) { 
 
 
 			$worksheet1->write_string($rowPos+$i,1,$i,$formAll);
@@ -216,7 +216,7 @@ else $where.=" AND a.parentstatus='1' ";
 		if(isset($_POST["clat"][$i])) $clatitude=$_POST["clat"][$i]; else $clatitude='';
 		if(isset($_POST["clong"][$i])) $clongitude=$_POST["clong"][$i]; else $clongitude='';
 
-		$simpan=mysql_query("
+		$simpan=mysqli_query("
 			INSERT INTO t_gis(
 				id, 
 				roadid, 
@@ -263,7 +263,7 @@ else $where.=" AND a.parentstatus='1' ";
 		}
 		if($error=='0') echo 'success';
 		else {
-			$prepare=mysql_query("DELETE FROM t_gis WHERE roadid='".$id."'");
+			$prepare=mysqli_query("DELETE FROM t_gis WHERE roadid='".$id."'");
 			echo 'error';
 		}
 		*/

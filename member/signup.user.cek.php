@@ -9,11 +9,11 @@
 				AND blokir	= '0'
 				";
 	
-	$ckQry	= mysql_query( $ckTxt );
-	$ckCount= mysql_num_rows( $ckQry );
+	$ckQry	= mysqli_query( $ckTxt );
+	$ckCount= mysqli_num_rows( $ckQry );
 	
 	if( $ckCount>0 ) {
-		$ckRow	= mysql_fetch_array( $ckQry );
+		$ckRow	= mysqli_fetch_array( $ckQry );
 		$userid	= $ckRow["nmmember"];
 		echo "success|".$userid;
 	}

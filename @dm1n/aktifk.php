@@ -18,7 +18,7 @@ include('includes/config.php');
 
 		}
 
-		$update=mysql_query("UPDATE ".$table." SET status='1' WHERE ".$id."='".$_GET["id"]."'");
+		$update=mysqli_query("UPDATE ".$table." SET status='1' WHERE ".$id."='".$_GET["id"]."'");
 		if($update) echo 'success';
 		else echo $errTxt;		
 

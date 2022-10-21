@@ -1,6 +1,6 @@
 <?php include_once('includes/config.php');
 
-$funds=mysql_fetch_array(mysql_query("
+$funds=mysqli_fetch_array(mysqli_query("
 	SELECT a.*, SUM( IF( a.jtransaksi='0', a.trxvalue,'0' ) ) - SUM( IF( a.jtransaksi='1', a.trxvalue,'0' ) ) jnilai
 	FROM g_wfund a
 	WHERE a.userid='".$_SESSION["userid"]."' AND a.status IN ('0','1') 
@@ -32,7 +32,7 @@ function cekThis(y) {
 		$(y).val('');
 //		$(y).focus();
 	}
-	else if(tCek < <?php echo $wdMinFund;?>) {
+	else if(tCek < 8) {
 		$.messager.alert('<?php echo T_("Not Allowed");?>','<?php echo T_("The amount must be greater than ").$dcurrency." ".$wdMinFund;?>', 'error');
 		$(y).val('');
 		//$(y).focus();
@@ -40,8 +40,8 @@ function cekThis(y) {
 	
 	else {
 //		alert( tCek +' * <?php echo  $dConversion; ?> * ( 100 - <?php echo $cashWDadmin; ?>) / 100 ' );
-		var reqcv	= tCek * ( 100 - <?php echo $adminCharge; ?>) / 100;	
-		var byadmin	= tCek * ( <?php echo $adminCharge; ?>) / 100;	
+		var reqcv	= tCek * ( 100 - 8) / 100;	
+		var byadmin	= tCek * ( 8) / 100;	
 		$('#vreqcv').val(reqcv);
 		$('#byadmin').val(byadmin);
 		$('#vreqcv').trigger('change');

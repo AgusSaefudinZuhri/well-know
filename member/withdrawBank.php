@@ -10,11 +10,11 @@ function calcUSD() {
 	switch( kursid ) {
 	<?php
 		$kTxt = "select * from g_kurs WHERE id IN (SELECT * FROM ( SELECT kursid FROM g_jfinancekurs WHERE jfinanceid='".$_GET{"id"}."') x) ORDER BY id";
-		$kQry = mysql_query( $kTxt );
+		$kQry = mysqli_query( $kTxt );
 		$k =1;
 		$kOpt = '';
 		$kCur = '';
-		while($kRow=mysql_fetch_array($kQry)) {
+		while($kRow=mysqli_fetch_array($kQry)) {
 			
 		if($k==1) { $kOpt .= '<option value="'.$kRow["id"].'" selected>'.$kRow["id"].'</option>'; $kCur=$kRow["id"];}
 			else $kOpt .= '<option value="'.$kRow["id"].'" >'.$kRow["id"].'</option>';
@@ -46,11 +46,11 @@ function cAvailable( x ) {
 	switch( x ) {
 	<?php
 		$extTxt = "SELECT * FROM g_extroakun WHERE userid='".$_SESSION["userid"]."'";
-		$extQry = mysql_query( $extTxt );
+		$extQry = mysqli_query( $extTxt );
 		$ext = 1;
 		$available = 0;
 		$extOption = '';
-		while( $extRow = mysql_fetch_array( $extQry ) ) {
+		while( $extRow = mysqli_fetch_array( $extQry ) ) {
 			$extOption .= '<option value="'.$extRow["extakunid"].'">'.$extRow["extakunid"].'</option>';
 
 	$cari = getBalance($extRow["extakunid"]);

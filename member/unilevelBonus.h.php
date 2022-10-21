@@ -1,6 +1,6 @@
 <?php include_once('includes/config.php');
 
-$funds=mysql_fetch_array(mysql_query("
+$funds=mysqli_fetch_array(mysqli_query("
 	SELECT a.*, SUM( IF( a.jtransaksi='0', a.trxvalue,'0' ) ) - SUM( IF( a.jtransaksi='1', a.trxvalue,'0' ) ) jnilai
 	FROM g_wfund a
 	WHERE a.userid='".$_SESSION["userid"]."' AND a.status IN ('0','1') AND a.junilevelBonus='3'

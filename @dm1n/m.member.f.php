@@ -61,16 +61,16 @@ $tqry	= "
 		GROUP BY a.userid 	
 			";
 		
-$qry0	= mysql_query($tqry);
-$jml0	= mysql_num_rows($qry0);
+$qry0	= mysqli_query($tqry);
+$jml0	= mysqli_num_rows($qry0);
 $numRows= $jml0;
 $pages	= ceil($jml0/$perpage);
 
-$qry=mysql_query($tqry.$limit);
+$qry=mysqli_query($tqry.$limit);
 // echo $tqry.$limit;
 if(isset($_GET["pg"])) $x=($_GET["pg"]-1)*$perpage+1; else $x=1;
 
-while($row=mysql_fetch_array($qry)) { ?>
+while($row=mysqli_fetch_array($qry)) { ?>
 <tr class="tContent<?php if(($x-1)%2) echo ' genap';?>" >
     <td style="text-align:center;"><?php echo $x; ?></td>
     <td style="text-align:center;"><?php echo $row["userid"]; ?>
@@ -84,8 +84,8 @@ while($row=mysql_fetch_array($qry)) { ?>
 		else {
 			
 			$extTxt = "SELECT * FROM g_extroakun WHERE userid='".$row["userid"]."'";
-			$extQry = mysql_query( $extTxt );
-			while( $extRow = mysql_fetch_array( $extQry ) ) {
+			$extQry = mysqli_query( $extTxt );
+			while( $extRow = mysqli_fetch_array( $extQry ) ) {
 				
 				echo '<a href="javascript: void(0)" onclick="vwAkunMT4(\''.$extRow["extakunid"].'\')">'.$extRow["extakunid"].'</a>  ';
 				

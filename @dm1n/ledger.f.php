@@ -51,8 +51,8 @@ $where	.=	" AND a.tgltrx >= '".$dari."' AND a.tgltrx <= '".$sampai."'";
 			SUM(IF(jtransaksi='0' AND tgltrx<='".$sampai."', trxvalue, 0))
 			-SUM(IF(jtransaksi='1' AND tgltrx<='".$sampai."', trxvalue, 0)) blcAkhir
 		FROM v_ledger ";
-	$bQry	= mysql_query( $bTxt );
-	$bRow	= mysql_fetch_array( $bQry );
+	$bQry	= mysqli_query( $bTxt );
+	$bRow	= mysqli_fetch_array( $bQry );
 	$blcAwal= $bRow["blcAwal"];
 	$blcAkhir= $bRow["blcAkhir"];
 	
@@ -65,13 +65,13 @@ $where	.=	" AND a.tgltrx >= '".$dari."' AND a.tgltrx <= '".$sampai."'";
 			 ".$where
 		 ;
 				
-$qry0	= mysql_query($tqry);
-$jml0	= mysql_num_rows($qry0);
+$qry0	= mysqli_query($tqry);
+$jml0	= mysqli_num_rows($qry0);
 $numRows= $jml0;
 
 $pages	= ceil($jml0/$perpage);
 
-$qry=mysql_query($tqry.$limit);
+$qry=mysqli_query($tqry.$limit);
 // echo $tqry.$limit;
 if(isset($_GET["pg"])) $x=($_GET["pg"]-1)*$perpage+1; else $x=1;
 ?>
@@ -90,7 +90,7 @@ if(isset($_GET["pg"])) $x=($_GET["pg"]-1)*$perpage+1; else $x=1;
 
 <?php
 
-while($row=mysql_fetch_array($qry)) { 
+while($row=mysqli_fetch_array($qry)) { 
 		
 		switch( $row["jtransaksi"] ) {
 			case "0" : 

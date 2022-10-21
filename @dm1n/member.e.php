@@ -1,6 +1,6 @@
 <?php 
 include_once('includes/config.php'); 
-$row	= mysql_fetch_array(mysql_query("SELECT * FROM g_member WHERE userid='".$_GET["id"]."'"));
+$row	= mysqli_fetch_array(mysqli_query("SELECT * FROM g_member WHERE userid='".$_GET["id"]."'"));
 ?>
 
 <script type="application/javascript" language="javascript">

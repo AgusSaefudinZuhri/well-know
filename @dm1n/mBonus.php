@@ -38,9 +38,9 @@ function cari(x) {
 		<?php 
 			$kTxt="SELECT a.* FROM g_jkomisi a WHERE a.status IN ('0', '1') ".$where;
 
-			$kQry=mysql_query($kTxt);
+			$kQry=mysqli_query($kTxt);
 
-			while($kRow=mysql_fetch_array($kQry)) { ?>
+			while($kRow=mysqli_fetch_array($kQry)) { ?>
 
             <option value="<?php echo $kRow["id"];?>" ><?php echo $kRow["nmjkomisi"];?></option>
             

@@ -37,15 +37,15 @@ $tqry	= "
 	WHERE a.status IN ('0', '1') 
 	".$where." GROUP BY a.id";
 
-$qry0=mysql_query($tqry);
+$qry0=mysqli_query($tqry);
 
-$pages=ceil(mysql_num_rows($qry0)/$perpage);
+$pages=ceil(mysqli_num_rows($qry0)/$perpage);
 
-$qry=mysql_query($tqry.$limit);
+$qry=mysqli_query($tqry.$limit);
 //echo $tqry.$limit;
 if(isset($_GET["pg"])) $x=($_GET["pg"]-1)*$perpage+1; else $x=1;
 
-while($row=mysql_fetch_array($qry)) { ?>
+while($row=mysqli_fetch_array($qry)) { ?>
 <tr <?php if(($x-1)%2) echo 'style="background: #e7e7e7;"';?>>
 	<td style="text-align:center;"><?php echo $row["id"]; ?></td>
 	<td style="text-align:center;"><?php if($row["iconlink"]!='') echo '<img src="'.$row["iconlink"].'" height="50" > '; ?><?php echo $row["nmjfinance"]; ?></td>

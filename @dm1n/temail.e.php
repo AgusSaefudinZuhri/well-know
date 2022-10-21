@@ -1,7 +1,7 @@
 <?php 
 	include_once('includes/config.php'); 
 	include_once('includes/function.php'); 
-	$row=mysql_fetch_array(mysql_query("SELECT * FROM g_temail WHERE id='".$_GET["id"]."'"));
+	$row=mysqli_fetch_array(mysqli_query("SELECT * FROM g_temail WHERE id='".$_GET["id"]."'"));
 ?>
 <script type="application/javascript" language="javascript">
 function batalx() {

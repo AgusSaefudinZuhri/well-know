@@ -2,12 +2,12 @@
 require_once('tcpdf_include.php');
 include('../../includes/config.php');
 
-$rowx	= mysql_fetch_array(mysql_query("SELECT * FROM g_jmember WHERE id='".$_GET["id"]."'"));
+$rowx	= mysqli_fetch_array(mysqli_query("SELECT * FROM g_jmember WHERE id='".$_GET["id"]."'"));
 
 
 //echo "SELECT a.*, b.nmjmember FROM g_transfer a LEFT JOIN g_jmember b ON a.jmember=b.id WHERE a.id='".$_GET["id"]."'";
 
-$qry1=mysql_query("
+$qry1=mysqli_query("
 	SELECT * FROM g_card WHERE posisi='".$_SESSION["userid"]."' AND status='0' AND jmember='".$_GET["id"]."'");
 
 $pdf = new TCPDF('P', 'cm', array(21, 29.7), true, 'UTF-8', false);
@@ -68,7 +68,7 @@ $pdf->AddPage();
 </tr>
 ';
 $x=1;
-	while($row=mysql_fetch_array($qry1)) {
+	while($row=mysqli_fetch_array($qry1)) {
 	$echo.= '
 <tr >
 <td style="text-align:center;">'.$x.'</td>

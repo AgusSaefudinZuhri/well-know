@@ -14,7 +14,7 @@ include('includes/config.php');
 					) 
 				VALUES(
 					NULL,
-					'".mysql_real_escape_string($_POST["deskripsi"])."', 
+					'".mysqli_real_escape_string($_POST["deskripsi"])."', 
 					'".$_POST["doclink"]."', 
 					'".date('Y-m-d')."',
 					'".date('H:i:s')."',
@@ -22,7 +22,7 @@ include('includes/config.php');
 					)
 				";
 //			echo $txt;
-			$simpan=mysql_query($txt);
+			$simpan=mysqli_query($txt);
 		
 			if($simpan) echo 'success';
 			else echo T_("There are errors in process. If the problem persists, please contact The Administrator");		
@@ -34,7 +34,7 @@ include('includes/config.php');
 			$txt = "
 				UPDATE g_jpackage 
 				SET 
-					nmjpackage	= '".mysql_real_escape_string($_POST["nmjpackage"])."', 
+					nmjpackage	= '".mysqli_real_escape_string($_POST["nmjpackage"])."', 
 					hargavl		= '".xNumber($_POST["hargavl"])."', 
 					roimonthprc	= '".xNumber($_POST["roimonthprc"])."',
 					sponsorprc	= '".xNumber($_POST["sponsorprc"])."',
@@ -43,10 +43,10 @@ include('includes/config.php');
 					rabatst		= '".$_POST["rabatst"]."',
 					rabatprc	= '".xNumber($_POST["rabatprc"])."',
 					rabatlvlcap	= '".xNumber($_POST["rabatlvlcap"])."',
-					iconlink	= '".mysql_real_escape_string($_POST["iconlink"])."'
+					iconlink	= '".mysqli_real_escape_string($_POST["iconlink"])."'
 				WHERE id='".$_GET["id"]."'";
 //			echo $txt;
-			$simpan=mysql_query($txt);
+			$simpan=mysqli_query($txt);
 			
 			if($simpan) echo 'success';
 			else echo T_("There are errors in process. If the problem persists, please contact The Administrator");		

@@ -42,7 +42,7 @@ for($i=1; $i<=12; $i++) {
 	$dari		=	date('Y-m-01', strtotime(date('Y-m-01').' -'.$j.' MONTH'));
 	$sampai		=	date('Y-m-t', strtotime(date('Y-m-01').' -'.$j.' MONTH'));
 
-	$qty = mysql_fetch_array(mysql_query("
+	$qty = mysqli_fetch_array(mysqli_query("
 		SELECT 
 			count( id ) j0,
 			SUM(fintrxvalue) jMasuk
@@ -50,7 +50,7 @@ for($i=1; $i<=12; $i++) {
 		WHERE tglinput BETWEEN '".$dari."' AND '".$sampai."' AND jtransaksi='0' AND jtransaksi='0' AND status = '1'
 	"));
 
-	$bn = mysql_fetch_array(mysql_query("
+	$bn = mysqli_fetch_array(mysqli_query("
 		SELECT sum(idrvalue) byrBonus 
 		FROM g_wfund 
 		WHERE jtransaksi='1' AND jtransaksix = '3' AND tglinput BETWEEN '".$dari."' AND '".$sampai."' 
@@ -147,8 +147,8 @@ $byrBonus=substr($byrBonus,0,-1);
 		WHERE jtransaksi='0' AND jtransaksix='0' AND status='1'
 			";
 	//echo $dpsTxt;
-	$dpsQry = mysql_query($dpsTxt);
-	$dpsRow = mysql_fetch_array($dpsQry);
+	$dpsQry = mysqli_query($dpsTxt);
+	$dpsRow = mysqli_fetch_array($dpsQry);
 ?>
 <span style="font-size: 24px;"><?php echo $dcurrency; ?></span><br/>
 <span style="font-size: 36px;"><?php echo number_format($dpsRow["jMasuk0"],2);?></span><br/>
@@ -166,7 +166,7 @@ $byrBonus=substr($byrBonus,0,-1);
 <div class="dcontent" style="text-align: center; color: #000; font-weight: bold; ">
 <br/>
 <?php
-$wdRow=mysql_fetch_array(mysql_query("
+$wdRow=mysqli_fetch_array(mysqli_query("
 		SELECT 
 			sum(idrvalue) byrBonus,		
 			SUM(IF(tglinput='".date('Y-m-d')."', idrvalue,'0')) byrBonus0
@@ -199,8 +199,8 @@ $wdRow=mysql_fetch_array(mysql_query("
 		WHERE status='1'
 			";
 	//echo $dpsTxt;
-	$mbrQry = mysql_query($mbrTxt);
-	$mbrRow = mysql_fetch_array($mbrQry);
+	$mbrQry = mysqli_query($mbrTxt);
+	$mbrRow = mysqli_fetch_array($mbrQry);
 ?>
 <span style="font-size: 24px;">&nbsp;</span><br/>
 <span style="font-size: 36px;"><?php echo number_format($mbrRow["mAktif"]);?></span><br/>

@@ -26,23 +26,23 @@ else {
 				if(isset($_POST['u_username'], $_POST['u_password'],$_POST['submit-type']) and $_POST['submit-type']='user_login')
 			{	
 //				echo 'yyy';
-				$username = mysql_real_escape_string($_POST['u_username']);
+				$username = mysqli_real_escape_string($GLOBALS['$link'], $_POST['u_username']);
 				$password = $_POST['u_password'];
 		
-				$req = mysql_query("SELECT nama, password, grupid FROM g_users WHERE username='".$username."' AND status='1'");
-				$dn = mysql_fetch_array($req);
+				$req = mysqli_query($GLOBALS['$link'], "SELECT nama, password, grupid FROM g_users WHERE username='".$username."' AND status='1'");
+				$dn = mysqli_fetch_array($req);
 		//		print_r($dn);
 		
-				if($dn['password']==sha1($password) and mysql_num_rows($req)>0)
+				if($dn['password']==sha1($password) and mysqli_num_rows($req)>0)
 				{	
 					$form = false;
 					$_SESSION['username_b'] = $_POST['u_username'];
 					$_SESSION['nama_b'] = $dn['nama'];
 					$_SESSION['grup_b'] = $dn['grupid'];
 		
-					$xry=mysql_query("SELECT * FROM g_huser WHERE grupid='".$dn['grupid']."'");
+					$xry=mysqli_query($GLOBALS['$link'], "SELECT * FROM g_huser WHERE grupid='".$dn['grupid']."'");
 		//			echo "SELECT * FROM g_huser WHERE grupid='".$dn['grupid']."' AND pvalue='1'";
-					while($xrow=mysql_fetch_array($xry)) {
+					while($xrow=mysqli_fetch_array($xry)) {
 						$_SESSION[$xrow["pmeter"]] = $xrow["pvalue"];
 					}
 		

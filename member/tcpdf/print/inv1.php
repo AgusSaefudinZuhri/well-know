@@ -2,11 +2,11 @@
 require_once('tcpdf_include.php');
 include('../../includes/config.php');
 
-$row	= mysql_fetch_array(mysql_query("SELECT a.*, b.jinvoice nmjinvoice, c.* FROM g_invoice a LEFT JOIN g_jinvoice b ON a.jinvoice=b.id LEFT JOIN g_member c ON a.userid=b.userid WHERE a.id='".$_GET["id"]."'"));
+$row	= mysqli_fetch_array(mysqli_query("SELECT a.*, b.jinvoice nmjinvoice, c.* FROM g_invoice a LEFT JOIN g_jinvoice b ON a.jinvoice=b.id LEFT JOIN g_member c ON a.userid=b.userid WHERE a.id='".$_GET["id"]."'"));
 
 //echo "SELECT a.*, b.nmjmember FROM g_transfer a LEFT JOIN g_jmember b ON a.jmember=b.id WHERE a.id='".$_GET["id"]."'";
 
-$qry1=mysql_query("
+$qry1=mysqli_query("
 	SELECT * FROM g_card WHERE transferid='".$_GET["id"]."'");
 
 $pdf = new TCPDF('P', 'cm', array(21, 29.7), true, 'UTF-8', false);

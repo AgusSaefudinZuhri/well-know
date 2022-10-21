@@ -57,11 +57,11 @@
 						";
 
 			if( $tEcho == '1' ) 				echo $tqry1.'<br/>';
-			$simpan1 = mysql_query($tqry1);
+			$simpan1 = mysqli_query($tqry1);
 			$xid1	 = mysql_insert_id();
 			$refno1	 = $refno.$xid1; 
 			$uQry1	 = "UPDATE g_wfund SET refno='".$refno1."' WHERE id='".$xid1."'";
-			$update1 = mysql_query($uQry1);
+			$update1 = mysqli_query($uQry1);
 			if($simpan1 and $update1) $tError = 0; else $tError = 1;
 	
 		if($tEcho=='1') echo 'bn.mgrbonus.php Successed<br/>';

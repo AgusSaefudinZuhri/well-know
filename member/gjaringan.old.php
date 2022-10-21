@@ -35,7 +35,7 @@ $user0Txt = "SELECT
 	WHERE a.userid='".$id."'
 	";
 
-$user0=mysql_fetch_array(mysql_query( $user0Txt ));
+$user0=mysqli_fetch_array(mysqli_query( $user0Txt ));
 
 if($user0["parentstatus"]=='1') $icon0=$user0["iconlink"];
 else $icon0=$childlink;
@@ -46,7 +46,7 @@ else $prm0="";
 
 
 /*
-$c1ki=mysql_query("SELECT 
+$c1ki=mysqli_query("SELECT 
 	   a.userid,
 	   a.nmmember
 	FROM g_member a 
@@ -58,10 +58,10 @@ $c1ki=mysql_query("SELECT
 
 $cki = explode("|",caripm ($id,'ki'));
 //echo caripm ($id,'ki');
-//if(mysql_num_rows($c1ki)>0) {
+//if(mysqli_num_rows($c1ki)>0) {
 
 if($cki[0]!="") {
-	$text1ki=mysql_query("SELECT 
+	$text1ki=mysqli_query("SELECT 
 		   a.userid,
 		   a.nmmember,
 	   a.jpackage,		   
@@ -82,7 +82,7 @@ if($cki[0]!="") {
 		AND a.status='1'
 		");
 //echo $text1ki;
-	$user1ki=mysql_fetch_array($text1ki);
+	$user1ki=mysqli_fetch_array($text1ki);
 	$userid1ki=$user1ki["userid"];
 	$nmmember1ki=$user1ki["nmmember"];
 	$jml1ki=T_('Ttl').': '.str_replace(",", ".", number_format($user1ki["jki"])).' | '.str_replace(",", ".", number_format($user1ki["jka"]));
@@ -96,7 +96,7 @@ if($user1ki["jpackage"]=='0') $icon1ki=$childlink;
 	$prm1ki="gjaringan.php?id=".$userid1ki;
 
 /*
-$c2kiki=mysql_query("SELECT 
+$c2kiki=mysqli_query("SELECT 
 	   a.userid,
 	   a.nmmember
 	FROM g_member a 
@@ -110,9 +110,9 @@ $ckiki = explode("|",caripm ($userid1ki,'ki'));
 
 	
 if($ckiki[0]!='') {
-//if(mysql_num_rows($c2kiki)>0) {
+//if(mysqli_num_rows($c2kiki)>0) {
 
-	$text2kiki=mysql_query("SELECT 
+	$text2kiki=mysqli_query("SELECT 
 		   a.userid,
 		   a.nmmember,a.jpackage,
 		   c.iconlink,
@@ -130,7 +130,7 @@ if($ckiki[0]!='') {
 		AND a.posisi='ki'
 		AND a.status='1'	
 		");
-	$user2kiki=mysql_fetch_array($text2kiki);
+	$user2kiki=mysqli_fetch_array($text2kiki);
 	$userid2kiki=$user2kiki["userid"];
 	$nmmember2kiki=$user2kiki["nmmember"];
 	$jml2kiki=T_('Ttl').': '.str_replace(",", ".", number_format($user2kiki["jki"])).' | '.str_replace(",", ".", number_format($user2kiki["jka"]));
@@ -162,7 +162,7 @@ else {
 }
 
 /*
-$c2kika=mysql_query("SELECT 
+$c2kika=mysqli_query("SELECT 
 	   a.userid,
 	   a.nmmember
 	FROM g_member a 
@@ -177,9 +177,9 @@ $ckika = explode("|",caripm ($userid1ki,'ka'));
 	
 if($ckika[0]!='') {
 
-//if(mysql_num_rows($c2kika)>0) {
+//if(mysqli_num_rows($c2kika)>0) {
 	
-	$text2kika=mysql_query("SELECT 
+	$text2kika=mysqli_query("SELECT 
 		   a.userid,
 		   a.nmmember,a.jpackage,
 		   c.iconlink,
@@ -198,7 +198,7 @@ if($ckika[0]!='') {
 		AND a.status='1'
 		");
 
-	$user2kika=mysql_fetch_array($text2kika);
+	$user2kika=mysqli_fetch_array($text2kika);
 	$userid2kika=$user2kika["userid"];
 	$nmmember2kika=$user2kika["nmmember"];
 	$jml2kika=T_('Ttl').': '.str_replace(",", ".", number_format($user2kika["jki"])).' | '.str_replace(",", ".", number_format($user2kika["jka"]));
@@ -273,7 +273,7 @@ else {
 
 
 /*
-$c1ka=mysql_query("SELECT 
+$c1ka=mysqli_query("SELECT 
 	   a.userid,
 	   a.nmmember
 	FROM g_member a 
@@ -288,8 +288,8 @@ $cka = explode("|",caripm ($id,'ka'));
 	
 if($cka[0]!='') {
 
-//if(mysql_num_rows($c1ka)>0) {
-	$text1ka=mysql_query("SELECT 
+//if(mysqli_num_rows($c1ka)>0) {
+	$text1ka=mysqli_query("SELECT 
 	   a.userid,
 	   a.nmmember,
 	   a.jpackage,
@@ -311,7 +311,7 @@ if($cka[0]!='') {
 	AND a.status='1'
 	");
 
-	$user1ka=mysql_fetch_array($text1ka);
+	$user1ka=mysqli_fetch_array($text1ka);
 	$userid1ka=$user1ka["userid"];
 	$nmmember1ka=$user1ka["nmmember"];
 	$jml1ka=T_('Ttl').': '.str_replace(",", ".", number_format($user1ka["jki"])).' | '.str_replace(",", ".", number_format($user1ka["jka"]));
@@ -325,7 +325,7 @@ if($user1ka["jpackage"]=='0') $icon1ka=$childlink;
 	$prm1ka="gjaringan.php?id=".$userid1ka;
 
 /*
-$c2kaki=mysql_query("SELECT 
+$c2kaki=mysqli_query("SELECT 
 	   a.userid,
 	   a.nmmember
 	FROM g_member a 
@@ -341,9 +341,9 @@ $ckaki = explode("|",caripm ($userid1ka,'ki'));
 if($ckaki[0]!='') {
 	
 
-//if(mysql_num_rows($c2kaki)>0) {
+//if(mysqli_num_rows($c2kaki)>0) {
 
-	$text2kaki=mysql_query("SELECT 
+	$text2kaki=mysqli_query("SELECT 
 		   a.userid,
 		   a.nmmember,a.jpackage,
 		   c.iconlink,
@@ -362,7 +362,7 @@ if($ckaki[0]!='') {
 		AND a.status='1'		
 		");
 
-	$user2kaki=mysql_fetch_array($text2kaki);
+	$user2kaki=mysqli_fetch_array($text2kaki);
 	$userid2kaki=$user2kaki["userid"];
 	$nmmember2kaki=$user2kaki["nmmember"];
 	$jml2kaki=T_('Ttl').': '.str_replace(",", ".", number_format($user2kaki["jki"])).' | '.str_replace(",", ".", number_format($user2kaki["jka"]));
@@ -394,7 +394,7 @@ else {
 }
 
 /*
-$c2kaka=mysql_query("SELECT 
+$c2kaka=mysqli_query("SELECT 
 	   a.userid,
 	   a.nmmember
 	FROM g_member a 
@@ -409,9 +409,9 @@ $ckaka = explode("|",caripm ($userid1ka,'ka'));
 	
 if($ckaka[0]!='') {
 
-//if(mysql_num_rows($c2kaka)>0) {
+//if(mysqli_num_rows($c2kaka)>0) {
 
-	$text2kaka=mysql_query("SELECT 
+	$text2kaka=mysqli_query("SELECT 
 		   a.userid,
 		   a.nmmember,a.jpackage,
 		   c.iconlink,
@@ -431,7 +431,7 @@ if($ckaka[0]!='') {
 
 		");
 
-	$user2kaka=mysql_fetch_array($text2kaka);
+	$user2kaka=mysqli_fetch_array($text2kaka);
 	$userid2kaka=$user2kaka["userid"];
 	$nmmember2kaka=$user2kaka["nmmember"];
 	$jml2kaka=T_('Ttl').': '.str_replace(",", ".", number_format($user2kaka["jki"])).' | '.str_replace(",", ".", number_format($user2kaka["jka"]));
@@ -595,18 +595,18 @@ searchable: false,
  
 <?php
 
-$uki_0=mysql_query("SELECT distinct parentid FROM g_upline WHERE uplposisi='ki' AND uplid='".$id."' AND level='".($user0["lki"]+$user0["level"])."' AND parentid!='".$user0["userid"]."'");
+$uki_0=mysqli_query("SELECT distinct parentid FROM g_upline WHERE uplposisi='ki' AND uplid='".$id."' AND level='".($user0["lki"]+$user0["level"])."' AND parentid!='".$user0["userid"]."'");
 
-$sp=mysql_fetch_array(mysql_query("SELECT * FROM g_member WHERE userid='".$user0["upline"]."'"));
+$sp=mysqli_fetch_array(mysqli_query("SELECT * FROM g_member WHERE userid='".$user0["upline"]."'"));
 
 // echo "SELECT * FROM g_member WHERE userid='".$user0["upline"]."'";
 
 
-$uka_0=mysql_query("SELECT distinct parentid FROM g_upline WHERE uplposisi='ka' AND uplid='".$id."' AND level='".($user0["lka"]+$user0["level"])."' AND parentid!='".$user0["userid"]."'");
+$uka_0=mysqli_query("SELECT distinct parentid FROM g_upline WHERE uplposisi='ka' AND uplid='".$id."' AND level='".($user0["lka"]+$user0["level"])."' AND parentid!='".$user0["userid"]."'");
 
 
 ?>
-<?php if(mysql_num_rows($uki_0)>0 or mysql_num_rows($uka_0)>0) { ?> 
+<?php if(mysqli_num_rows($uki_0)>0 or mysqli_num_rows($uka_0)>0) { ?> 
 
 <div class="row">
 	<div class="col-lg-12">
@@ -624,7 +624,7 @@ collapse; " >
 <td class="gjaringanTable" >
 <?php 
 $hitung=1;
-while($ruki_0=mysql_fetch_array($uki_0)) { 
+while($ruki_0=mysqli_fetch_array($uki_0)) { 
 ?>
 <a href="javascript: void(0);" onclick="loadpagez('<?php echo 'gjaringan.php?id='.$ruki_0["parentid"].'&a1=gjaringan.php'; ?>')"><?php echo $ruki_0["parentid"]; ?></a>
 <?php  
@@ -634,7 +634,7 @@ $hitung++;
 <td class="gjaringanTable" >
 <?php 
 $hitung=1;
-while($ruka_0=mysql_fetch_array($uka_0)) { 
+while($ruka_0=mysqli_fetch_array($uka_0)) { 
 ?>
 <a href="javascript: void(0);" onclick="loadpagez('<?php echo 'gjaringan.php?id='.$ruka_0["parentid"].'&a1=gjaringan.php'; ?>')"><?php echo $ruka_0["parentid"]; ?></a><?php 
 if($hitung%4) echo ' | '; else echo '<br/>';

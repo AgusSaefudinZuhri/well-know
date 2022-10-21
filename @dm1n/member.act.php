@@ -11,25 +11,25 @@ include('function.php');
 		
 		case "1":
 		
-				$update=mysql_query("
+				$update=mysqli_query("
 					UPDATE g_member
 					SET 
-						nmmember	= '".mysql_real_escape_string($_POST["nmmember"])."',
-						email		= '".mysql_real_escape_string($_POST["email"])."',
-						nohp1		= '".mysql_real_escape_string($_POST["nohp1"])."',
-						nohp2		= '".mysql_real_escape_string($_POST["nohp2"])."',
-						tgllahir	= '".mysql_real_escape_string($_POST["tgllahir"])."',
-						noktp		= '".mysql_real_escape_string($_POST["noktp"])."',
+						nmmember	= '".mysqli_real_escape_string($_POST["nmmember"])."',
+						email		= '".mysqli_real_escape_string($_POST["email"])."',
+						nohp1		= '".mysqli_real_escape_string($_POST["nohp1"])."',
+						nohp2		= '".mysqli_real_escape_string($_POST["nohp2"])."',
+						tgllahir	= '".mysqli_real_escape_string($_POST["tgllahir"])."',
+						noktp		= '".mysqli_real_escape_string($_POST["noktp"])."',
 						jkelamin	= '".$_POST["jkelamin"]."',
-						alamat		= '".mysql_real_escape_string($_POST["alamat"])."',
-						telepon		= '".mysql_real_escape_string($_POST["telepon"])."',
-						kota		= '".mysql_real_escape_string($_POST["kota"])."',
-						propinsi	= '".mysql_real_escape_string($_POST["propinsi"])."',
-						kodepos		= '".mysql_real_escape_string($_POST["kodepos"])."',
-						nmbank		= '".mysql_real_escape_string($_POST["nmbank"])."',
-						cabbank		= '".mysql_real_escape_string($_POST["cabbank"])."',
-						norek		= '".mysql_real_escape_string($_POST["norek"])."',
-						atasnama	= '".mysql_real_escape_string($_POST["atasnama"])."'
+						alamat		= '".mysqli_real_escape_string($_POST["alamat"])."',
+						telepon		= '".mysqli_real_escape_string($_POST["telepon"])."',
+						kota		= '".mysqli_real_escape_string($_POST["kota"])."',
+						propinsi	= '".mysqli_real_escape_string($_POST["propinsi"])."',
+						kodepos		= '".mysqli_real_escape_string($_POST["kodepos"])."',
+						nmbank		= '".mysqli_real_escape_string($_POST["nmbank"])."',
+						cabbank		= '".mysqli_real_escape_string($_POST["cabbank"])."',
+						norek		= '".mysqli_real_escape_string($_POST["norek"])."',
+						atasnama	= '".mysqli_real_escape_string($_POST["atasnama"])."'
 					WHERE userid	= '".$_GET["id"]."'
 					");
 
@@ -38,7 +38,7 @@ include('function.php');
 			if( $_POST["password"]==$_POST["cpassword"]) {
 			$password	= sha1($_POST["password"]);
 			$xpass		= $_POST["password"];
-			$update		= mysql_query("
+			$update		= mysqli_query("
 				UPDATE g_member
 				SET 
 					password	= '".$password."',
@@ -53,7 +53,7 @@ include('function.php');
 		if( $_POST["password2"]==$_POST["cpassword2"]) {
 			$password2	= sha1($_POST["password2"]);
 			$xpass2		= $_POST["password2"];
-			$update		= mysql_query("
+			$update		= mysqli_query("
 				UPDATE g_member
 				SET 
 					password2	= '".$password2."',
@@ -72,12 +72,12 @@ include('function.php');
 
 		case "3":
 			/*
-			$xrow=mysql_fetch_array(mysql_query("SELECT * FROM g_member WHERE userid='".$_GET["id"]."'"));
+			$xrow=mysqli_fetch_array(mysqli_query("SELECT * FROM g_member WHERE userid='".$_GET["id"]."'"));
 			if($xrow["jstokis"]<$_POST["jstokis"]) {
-				$update = mysql_query("UPDATE g_member SET jstokis='".$_POST["jstokis"]."' WHERE userid='".$_GET["id"]."'");
-				$cek = mysql_fetch_array(mysql_query("SELECT * FROM g_jstokis WHERE id='".$_POST["jstokis"]."'"));
+				$update = mysqli_query("UPDATE g_member SET jstokis='".$_POST["jstokis"]."' WHERE userid='".$_GET["id"]."'");
+				$cek = mysqli_fetch_array(mysqli_query("SELECT * FROM g_jstokis WHERE id='".$_POST["jstokis"]."'"));
 				
-				$transfer = mysql_query("
+				$transfer = mysqli_query("
 					INSERT INTO g_transfer(
 						id,
 						transferid,
@@ -96,7 +96,7 @@ include('function.php');
 					)
 				");
 					$id=mysql_insert_id();
-					$update=mysql_query("UPDATE g_transfer SET transferid='TR".(date('siHdmy')+$id)."' WHERE id='".$id."'");
+					$update=mysqli_query("UPDATE g_transfer SET transferid='TR".(date('siHdmy')+$id)."' WHERE id='".$id."'");
 						
 				
 				if($update and gKartu ($cek["jmlepin"], date('Y-m-d'), $_GET["id"], $id)) echo 'success';
@@ -112,10 +112,10 @@ include('function.php');
 			$dt		= date('Y-m-d');
 			$tm		= date('H:i:s');
 			$refno	= date('YmdHis');
-			$toID	= mysql_real_escape_string($_GET["id"]);
+			$toID	= mysqli_real_escape_string($_GET["id"]);
 				
 			$cekTxt	= "SELECT * FROM g_member WHERE parentstatus='1' AND blokir='0' AND status='1' AND userid='".$toID."'";
-			$cekTo 	= mysql_num_rows(mysql_query($cekTxt));
+			$cekTo 	= mysqli_num_rows(mysqli_query($cekTxt));
 
 			if($cekTo>0) {		
 				$table = 'g_'.$_POST["utype"];
@@ -156,11 +156,11 @@ include('function.php');
 					";
 //					echo $tqry1;
 //				$tqry2 	 = "UPDATE ".$table." SET refno='xrefno' WHERE id='xid'";
-				$simpan1 = mysql_query($tqry1);
+				$simpan1 = mysqli_query($tqry1);
 				$xid	 = mysql_insert_id();
 				$refno	.= $xid;
 				$tqry2 	 = "UPDATE ".$table." SET refno='".$refno."' WHERE id='".$xid."'"; 
-				$update2 = mysql_query($tqry2);
+				$update2 = mysqli_query($tqry2);
 				
 			if($simpan1) {
 					echo 'success';
@@ -200,7 +200,7 @@ include('function.php');
 							roiblock= '".$roiblock."' 
 						WHERE userid = '".$userid."'
 						";
-			$update	= mysql_query( $updTxt );
+			$update	= mysqli_query( $updTxt );
 			
 			if( $update ) echo "success";
 			else echo T_("There are errors in process. If the problem persists, please contact The Administrator");

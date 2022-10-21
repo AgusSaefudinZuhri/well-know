@@ -7,7 +7,7 @@ switch($_GET["a"]) {
 	
 		$error='0';
 		$id=$_GET["x"];	
-			$write1 = mysql_query("UPDATE g_wfund SET status='1', tglapprove='".date('Y-m-d')."', waktuapprove='".date('H:i:s')."' WHERE refno='".$id."'");
+			$write1 = mysqli_query("UPDATE g_wfund SET status='1', tglapprove='".date('Y-m-d')."', waktuapprove='".date('H:i:s')."' WHERE refno='".$id."'");
 			
 		if(!$write1) $error='1';
 
@@ -25,7 +25,7 @@ switch($_GET["a"]) {
 		for ($j=0; $j<count($json); $j++) {
 			$id=$json[$j][0];
 			
-			$write1 = mysql_query("UPDATE g_wfund SET status='1', tglapprove='".date('Y-m-d')."', waktuapprove='".date('H:i:s')."' WHERE refno='".$id."'");
+			$write1 = mysqli_query("UPDATE g_wfund SET status='1', tglapprove='".date('Y-m-d')."', waktuapprove='".date('H:i:s')."' WHERE refno='".$id."'");
 			
 			if(!$write1) $error='1';
 		}
@@ -41,7 +41,7 @@ switch($_GET["a"]) {
 	
 		$error='0';
 		$id=$_GET["x"];	
-			$write1 = mysql_query("UPDATE g_wfund SET status='99', tglapprove='".date('Y-m-d')."', waktuapprove='".date('H:i:s')."' WHERE refno='".$id."'");
+			$write1 = mysqli_query("UPDATE g_wfund SET status='99', tglapprove='".date('Y-m-d')."', waktuapprove='".date('H:i:s')."' WHERE refno='".$id."'");
 //			echo "UPDATE g_wfund SET status='99' WHERE refno='".$id."'";
 			
 		if(!$write1) $error='1';
@@ -61,7 +61,7 @@ switch($_GET["a"]) {
 		for ($j=0; $j<count($json); $j++) {
 			$id=$json[$j][0];
 			
-			$write1 = mysql_query("UPDATE g_wfund SET status='99', tglapprove='".date('Y-m-d')."', waktuapprove='".date('H:i:s')."' WHERE refno='".$id."'");
+			$write1 = mysqli_query("UPDATE g_wfund SET status='99', tglapprove='".date('Y-m-d')."', waktuapprove='".date('H:i:s')."' WHERE refno='".$id."'");
 			
 			if(!$write1) $error='1';
 		}

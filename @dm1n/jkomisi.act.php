@@ -11,14 +11,14 @@ include('includes/config.php');
 					status 
 					) 
 				VALUES(
-					'".mysql_real_escape_string($_POST["nmjkomisi"])."',
+					'".mysqli_real_escape_string($_POST["nmjkomisi"])."',
 					'".$_POST["freqjkomisi"]."',
-					'".mysql_real_escape_string($_POST["scrjkomisi"])."',
+					'".mysqli_real_escape_string($_POST["scrjkomisi"])."',
 					'1' 
 					)
 				";
 //			echo $txt;
-			$simpan=mysql_query($txt);
+			$simpan=mysqli_query($txt);
 		
 			if($simpan) echo 'success';
 			else echo T_("There are errors in process. If the problem persists, please contact The Administrator");		
@@ -28,12 +28,12 @@ include('includes/config.php');
 			$txt = "
 				UPDATE g_jkomisi 
 				SET 
-					nmjkomisi	= '".mysql_real_escape_string($_POST["nmjkomisi"])."',
+					nmjkomisi	= '".mysqli_real_escape_string($_POST["nmjkomisi"])."',
 					freqjkomisi	= '".$_POST["freqjkomisi"]."',
-					scrjkomisi	= '".mysql_real_escape_string($_POST["scrjkomisi"])."'
+					scrjkomisi	= '".mysqli_real_escape_string($_POST["scrjkomisi"])."'
 				WHERE id='".$_GET["id"]."'";
 //			echo $txt;
-			$simpan=mysql_query($txt);
+			$simpan=mysqli_query($txt);
 			
 			if($simpan) echo 'success';
 			else echo T_("There are errors in process. If the problem persists, please contact The Administrator");		

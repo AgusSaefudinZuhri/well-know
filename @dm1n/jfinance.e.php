@@ -2,7 +2,7 @@
 	$thumbproduk_width = 'auto';
 	$thumbproduk_height = 100;
 
-$row=mysql_fetch_array(mysql_query("SELECT * FROM g_jfinance WHERE id='".$_GET["id"]."'"));
+$row=mysqli_fetch_array(mysqli_query("SELECT * FROM g_jfinance WHERE id='".$_GET["id"]."'"));
 ?>
 <script type="application/javascript" language="javascript">
 </script>
@@ -28,9 +28,9 @@ $row=mysql_fetch_array(mysql_query("SELECT * FROM g_jfinance WHERE id='".$_GET["
 			<option value="" selected disabled><?php echo T_("Please Select"); ?></option>
 			<?php 
 				$oTxt	= "SELECT * FROM g_gjfinance WHERE status = '1' ORDER BY id";
-				$oQry	= mysql_query( $oTxt );
+				$oQry	= mysqli_query( $oTxt );
 				
-				while( $oRow = mysql_fetch_array( $oQry ) ) { ?>
+				while( $oRow = mysqli_fetch_array( $oQry ) ) { ?>
 			<option value="<?php echo $oRow["id"];?>" <?php if($oRow["id"]==$row["gjfinanceid"]) echo 'selected'; ?> ><?php echo $oRow["nmgjfinance"];?></option>
 			<?php } ?>
 			</select>
@@ -73,9 +73,9 @@ $row=mysql_fetch_array(mysql_query("SELECT * FROM g_jfinance WHERE id='".$_GET["
 		<td>
 			<?php 
 				$cTxt = "SELECT * FROM g_kurs WHERE status='1' ORDER BY id";
-				$cQry = mysql_query( $cTxt );
+				$cQry = mysqli_query( $cTxt );
 			
-				while( $cRow = mysql_fetch_array( $cQry )) { ?>
+				while( $cRow = mysqli_fetch_array( $cQry )) { ?>
 				
 			<input type="checkbox" id="kursid" name="kursid[]" value="<?php echo $cRow["id"]; ?>" /><?php echo $cRow["id"].' - '.$cRow["nmkurs"]; ?><br/>
 				

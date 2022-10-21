@@ -15,13 +15,13 @@ include('includes/config.php');
 					) 
 				VALUES(
 					NULL,
-					'".mysql_real_escape_string($_POST["nmgjfinance"])."',
-					'".mysql_real_escape_string($_POST["scdeposit"])."',
-					'".mysql_real_escape_string($_POST["scwithdraw"])."',					
+					'".mysqli_real_escape_string($_POST["nmgjfinance"])."',
+					'".mysqli_real_escape_string($_POST["scdeposit"])."',
+					'".mysqli_real_escape_string($_POST["scwithdraw"])."',					
 					'1'
 					)
 				";
-			$simpan	= mysql_query($txt);
+			$simpan	= mysqli_query($txt);
 			//echo $txt;
 			if($simpan) echo 'success';
 			else echo $errTxt;
@@ -31,13 +31,13 @@ include('includes/config.php');
 			$txt	= "
 				UPDATE g_gjfinance 
 				SET 
-					nmgjfinance	= '".mysql_real_escape_string($_POST["nmgjfinance"])."',
-					scdeposit	= '".mysql_real_escape_string($_POST["scdeposit"])."',
-					scwithdraw	= '".mysql_real_escape_string($_POST["scwithdraw"])."',					
+					nmgjfinance	= '".mysqli_real_escape_string($_POST["nmgjfinance"])."',
+					scdeposit	= '".mysqli_real_escape_string($_POST["scdeposit"])."',
+					scwithdraw	= '".mysqli_real_escape_string($_POST["scwithdraw"])."',					
 				WHERE id='".$_GET["id"]."'
 				";
 			
-			$simpan=mysql_query($txt);
+			$simpan=mysqli_query($txt);
 			//echo $txt;
 			if($simpan) echo 'success';
 			else echo $errTxt;		

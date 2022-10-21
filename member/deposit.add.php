@@ -41,8 +41,8 @@
 			) c ON a.id = c.jfinanceid
 		
 		WHERE a.id='".$_GET["id"]."'";
-	$fQry = mysql_query($fTxt);
-	$fRow = mysql_fetch_array($fQry);
+	$fQry = mysqli_query($fTxt);
+	$fRow = mysqli_fetch_array($fQry);
   	include( $fRow["scdeposit"] );
 	?>
 </form>            

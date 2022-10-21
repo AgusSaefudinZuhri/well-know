@@ -3,11 +3,11 @@ include('includes/config.php');
 		
 switch($_GET["a"]) {
 	case "0":	
-		$cek=mysql_num_rows(mysql_query("SELECT * FROM g_users WHERE username='".$_POST["username"]."'"));
+		$cek=mysqli_num_rows(mysqli_query("SELECT * FROM g_users WHERE username='".$_POST["username"]."'"));
 	
 		if($cek>0) echo T_("The UserName you choose is already taken. Please choose another UserName.");
 		else {
-			$simpan=mysql_query("
+			$simpan=mysqli_query("
 				INSERT INTO g_users(
 					username, 
 					password, 
@@ -16,9 +16,9 @@ switch($_GET["a"]) {
 					grupid
 					) 
 				VALUES(
-					'".mysql_real_escape_string($_POST["username"])."', 
+					'".mysqli_real_escape_string($_POST["username"])."', 
 					'".sha1($_POST["password"])."', 
-					'".mysql_real_escape_string($_POST["nama"])."', 
+					'".mysqli_real_escape_string($_POST["nama"])."', 
 					'1', 
 					'".$_POST["grup"]."'
 					)
@@ -33,20 +33,20 @@ switch($_GET["a"]) {
 
 		if(isset($_POST["password"]	) and $_POST["password"]!='') {
 			
-			$simpan=mysql_query("
+			$simpan=mysqli_query("
 				UPDATE g_users 
 				SET 
-					nama	='".mysql_real_escape_string($_POST["nama"])."', 
+					nama	='".mysqli_real_escape_string($_POST["nama"])."', 
 					password='".sha1($_POST["password"])."', 
 					grupid	='".$_POST["grup"]."'  
 				WHERE 
 					username='".$_GET["id"]."'");
 			}
 			else {
-			$simpan=mysql_query("
+			$simpan=mysqli_query("
 				UPDATE g_users 
 				SET 
-					nama	='".mysql_real_escape_string($_POST["nama"])."', 
+					nama	='".mysqli_real_escape_string($_POST["nama"])."', 
 					grupid	='".$_POST["grup"]."' 
 				WHERE 
 					username='".$_GET["id"]."'");

@@ -61,8 +61,8 @@ function cPassword() {
 <td><select class="default" id="jpackage" name="jpackage" type="text" style="width: 300px;" required >
 <option value="" selected="selected" disabled="disabled">-- <?php echo T_("Please Select"); ?> --</option>
 <?php 
-	$xqry=mysql_query("SELECT *, ( hargapv * 1 ) xvaljpackage FROM g_jpackage WHERE status='1' ORDER BY xvaljpackage ASC");
-	while($xrow=mysql_fetch_array($xqry)) {
+	$xqry=mysqli_query("SELECT *, ( hargapv * 1 ) xvaljpackage FROM g_jpackage WHERE status='1' ORDER BY xvaljpackage ASC");
+	while($xrow=mysqli_fetch_array($xqry)) {
 ?>
 <option value="<?php echo $xrow["id"];?>|<?php echo $xrow["hargapv"];?>|<?php echo $xrow["hasilprc"];?>|<?php echo $xrow["nmjpackage"];?>" ><?php echo $xrow["nmjpackage"];?> | <?php echo $syscurrency." ".number_format( $xrow["hargapv"], 2 );?></option>
 <?php } ?>

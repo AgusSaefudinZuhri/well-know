@@ -1,11 +1,11 @@
 <?php include_once('includes/config.php'); 
 
 function get_option($id, $x) {
-	$ncek=mysql_fetch_array(mysql_query("SELECT * FROM g_huser WHERE grupid='".$id."' AND pmeter='".$x."'"));
+	$ncek=mysqli_fetch_array(mysqli_query("SELECT * FROM g_huser WHERE grupid='".$id."' AND pmeter='".$x."'"));
 	return $ncek["pvalue"];
 }
 
-$row=mysql_fetch_array(mysql_query("SELECT * FROM g_guser WHERE id='".$_GET["id"]."'"));
+$row=mysqli_fetch_array(mysqli_query("SELECT * FROM g_guser WHERE id='".$_GET["id"]."'"));
 ?>
 <script type="application/javascript" language="javascript">
 </script>

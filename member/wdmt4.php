@@ -45,8 +45,8 @@ function pilihGrup( x, y ) {
             
             <?php
 				$gjTxt = "SELECT * FROM g_gjfinance WHERE status='1' ORDER BY id";
-				$gjQry = mysql_query( $gjTxt );
-				while( $gjRow = mysql_fetch_array( $gjQry ) ) {
+				$gjQry = mysqli_query( $gjTxt );
+				while( $gjRow = mysqli_fetch_array( $gjQry ) ) {
 			?>		
 				
             <a href="javascript: void(0);" onclick="pilihGrup(this, '<?php echo $gjRow["id"];?>');" class="btn btn-sm btn-warning"><?php echo $gjRow["nmgjfinance"];?></a>

@@ -32,9 +32,9 @@ include_once('includes/config.php');
 //echo $cTxt.'<br/>';
 	if( $tEcho == '1' ) 	echo nl2br($cTxt)."<br/>";
 
-		$cQry = mysql_query($cTxt);
+		$cQry = mysqli_query($cTxt);
 		
-		while( $cRow = mysql_fetch_array($cQry) ) {
+		while( $cRow = mysqli_fetch_array($cQry) ) {
 			
 			$uniTxt = "
 				SELECT 
@@ -54,12 +54,12 @@ include_once('includes/config.php');
 				LIMIT 0,7
 				";
 //			echo $uniTxt.'<br/>';
-			$uniQry = mysql_query( $uniTxt );
+			$uniQry = mysqli_query( $uniTxt );
 			
 			
 			$j = 1;
 			
-			while( $uniRow = mysql_fetch_array( $uniQry ) and $j <= 7 ) {
+			while( $uniRow = mysqli_fetch_array( $uniQry ) and $j <= 7 ) {
 
 			$uniPrc[1]	= $uniRow["lvl01"];
 			$uniPrc[2]	= $uniRow["lvl02"];
@@ -124,11 +124,11 @@ include_once('includes/config.php');
 						";
 
 			if( $tEcho == '1' ) 				echo $tqry1.'<br/>';
-			$simpan1 = mysql_query($tqry1);
+			$simpan1 = mysqli_query($tqry1);
 			$xid1	 = mysql_insert_id();
 			$refno1	 = $refno.$xid1; 
 			$uQry1	 = "UPDATE g_wfund SET refno='".$refno1."' WHERE id='".$xid1."'";
-			$update1 = mysql_query($uQry1);
+			$update1 = mysqli_query($uQry1);
 			if($simpan1 and $update1) $tError = 0; else $tError = 1;
 	
 			if($tEcho=='1') echo $sTxt."<br/>";	

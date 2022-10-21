@@ -13,11 +13,11 @@
 $tqry="SELECT * FROM g_option ORDER BY id";
 
 
-$qry=mysql_query($tqry); //  echo $tqry.$limit;
+$qry=mysqli_query($tqry); //  echo $tqry.$limit;
 
 $x=1;
 
-while($row=mysql_fetch_array($qry)) { ?>
+while($row=mysqli_fetch_array($qry)) { ?>
 <tr class="tContent<?php if(($x-1)%2) echo ' genap';?>" >
 <td style="text-align:center; vertical-align: middle;"><?php echo $x; ?></td>
 <td style="text-align:left; vertical-align: middle;"><?php echo T_($row["optheader"]); ?></td>

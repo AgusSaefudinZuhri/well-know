@@ -10,13 +10,13 @@
 		case "1" :
 			
 			$userid 	= $_GET["id"];
-			$useridx 	= mysql_real_escape_string( $_POST["useridx"] );
+			$useridx 	= mysqli_real_escape_string( $_POST["useridx"] );
 			$trxvalue 	= xNumber( $_POST["trxvalue"] );
-			$remark2 	= mysql_real_escape_string( $_POST["remark2"] );
+			$remark2 	= mysqli_real_escape_string( $_POST["remark2"] );
 
 			$cekPassTxt		= "SELECT * FROM g_member WHERE userid='".$_SESSION["userid"]."'";
-			$cekPassQry		= mysql_query($cekPassTxt);
-			$cekPassRow		= mysql_fetch_array( $cekPassQry );
+			$cekPassQry		= mysqli_query($cekPassTxt);
+			$cekPassRow		= mysqli_fetch_array( $cekPassQry );
 		
 			if(sha1($_POST["password2"])==$cekPassRow["password2"]) {
 		
@@ -57,12 +57,12 @@
 						);
 					";
 						
-					$insQry1	= mysql_query( $insTxt1 );
+					$insQry1	= mysqli_query( $insTxt1 );
 					
 					$id		= mysql_insert_id();
 					$refno1	= $refno.$id;
 					$updTxt1= "UPDATE g_wfund SET refno='".$refno1."' WHERE id='".$id."'";
-					$updQry1= mysql_query( $updTxt1 );
+					$updQry1= mysqli_query( $updTxt1 );
 
 					$insTxt2	= "
 						INSERT INTO g_wfund (
@@ -101,7 +101,7 @@
 						);
 					";
 				
-				$insQry2	= mysql_query( $insTxt2 );
+				$insQry2	= mysqli_query( $insTxt2 );
 
 //				echo $insTxt1. " ". $insTxt2;
 				if( $insQry1 and  $insQry2 ) echo 'success';
@@ -119,14 +119,14 @@
 			$jkomisi	= $_GET["k"];
 
 			$cekPassTxt		= "SELECT * FROM g_member WHERE userid='".$_SESSION["userid"]."'";
-			$cekPassQry		= mysql_query($cekPassTxt);
-			$cekPassRow		= mysql_fetch_array( $cekPassQry );
+			$cekPassQry		= mysqli_query($cekPassTxt);
+			$cekPassRow		= mysqli_fetch_array( $cekPassQry );
 		
 			if(sha1($_POST["password2"])==$cekPassRow["password2"]) {
 				
 				$kTxt	= "SELECT * FROM g_jkomisi WHERE id='".$jkomisi."'";
-				$kQry	= mysql_query( $kTxt );
-				$kRow	= mysql_fetch_array( $kQry );
+				$kQry	= mysqli_query( $kTxt );
+				$kRow	= mysqli_fetch_array( $kQry );
 				$nmjkomisi = $kRow["nmjkomisi"];
 
 					$insTxt1	= "
@@ -168,12 +168,12 @@
 						);
 					";
 						
-					$insQry1	= mysql_query( $insTxt1 );
+					$insQry1	= mysqli_query( $insTxt1 );
 					
 					$id		= mysql_insert_id();
 					$refno1	= $refno.$id;
 					$updTxt1= "UPDATE g_komisi SET refno='".$refno1."' WHERE id='".$id."'";
-					$updQry1= mysql_query( $updTxt1 );
+					$updQry1= mysqli_query( $updTxt1 );
 
 					$insTxt2	= "
 						INSERT INTO g_wfund (
@@ -214,7 +214,7 @@
 						);
 					";
 				
-				$insQry2	= mysql_query( $insTxt2 );
+				$insQry2	= mysqli_query( $insTxt2 );
 
 //				echo $insTxt1. " ". $insTxt2;
 				if( $insQry1 and  $insQry2 ) echo 'success';
@@ -227,14 +227,14 @@
 	
 			$userid = $_GET["id"];
 			$cekPassTxt		= "SELECT * FROM g_member WHERE userid='".$_SESSION["userid"]."'";
-			$cekPassQry		= mysql_query($cekPassTxt);
-			$cekPassRow		= mysql_fetch_array( $cekPassQry );
+			$cekPassQry		= mysqli_query($cekPassTxt);
+			$cekPassRow		= mysqli_fetch_array( $cekPassQry );
 		
 			if(sha1($_POST["password2"])==$cekPassRow["password2"]) {
 				$vreq   = xNumber($_POST["vreq"]);
 				$vreqcv = xNumber($_POST["vreqcv"]);
 				$byadmin= xNumber($_POST["byadmin"]);
-				$remark2= mysql_real_escape_string( $_POST["remark2"] );
+				$remark2= mysqli_real_escape_string( $_POST["remark2"] );
 
 				$dt		= date('Y-m-d');
 				$tm		= date('H:i:s');
@@ -284,11 +284,11 @@
 						";
 //				echo $tqry1;
 				
-				$simpan1 = mysql_query($tqry1);
+				$simpan1 = mysqli_query($tqry1);
 				$xid1	 = mysql_insert_id();
 				$refno1	= $refno.$xid1; 
 				$uQry1	 = "UPDATE g_wfund SET refno='".$refno1."' WHERE id='".$xid1."'";
-				$update1 = mysql_query($uQry1);	
+				$update1 = mysqli_query($uQry1);	
 									
 					$tqry2="
 							INSERT INTO g_wfund (
@@ -330,7 +330,7 @@
 						";
 //				echo $tqry1;
 				
-				$simpan2 = mysql_query($tqry2);
+				$simpan2 = mysqli_query($tqry2);
 
 				if( $simpan1 and $update1 and $simpan2 ) {
 					echo 'success';

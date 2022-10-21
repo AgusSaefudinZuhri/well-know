@@ -31,16 +31,16 @@ if(isset($_GET["pf"])) {
 <?php 
 $tqry="SELECT a.* FROM g_jkomisi a WHERE a.status IN ('0', '1') ".$where;
 
-$qry0=mysql_query($tqry);
+$qry0=mysqli_query($tqry);
 
-$numRows	= mysql_num_rows($qry0);
+$numRows	= mysqli_num_rows($qry0);
 $pages		= ceil( $numRows /$perpage);
 
-$qry=mysql_query($tqry.$limit);
+$qry=mysqli_query($tqry.$limit);
 
 if(isset($_GET["pg"])) $x=($_GET["pg"]-1)*$perpage+1; else $x=1;
 
-while($row=mysql_fetch_array($qry)) { ?>
+while($row=mysqli_fetch_array($qry)) { ?>
 <tr class="tContent<?php if(($x-1)%2) echo ' genap';?>" >
     <td style="text-align:center;vertical-align: middle;"><?php echo $x; ?></td>
     <td style="text-align:left; "><span style=""><?php echo $row["nmjkomisi"]; ?></span></td>

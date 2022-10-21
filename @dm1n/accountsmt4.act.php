@@ -11,8 +11,8 @@ switch($_GET["a"]) {
 		
 			$txt	= "SELECT * FROM g_member WHERE userid='".$_GET["id"]."'";
 //		echo $txt;
-			$qry	= mysql_query( $txt );
-			$row	= mysql_fetch_array( $qry );
+			$qry	= mysqli_query( $txt );
+			$row	= mysqli_fetch_array( $qry );
 			
 			$crAkun = crAkun( $_POST["regGroup"], $_POST["npass"], $row["nmmember"], $_POST["leverage"], $row["negara"], $row["kota"], $row["propinsi"], $row["kodepos"], $row["alamat"], $row["nohp1"], $row["email"], '');
 //echo print_r($crAkun);
@@ -60,14 +60,14 @@ switch($_GET["a"]) {
 						'1'				
 					)";
 				
-				$msg1=mysql_fetch_array(mysql_query("SELECT * FROM g_temail WHERE id='2'"));
+				$msg1=mysqli_fetch_array(mysqli_query("SELECT * FROM g_temail WHERE id='2'"));
 	
 				$to1		= $mbrRow["email"];
-				$subject1	= T_('New Member Info').' '.mysql_real_escape_string($row["nmmember"]);
+				$subject1	= T_('New Member Info').' '.mysqli_real_escape_string($row["nmmember"]);
 				$message1	= nl2br(
 					str_replace('[userid]', $_GET["id"], 
 					str_replace('[password]', $_POST["password"], 
-					str_replace("[nmmember]", mysql_real_escape_string($row["nmmember"]), 
+					str_replace("[nmmember]", mysqli_real_escape_string($row["nmmember"]), 
 					str_replace('[urllink]','<a href="'.$bsMbrlink.'">Login Now</a>', 
 					
 					htmlspecialchars_decode( $msg1["cttemplate"] )
@@ -81,7 +81,7 @@ switch($_GET["a"]) {
 				'X-Mailer: PHP/' . phpversion();
 				$result1 = mail($to1, $subject1, $message1, $headers1);
 			
-				if(mysql_query($insTxt)) echo 'success';
+				if(mysqli_query($insTxt)) echo 'success';
 			else echo T_("New MT4 Account Registration is failed. Please try again later. If problem persists please contact Administrator").'x02';
 				
 			}

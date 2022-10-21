@@ -37,8 +37,8 @@
         <select id="grup" name="grup" class="default" style="width: 150px;" required >
         <option value="" disabled="disabled" selected="selected"></option>
         <?php 
-            $qrz=mysql_query("SELECT * FROM g_guser WHERE status='1' AND id!='0' ORDER BY nama");
-            while($zrow=mysql_fetch_array($qrz)) { ?>
+            $qrz=mysqli_query("SELECT * FROM g_guser WHERE status='1' AND id!='0' ORDER BY nama");
+            while($zrow=mysqli_fetch_array($qrz)) { ?>
         
             <option value="<?php echo $zrow["id"];?>" ><?php echo $zrow["nama"];?></option>
         

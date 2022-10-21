@@ -44,7 +44,7 @@ if(move_uploaded_file($_FILES["ximage1"]["tmp_name"],$thefile)) {
 			'0'
 		)
 	";
-	if( mysql_query($csvTxt) ) {
+	if( mysqli_query($csvTxt) ) {
 		$csvid = mysql_insert_id();
 		if (($handle = fopen($thefile, 'r')) !== FALSE)
 		{
@@ -103,7 +103,7 @@ if(move_uploaded_file($_FILES["ximage1"]["tmp_name"],$thefile)) {
 						)
 					
 					";
-					if( !mysql_query( $csvdtTxt ) ) $error = 1;
+					if( !mysqli_query( $csvdtTxt ) ) $error = 1;
 				}
 			}
 			fclose($handle);

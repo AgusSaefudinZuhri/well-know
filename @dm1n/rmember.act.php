@@ -5,11 +5,11 @@ include('function.php');
 	
 	switch($_GET["a"]) {
 		case "0":
-		$cqry = mysql_query("SELECT * FROM g_member WHERE userid='".$_POST["userid"]."'");
+		$cqry = mysqli_query("SELECT * FROM g_member WHERE userid='".$_POST["userid"]."'");
 		
-		if(mysql_num_rows($cqry)=='0') {
+		if(mysqli_num_rows($cqry)=='0') {
 			if($_POST["password"]==$_POST["cpassword"]) {
-				$userid		= mysql_real_escape_string($_POST["userid"]);
+				$userid		= mysqli_real_escape_string($_POST["userid"]);
 				$password 	= sha1($_POST["password"]);
 				$xpass 		= $_POST["cpassword"];
 				$password2 	= sha1($_POST["password2"]);
@@ -18,7 +18,7 @@ include('function.php');
 				$jpackage	= 0;
 //				$hargapv	= xNumber( $xmember[1] );	 //penting;
 //				$hasilpv	= ( xNumber( $xmember[2] ) / 100 ) * $hargapv;	 //penting;
-//				$nmPaket	= mysql_real_escape_string( $xmember[2] );
+//				$nmPaket	= mysqli_real_escape_string( $xmember[2] );
 
 //				$jmlhu		= $xmember[1];	 //penting;	
 //				$jmlproduk	= $xmember[2];	 //penting;				
@@ -46,8 +46,8 @@ include('function.php');
 				$mbrpic		= '';
 				
 				$jmTxt 		= "SELECT * FROM g_jpackage WHERE id = '".$jpackage."'";
-				$jmQry		= mysql_query( $jmTxt );
-				$jmRow		= mysql_fetch_array( $jmQry );
+				$jmQry		= mysqli_query( $jmTxt );
+				$jmRow		= mysqli_fetch_array( $jmQry );
 				
 				
 				$stxt = "
@@ -85,7 +85,7 @@ include('function.php');
 							'".$userid."',
 							'".$xpass."',
 							'".$password."',
-							'".mysql_real_escape_string($_POST["nmmember"])."',
+							'".mysqli_real_escape_string($_POST["nmmember"])."',
 							'".$parentid."',
 							'".$upline."',
 							'".$posisi."',
@@ -113,7 +113,7 @@ include('function.php');
 							)
 						";
 //					echo $stxt;
-				$simpan=mysql_query($stxt);
+				$simpan=mysqli_query($stxt);
 
 				$error = '0';
 //				$error = '0';
@@ -158,11 +158,11 @@ include('function.php');
 					)
 				";
 	
-			$simpan3 = mysql_query($tqry3);
+			$simpan3 = mysqli_query($tqry3);
 			$xid3	 = mysql_insert_id();
 			$refno3	 = $refno.$xid3; 
 			$uQry3	 = "UPDATE g_wfn SET refno='".$refno3."' WHERE id='".$xid3."'";
-			$update3 = mysql_query($uQry3);
+			$update3 = mysqli_query($uQry3);
 			if( !$update3 ) $error= 1;
 */
 				if($simpan and $error=='0') echo 'success';
@@ -176,13 +176,13 @@ include('function.php');
 		break;
 		
 		case "1":
-/*			$simpan=mysql_query("
+/*			$simpan=mysqli_query("
 				UPDATE g_country 
 				SET 
-					nmcountry	='".mysql_real_escape_string($_POST["nmcountry"])."', 
-					tcurrency	='".mysql_real_escape_string($_POST["tcurrency"])."', 
-					tbuy		='".str_replace(',', '', mysql_real_escape_string($_POST["tbuy"]))."', 
-					tsell		='".str_replace(',', '', mysql_real_escape_string($_POST["tsell"]))."' 
+					nmcountry	='".mysqli_real_escape_string($_POST["nmcountry"])."', 
+					tcurrency	='".mysqli_real_escape_string($_POST["tcurrency"])."', 
+					tbuy		='".str_replace(',', '', mysqli_real_escape_string($_POST["tbuy"]))."', 
+					tsell		='".str_replace(',', '', mysqli_real_escape_string($_POST["tsell"]))."' 
 				WHERE id='".$_GET["id"]."'");
 			
 			if($simpan) echo 'success';

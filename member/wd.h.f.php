@@ -43,17 +43,17 @@ $tqry="
 	GROUP BY refno
 	";
 
-$qry0=mysql_query($tqry);
+$qry0=mysqli_query($tqry);
 
-$pages=ceil(mysql_num_rows($qry0)/$perpage);
+$pages=ceil(mysqli_num_rows($qry0)/$perpage);
 
-$qry=mysql_query($tqry.$limit);
+$qry=mysqli_query($tqry.$limit);
 
 // echo $tqry.$limit;
 
 if(isset($_GET["pg"])) $x=($_GET["pg"]-1)*$perpage+1; else $x=1;
 
-while($row=mysql_fetch_array($qry)) { ?>
+while($row=mysqli_fetch_array($qry)) { ?>
 <tr class="tContent <?php if(($x-1)%2) echo 'genap';?>" style=" <?php // if($row["jtransaksi"]=='1') echo 'font-style: italic; color: red;';?>" >
 <td style="text-align:left;"><?php echo $row["refno"];?></td>
 

@@ -43,7 +43,7 @@
 <?php if(isset($_SESSION["errLogin"]) and $_SESSION["errLogin"]==1) { ?>
 
 <div class="alert alert-warning" style="margin-top: 10px;">
-							<p class="m-none text-semibold h6"><?php echo T_('Either UserID or Password is Wrong!!!');?></p>
+							<p class="m-none text-semibold h6"><?php echo T_('Either UserID or Password is Wrongd!!!');?></p>
 						</div>
 <?php  unset($_SESSION["errLogin"]); } ?>  
 

@@ -20,12 +20,12 @@
 */	
 
 	$mTxt = "SELECT * FROM g_member WHERE userid='".$_SESSION["userid"]."'";
-	$mQry = mysql_query( $mTxt );
-	$mRow = mysql_fetch_array( $mQry );
+	$mQry = mysqli_query( $mTxt );
+	$mRow = mysqli_fetch_array( $mQry );
 
 	$crTxt = "SELECT * FROM g_wfund WHERE useridx='buypackage' AND userid='".$_SESSION["userid"]."' ORDER BY id ASC";
-	$crQry = mysql_query( $crTxt );
-	$crRow = mysql_fetch_array( $crQry );
+	$crQry = mysqli_query( $crTxt );
+	$crRow = mysqli_fetch_array( $crQry );
 	$tglmulai = $crRow["tglinput"];
 	
 	$pTxt = "
@@ -36,8 +36,8 @@
 		LEFT JOIN g_jpackage c ON a.jpackage = c.id
 		WHERE a.id='".$mRow['kontrakid']."'";
 //	echo nl2br( $pTxt );
-	$pQry = mysql_query( $pTxt );
-	$pRow = mysql_fetch_array( $pQry );
+	$pQry = mysqli_query( $pTxt );
+	$pRow = mysqli_fetch_array( $pQry );
 	$nmjpackage = $pRow["nmjpackage"];
 /*
 	$hargavl = $pRow["hargavl"];
@@ -87,17 +87,17 @@ $tqry="
 	WHERE a.kontrakid =  '".$mRow['kontrakid']."' ";
 	//.$where;
 
-$qry0=mysql_query($tqry);
+$qry0=mysqli_query($tqry);
 
-$pages=ceil(mysql_num_rows($qry0)/$perpage);
+$pages=ceil(mysqli_num_rows($qry0)/$perpage);
 
-$qry=mysql_query($tqry.$limit);
+$qry=mysqli_query($tqry.$limit);
 
 // echo $tqry.$limit;
 
 if(isset($_GET["pg"])) $x=($_GET["pg"]-1)*$perpage+1; else $x=1;
 
-while($row=mysql_fetch_array($qry)) { 
+while($row=mysqli_fetch_array($qry)) { 
 
 
 ?>

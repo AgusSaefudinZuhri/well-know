@@ -25,17 +25,17 @@ $tqry="
 	ORDER BY a.gjfinanceid, a.nmjfinance ASC
 	";
 
-$qry0=mysql_query($tqry);
+$qry0=mysqli_query($tqry);
 
-$pages=ceil(mysql_num_rows($qry0)/$perpage);
+$pages=ceil(mysqli_num_rows($qry0)/$perpage);
 
-$qry=mysql_query($tqry);
+$qry=mysqli_query($tqry);
 
 // echo $tqry.$limit;
 
 if(isset($_GET["pg"])) $x=($_GET["pg"]-1)*$perpage+1; else $x=1;
 
-while($row=mysql_fetch_array($qry)) { ?>
+while($row=mysqli_fetch_array($qry)) { ?>
 
 	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		<div class="info-box" onclick="loadpagez('deposit.add.php?id=<?php echo $row["id"];?>');" style=" cursor: pointer;">

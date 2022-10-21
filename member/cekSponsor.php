@@ -8,10 +8,10 @@
 			AND parentstatus='1' 
 		";
 	
-	$csQry	= mysql_query( $csTxt );
+	$csQry	= mysqli_query( $csTxt );
 
-	if( mysql_num_rows( $csQry ) ) {
-		$csRow	= mysql_fetch_array( $csQry );
+	if( mysqli_num_rows( $csQry ) ) {
+		$csRow	= mysqli_fetch_array( $csQry );
 		echo "success|".$csRow["nmmember"];
 	}
 	else echo "error";

@@ -21,22 +21,22 @@ include('includes/config.php');
 					VALUES(
 						'".$id."',
 						'".$_POST["gjfinanceid"]."', 
-						'".mysql_real_escape_string($_POST["nmjfinance"])."', 
-						'".mysql_real_escape_string($_POST["wkproses"])."', 
-						'".mysql_real_escape_string($_POST["vlkomisi"])."', 
-						'".mysql_real_escape_string($_POST["nmakun"])."', 
-						'".mysql_real_escape_string($_POST["noakun"])."', 
-						'".mysql_real_escape_string($_POST["cabakun"])."', 
-						'".mysql_real_escape_string($_POST["thumblink"])."', 						
+						'".mysqli_real_escape_string($_POST["nmjfinance"])."', 
+						'".mysqli_real_escape_string($_POST["wkproses"])."', 
+						'".mysqli_real_escape_string($_POST["vlkomisi"])."', 
+						'".mysqli_real_escape_string($_POST["nmakun"])."', 
+						'".mysqli_real_escape_string($_POST["noakun"])."', 
+						'".mysqli_real_escape_string($_POST["cabakun"])."', 
+						'".mysqli_real_escape_string($_POST["thumblink"])."', 						
 						'1' 
 						)
 					";
-				$simpan=mysql_query( $txt );
+				$simpan=mysqli_query( $txt );
 				$id = mysql_insert_id();
 				//echo $txt;
 				if($simpan) {
 					for($i=0; $i<sizeof($_POST["kursid"]); $i++) {
-						$insert = mysql_query("
+						$insert = mysqli_query("
 							INSERT INTO g_jfinancekurs (
 								id,
 								jfinanceid,
@@ -61,25 +61,25 @@ include('includes/config.php');
 		break;
 		
 		case "1":
-			$simpan=mysql_query("
+			$simpan=mysqli_query("
 				UPDATE g_jfinance 
 				SET 
-					nmjfinance	= '".mysql_real_escape_string($_POST["nmjfinance"])."', 
+					nmjfinance	= '".mysqli_real_escape_string($_POST["nmjfinance"])."', 
 					gjfinanceid	= '".$_POST["gjfinanceid"]."', 
-					wkproses	= '".mysql_real_escape_string($_POST["wkproses"])."', 
-					vlkomisi	= '".mysql_real_escape_string($_POST["vlkomisi"])."', 
-					nmakun		= '".mysql_real_escape_string($_POST["nmakun"])."', 
-					noakun		= '".mysql_real_escape_string($_POST["noakun"])."', 
-					cabakun		= '".mysql_real_escape_string($_POST["cabakun"])."', 
-					thumblink	= '".mysql_real_escape_string($_POST["thumblink"])."' 						
+					wkproses	= '".mysqli_real_escape_string($_POST["wkproses"])."', 
+					vlkomisi	= '".mysqli_real_escape_string($_POST["vlkomisi"])."', 
+					nmakun		= '".mysqli_real_escape_string($_POST["nmakun"])."', 
+					noakun		= '".mysqli_real_escape_string($_POST["noakun"])."', 
+					cabakun		= '".mysqli_real_escape_string($_POST["cabakun"])."', 
+					thumblink	= '".mysqli_real_escape_string($_POST["thumblink"])."' 						
 				WHERE id='".$_GET["id"]."'");
 			
 				if($simpan) {
 					
-					$hapus	= mysql_query("DELETE FROM g_jfinancekurs WHERE jfinanceid = '".$_GET["id"]."'");
+					$hapus	= mysqli_query("DELETE FROM g_jfinancekurs WHERE jfinanceid = '".$_GET["id"]."'");
 					
 					for($i=0; $i<sizeof($_POST["kursid"]); $i++) {
-						$insert = mysql_query("
+						$insert = mysqli_query("
 							INSERT INTO g_jfinancekurs (
 								id,
 								jfinanceid,

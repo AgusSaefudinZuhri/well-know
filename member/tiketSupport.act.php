@@ -11,12 +11,12 @@
 		case "0" :
 			
 			$txt		= "SELECT * FROM g_tiket WHERE id = '".$_GET["id"]."'";
-			$qry		= mysql_query( $txt );
-			$row		= mysql_fetch_array( $qry );
+			$qry		= mysqli_query( $txt );
+			$row		= mysqli_fetch_array( $qry );
 			
 			$userid 	= $row["userid"];
-			$judul 		= mysql_real_escape_string( $_POST["judul"] );
-			$pesan 		= mysql_real_escape_string( $_POST["pesan"] );
+			$judul 		= mysqli_real_escape_string( $_POST["judul"] );
+			$pesan 		= mysqli_real_escape_string( $_POST["pesan"] );
 
 		
 			$insTxt1	= "
@@ -46,12 +46,12 @@
 						);
 					";
 						
-					$insQry1	= mysql_query( $insTxt1 );
+					$insQry1	= mysqli_query( $insTxt1 );
 					
 					$id		= mysql_insert_id();
 					$refno1	= $refno.$id;
 					$updTxt1= "UPDATE g_tiket SET refno='".$refno1."' WHERE id='".$id."'";
-					$updQry1= mysql_query( $updTxt1 );
+					$updQry1= mysqli_query( $updTxt1 );
 
 					$insTxt2	= "
 						INSERT INTO g_tiketdt (
@@ -74,7 +74,7 @@
 						);
 					";
 				
-				$insQry2	= mysql_query( $insTxt2 );
+				$insQry2	= mysqli_query( $insTxt2 );
 
 //				echo $insTxt1. " ". $insTxt2;
 				if( $insQry1 and  $insQry2 ) echo 'success';
@@ -86,7 +86,7 @@
 			
 			$userid 	= $_GET["id"];
 			$id 		= $_GET["idx"];
-			$pesan 		= mysql_real_escape_string( $_POST["pesan"] );
+			$pesan 		= mysqli_real_escape_string( $_POST["pesan"] );
 
 		
 			$updTxt1	= "
@@ -99,7 +99,7 @@
 						WHERE id = '".$id."'
 					";
 						
-					$insQry1	= mysql_query( $updTxt1 );
+					$insQry1	= mysqli_query( $updTxt1 );
 					
 
 					$insTxt2	= "
@@ -123,7 +123,7 @@
 						);
 					";
 				
-				$insQry2	= mysql_query( $insTxt2 );
+				$insQry2	= mysqli_query( $insTxt2 );
 
 //				echo $insTxt1. " ". $insTxt2;
 				if( $insQry1 and  $insQry2 ) echo 'success';

@@ -19,7 +19,7 @@ include('function.php');
 		WHERE a.sthold='0' 
 			AND a.parentid='".$_SESSION["userid"]."'
 		";
-	$bonus1		= mysql_fetch_array(mysql_query($bonusTxt1));
+	$bonus1		= mysqli_fetch_array(mysqli_query($bonusTxt1));
 	$balance1	= $bonus1["kom"] - $bonus1["req"];
 	$trxvalue	= xNumber( $_POST["trxvalue"] );
 	
@@ -28,7 +28,7 @@ if( $balance1>=$trxvalue ) {
 	
 	$tError = 0;
 	
-	$serial			= mysql_real_escape_string( $_POST["serial"] );
+	$serial			= mysqli_real_escape_string( $_POST["serial"] );
 	
 	$hariini		= date('Y-m-d H:i:s'); //
 	$tgldaftar		= date('Y-m-d', strtotime($hariini));//
@@ -40,8 +40,8 @@ if( $balance1>=$trxvalue ) {
 	$refno			= date('YmdHis', strtotime($hariini));
 
 	$cekPassTxt		= "SELECT * FROM g_member WHERE userid='".$_SESSION["userid"]."'";
-	$cekPassQry		= mysql_query($cekPassTxt);
-	$cekPassRow		= mysql_fetch_array( $cekPassQry );
+	$cekPassQry		= mysqli_query($cekPassTxt);
+	$cekPassRow		= mysqli_fetch_array( $cekPassQry );
 
 	if(sha1($_POST["password2"])==$cekPassRow["password2"]) {
 	$cUseridTxt = "
@@ -50,7 +50,7 @@ if( $balance1>=$trxvalue ) {
 		WHERE userid = '".mysql_escape_string($_POST["useridx"])."'
 		";
 		
-	if(mysql_num_rows(mysql_query($cUseridTxt))==0 and $_POST["useridx"]!=$company_userid) {
+	if(mysqli_num_rows(mysqli_query($cUseridTxt))==0 and $_POST["useridx"]!=$company_userid) {
 		
 		$cParentStatusTxt = "
 			SELECT * 
@@ -58,26 +58,26 @@ if( $balance1>=$trxvalue ) {
 			WHERE userid = '".mysql_escape_string($_POST["sponsordst"])."' 
 			AND parentstatus='1' AND flogin>='10'
 			";
-		$cParentStatusQry = mysql_query($cParentStatusTxt);
+		$cParentStatusQry = mysqli_query($cParentStatusTxt);
 			
-		if(mysql_num_rows($cParentStatusQry)>0) {
+		if(mysqli_num_rows($cParentStatusQry)>0) {
 
-			$rSponsor	= mysql_fetch_array($cParentStatusQry);
+			$rSponsor	= mysqli_fetch_array($cParentStatusQry);
 			$unilevel	= $rSponsor["unilevel"]+1;
 			
 			if($_POST["passwordx"]==$_POST["passwordx2"]) {
 
 // PERSIAPAN DATA DASAR
 
-				$userid			= mysql_real_escape_string($_POST["useridx"]);
+				$userid			= mysqli_real_escape_string($_POST["useridx"]);
 				$myUserID		= $userid;
 				$password 		= sha1($_POST["passwordx"]);
-				$xpass 			= mysql_real_escape_string($_POST["passwordx"]);
+				$xpass 			= mysqli_real_escape_string($_POST["passwordx"]);
 				$parentid		= $_POST["useridx"];			 //penting; 
-				$sponsor		= mysql_real_escape_string($_POST["sponsordst"]);
-				$email			= mysql_real_escape_string($_POST["email"]);
-				$nohp1			= mysql_real_escape_string($_POST["nohp1"]);
-				$noktp			= mysql_real_escape_string($_POST["noktp"]);
+				$sponsor		= mysqli_real_escape_string($_POST["sponsordst"]);
+				$email			= mysqli_real_escape_string($_POST["email"]);
+				$nohp1			= mysqli_real_escape_string($_POST["nohp1"]);
+				$noktp			= mysqli_real_escape_string($_POST["noktp"]);
 //				$tPayment	= xNumber($_POST["tPayment"]);
 
 				//$needPIN		= xNumber( $_POST["needPIN"] );
@@ -93,14 +93,14 @@ if( $balance1>=$trxvalue ) {
 				}
 
 				$jpTxt 		= "SELECT * FROM g_jpaket WHERE id='".$jpaket."'";
-				$jpQry		= mysql_query( $jpTxt );
-				$jpRow		= mysql_fetch_array( $jpQry );
+				$jpQry		= mysqli_query( $jpTxt );
+				$jpRow		= mysqli_fetch_array( $jpQry );
 				$ctrxvalue	= $jpRow["hrgjpaket"];
 				$jmlPoint	= $ctrxvalue / $perPoint;
 
 				$jmTxt 		= "SELECT * FROM g_jmember WHERE status='1' ORDER BY rank ASC";
-				$jmQry		= mysql_query( $jmTxt );
-				$jmRow		= mysql_fetch_array( $jmQry );
+				$jmQry		= mysqli_query( $jmTxt );
+				$jmRow		= mysqli_fetch_array( $jmQry );
 				$jmember	= $jmRow["id"];
 				
 
@@ -114,12 +114,12 @@ if( $balance1>=$trxvalue ) {
 				$mbrpic		= '';
 				
 //				$jmTxt 		= "SELECT * FROM g_jmember WHERE id = '".$jmember."'";
-//				$jmQry		= mysql_query( $jmTxt );
-//				$jmRow		= mysql_fetch_array( $jmQry );
+//				$jmQry		= mysqli_query( $jmTxt );
+//				$jmRow		= mysqli_fetch_array( $jmQry );
 				
 				$jmlhu		= xNumber( $jpaketPr[1] );
 //				$jmlproduk	= xNumber( $_POST["jmlproduk"] );
-//				$alamatdelivery = mysql_real_escape_string( $_POST["alamatdelivery"] );
+//				$alamatdelivery = mysqli_real_escape_string( $_POST["alamatdelivery"] );
 				
 //				$qr = new qrcode();
 				
@@ -143,9 +143,9 @@ if( $balance1>=$trxvalue ) {
 							userid = '".mysql_escape_string($_POST["uplinedst"])."'
 						";
 						
-					$uplqry = mysql_query($cUplineTxt);
+					$uplqry = mysqli_query($cUplineTxt);
 	
-					if(mysql_num_rows($uplqry)>0) {
+					if(mysqli_num_rows($uplqry)>0) {
 										
 						$cx		= caripm ( mysql_escape_string($_POST["uplinedst"]) ,mysql_escape_string($_POST["positiondst"]));
 				//			echo $cx;
@@ -153,8 +153,8 @@ if( $balance1>=$trxvalue ) {
 						if( $cari[0]=='' ) {
 							$upline	= $cari[1];
 							$lvTxt	= "SELECT * FROM g_member WHERE userid='".$upline."'";
-							$lvQry	= mysql_query( $lvTxt );
-							$lvRow	= mysql_fetch_array( $lvQry );
+							$lvQry	= mysqli_query( $lvTxt );
+							$lvRow	= mysqli_fetch_array( $lvQry );
 							$level	= $lvRow["level"] + 1;
 							$posisi	= mysql_escape_string($_POST["positiondst"]);
 							$error	= 0;
@@ -207,13 +207,13 @@ if( $balance1>=$trxvalue ) {
 							AND a.status IN ('0', '1')
 							AND a.userid='".$sponsor."' ";
 						
-				$c0	= mysql_fetch_array(mysql_query($cqry));
+				$c0	= mysqli_fetch_array(mysqli_query($cqry));
 					
 				if($c0["xflevel"]=='0') {
 					$upline		= $sponsor;
 					$level		= $c0["level"]+1;
 					$chUpline	= "SELECT * FROM g_member WHERE posisi='ki' AND upline='".$upline."'";
-					if(mysql_num_rows(mysql_query($chUpline))>0) $posisi='ka'; 
+					if(mysqli_num_rows(mysqli_query($chUpline))>0) $posisi='ka'; 
 					else $posisi='ki';	
 					}
 				else {
@@ -238,9 +238,9 @@ if( $balance1>=$trxvalue ) {
 							ORDER BY tPosisi DESC, cid DESC, a.tglaktif ASC
 							";
 			//			echo $tqki;
-					$cqki = mysql_query($tqki);
-					if(mysql_num_rows($cqki)>0) {
-						$rowki=mysql_fetch_array($cqki);
+					$cqki = mysqli_query($tqki);
+					if(mysqli_num_rows($cqki)>0) {
+						$rowki=mysqli_fetch_array($cqki);
 						$upline		= $rowki["userid"];
 						$level		= $c0["xflevel"]+1;
 						if($rowki["cid"]=='0') $posisi		= 'ki';
@@ -283,8 +283,8 @@ if( $balance1>=$trxvalue ) {
 				HAVING jcid<2
 				ORDER BY c.level ASC, d.sumposisi DESC
 				";
-			$crQry	= mysql_query( $crTxt );
-			$crRow	= mysql_fetch_array( $crQry );
+			$crQry	= mysqli_query( $crTxt );
+			$crRow	= mysqli_fetch_array( $crQry );
 			if($crRow["jcki"]=='0') $posisi = 'ki'; 
 			else $posisi='ka';
 			//	echo $crRow["parentid"].'|'.$posisi;
@@ -294,8 +294,8 @@ if( $balance1>=$trxvalue ) {
 			if( $cari[0]=='' ) {
 				$upline	= $cari[1];
 				$lvTxt	= "SELECT * FROM g_member WHERE userid='".$upline."'";
-				$lvQry	= mysql_query( $lvTxt );
-				$lvRow	= mysql_fetch_array( $lvQry );
+				$lvQry	= mysqli_query( $lvTxt );
+				$lvRow	= mysqli_fetch_array( $lvQry );
 				$level	= $lvRow["level"] + 1;
 				$posisi	= $posisi;
 			}
@@ -354,7 +354,7 @@ if( $balance1>=$trxvalue ) {
 							'".$userid."',
 							'".$xpass."',
 							'".$password."',
-							'".mysql_real_escape_string($_POST["nmmember"])."',
+							'".mysqli_real_escape_string($_POST["nmmember"])."',
 							'".$parentid."',
 							'".$jmember."',
 							'".$upline."',
@@ -379,10 +379,10 @@ if( $balance1>=$trxvalue ) {
 							'".$mbrpic."',
 							'".$mbrqrcode."',
 							'10',
-							'".mysql_real_escape_string( $_POST["nmbank"] )."',
-							'".mysql_real_escape_string( $_POST["cabbank"] )."',
-							'".mysql_real_escape_string( $_POST["norek"] )."',
-							'".mysql_real_escape_string( $_POST["atasnama"] )."',
+							'".mysqli_real_escape_string( $_POST["nmbank"] )."',
+							'".mysqli_real_escape_string( $_POST["cabbank"] )."',
+							'".mysqli_real_escape_string( $_POST["norek"] )."',
+							'".mysqli_real_escape_string( $_POST["atasnama"] )."',
 							'".$stfree."',
 							'".$jpaket."',
 							'".$tgllunas."',
@@ -390,14 +390,14 @@ if( $balance1>=$trxvalue ) {
 							)
 						";
 
-			$simpan	= mysql_query($stxt);
+			$simpan	= mysqli_query($stxt);
 		
-			$vQry	= mysql_query( $vTxt );
+			$vQry	= mysqli_query( $vTxt );
 			
 		
-			$uqry = mysql_query("SELECT * FROM g_upline WHERE userid='".$upline."'");
+			$uqry = mysqli_query("SELECT * FROM g_upline WHERE userid='".$upline."'");
 	
-			while($urow=mysql_fetch_array($uqry)) {
+			while($urow=mysqli_fetch_array($uqry)) {
 				$upline0Txt = "
 					INSERT INTO g_upline (
 						userid,
@@ -430,7 +430,7 @@ if( $balance1>=$trxvalue ) {
 						'1'
 					)
 				";
-				$upline0 = mysql_query($upline0Txt);
+				$upline0 = mysqli_query($upline0Txt);
 				
 			}
 	
@@ -466,12 +466,12 @@ if( $balance1>=$trxvalue ) {
 						'1'
 					)
 				";
-			$upline = mysql_query($uplineTxt);
+			$upline = mysqli_query($uplineTxt);
 	
 	
-			$uniQry = mysql_query("SELECT * FROM g_unilevel WHERE userid='".$sponsor."'");
+			$uniQry = mysqli_query("SELECT * FROM g_unilevel WHERE userid='".$sponsor."'");
 	
-			while($unRow=mysql_fetch_array($uniQry)) {
+			while($unRow=mysqli_fetch_array($uniQry)) {
 				$unilevel0Txt = "
 					INSERT INTO g_unilevel (
 						userid,
@@ -503,7 +503,7 @@ if( $balance1>=$trxvalue ) {
 					)
 				";
 //				echo $unilevel0Txt;
-				$upline0 = mysql_query($unilevel0Txt);
+				$upline0 = mysqli_query($unilevel0Txt);
 				
 			}
 	
@@ -537,7 +537,7 @@ if( $balance1>=$trxvalue ) {
 						'1'
 					)
 				";
-			$unilevel = mysql_query($unilevelTxt);
+			$unilevel = mysqli_query($unilevelTxt);
 
 			$sisahu = $jmlhu - 1;
 				
@@ -578,7 +578,7 @@ if( $balance1>=$trxvalue ) {
 			)		
 			";
 	
-		$trQry	= mysql_query( $trTxt );
+		$trQry	= mysqli_query( $trTxt );
 		$trID	= mysql_insert_id();
 		$jproduk= '1';
 		
@@ -599,7 +599,7 @@ if( $balance1>=$trxvalue ) {
 			)			
 			";
 	
-	$trdQry	= mysql_query( $trdTxt );
+	$trdQry	= mysqli_query( $trdTxt );
 */		
 	// SELESAI PROSES INPUTING
 	
@@ -643,7 +643,7 @@ if( $balance1>=$trxvalue ) {
 	
 	";
 //echo $payTxt;
-	$payQry	= mysql_query( $payTxt );
+	$payQry	= mysqli_query( $payTxt );
 
 	if(!$payQry) $error = 1;
 	
@@ -684,7 +684,7 @@ if( $balance1>=$trxvalue ) {
 	
 	";
 //echo $payTxt;
-	$pointQry	= mysql_query( $pointTxt );
+	$pointQry	= mysqli_query( $pointTxt );
 
 	if(!$pointQry) $error = 1;
 
@@ -697,17 +697,17 @@ if( $balance1>=$trxvalue ) {
 				
 	
 	
-				$myUserData=mysql_fetch_array(mysql_query("SELECT * FROM g_member WHERE userid='".$myUserID."'"));
+				$myUserData=mysqli_fetch_array(mysqli_query("SELECT * FROM g_member WHERE userid='".$myUserID."'"));
 				
-				$msg1=mysql_fetch_array(mysql_query("SELECT * FROM g_temail WHERE id='1'"));
+				$msg1=mysqli_fetch_array(mysqli_query("SELECT * FROM g_temail WHERE id='1'"));
 	
 	
 				$to1		= $email;
-				$subject1	= T_('New Member Info').' '.mysql_real_escape_string($_POST["nmmember"]);
+				$subject1	= T_('New Member Info').' '.mysqli_real_escape_string($_POST["nmmember"]);
 				$message1	= nl2br(
 					str_replace('[userid]', $myUserID, 
 					str_replace('[password]', $myUserData["xpass"], 
-					str_replace("[nmmember]", mysql_real_escape_string($myUserData["nmmember"]), 
+					str_replace("[nmmember]", mysqli_real_escape_string($myUserData["nmmember"]), 
 					str_replace('[nmsponsor]', $myUserData["nmmember"], 
 					str_replace('[mailsponsor]', $myUserData["email"], 
 					str_replace('[hpsponsor]', $myUserData["nohp1"],

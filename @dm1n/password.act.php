@@ -9,7 +9,7 @@ include('includes/config.php');
 			WHERE username='".$_GET["id"]."'
 		";
 //		echo $tqry;	
-		$simpan=mysql_query($tqry);
+		$simpan=mysqli_query($tqry);
 		
 		if($simpan) echo 'success';
 		else echo T_("There are errors in process. If the problem persists, please contact The Administrator

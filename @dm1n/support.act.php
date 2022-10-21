@@ -6,7 +6,7 @@ include('includes/config.php');
 		case "1":
 			$userid 	= 'admin';
 			$id 		= $_GET["id"];
-			$pesan 		= mysql_real_escape_string( $_POST["pesan"] );
+			$pesan 		= mysqli_real_escape_string( $_POST["pesan"] );
 
 		
 			$updTxt1	= "
@@ -18,7 +18,7 @@ include('includes/config.php');
 						WHERE id = '".$id."'
 					";
 						
-					$insQry1	= mysql_query( $updTxt1 );
+					$insQry1	= mysqli_query( $updTxt1 );
 					
 
 					$insTxt2	= "
@@ -42,7 +42,7 @@ include('includes/config.php');
 						);
 					";
 				
-				$insQry2	= mysql_query( $insTxt2 );
+				$insQry2	= mysqli_query( $insTxt2 );
 
 //				echo $insTxt1. " ". $insTxt2;
 				if( $insQry1 and  $insQry2 ) echo 'success';

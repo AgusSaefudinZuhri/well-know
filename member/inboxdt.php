@@ -1,5 +1,5 @@
 <?php include_once('includes/config.php');
-	$pRow = mysql_fetch_array( mysql_query( "SELECT * FROM g_tiket WHERE id='".$_GET["id"]."'" ) );
+	$pRow = mysqli_fetch_array( mysqli_query( "SELECT * FROM g_tiket WHERE id='".$_GET["id"]."'" ) );
  ?>
 <script type="application/javascript" language="javascript">
 /*
@@ -54,11 +54,11 @@ $tqry="
 	ORDER BY a.id ASC
 	";
 
-$qry0=mysql_query($tqry);
-$jmlRow = mysql_num_rows($qry0);
+$qry0=mysqli_query($tqry);
+$jmlRow = mysqli_num_rows($qry0);
 $pages=ceil( $jmlRow/$perpage);
 
-$qry=mysql_query($tqry);
+$qry=mysqli_query($tqry);
 
 //echo $tqry.$limit;
 
@@ -66,7 +66,7 @@ $qry=mysql_query($tqry);
 
 $x=1;
 
-while($row=mysql_fetch_array($qry)) { ?>
+while($row=mysqli_fetch_array($qry)) { ?>
 <tr class="tContent <?php if(($x)%2) echo 'genap';?>" style=" <?php  if($pRow["stupdate"]=='0' and $x==$jmlRow ) echo 'font-weight: bold; ';?>" >
 <!--<td style="text-align:center;"><?php echo $x; ?></td> -->
 <td style="text-align:left; width: 150px;"><?php echo $row["dari"];?></td>

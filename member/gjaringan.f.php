@@ -34,17 +34,17 @@ $tqry="
 	LIMIT 0,7
 	";
 
-$qry0=mysql_query($tqry);
+$qry0=mysqli_query($tqry);
 
-$pages=ceil(mysql_num_rows($qry0)/$perpage);
+$pages=ceil(mysqli_num_rows($qry0)/$perpage);
 
-$qry=mysql_query($tqry.$limit);
+$qry=mysqli_query($tqry.$limit);
 
  //echo $tqry.$limit;
 
 if(isset($_GET["pg"])) $x=($_GET["pg"]-1)*$perpage+1; else $x=1;
 
-while($row=mysql_fetch_array($qry)) { ?>
+while($row=mysqli_fetch_array($qry)) { ?>
 <tr class="tContent <?php if(($x-1)%2) echo 'genap';?>" style=" <?php // if($row["jtransaksi"]=='1') echo 'font-style: italic; color: red;';?>" >
 <td style="text-align:center;"><a href="javascript: void(0);" onclick="drill('<?php echo $row["unplreverse"];?>')">Level <?php echo $row["unplreverse"];?></a></td>
 <td style="text-align:center;"><?php echo number_format( $row["cxid"] );?></td>

@@ -44,11 +44,11 @@
 
 echo nl2br($reqTxt).'<br/>';
 
-	$reqQry	= mysql_query( $reqTxt );
+	$reqQry	= mysqli_query( $reqTxt );
 
 //echo "antara ".$tglmulai." dan ".$dt."<br/>";
 
-	while( $reqRow = mysql_fetch_array( $reqQry ) ) {
+	while( $reqRow = mysqli_fetch_array( $reqQry ) ) {
 		
 		$sponsor= $reqRow["userid"];
 		
@@ -82,7 +82,7 @@ echo nl2br($reqTxt).'<br/>';
 			";
 //echo nl2br($unTxt).'<br/>';
 		
-		$unQry	= mysql_query( $unTxt );
+		$unQry	= mysqli_query( $unTxt );
 		
 		$x	= 1;
 		$usUnilevel	= "";
@@ -95,7 +95,7 @@ echo nl2br($reqTxt).'<br/>';
 		
 		
 		
-		while( $unRow	= mysql_fetch_array( $unQry ) ) {
+		while( $unRow	= mysqli_fetch_array( $unQry ) ) {
 			
 			$usUnilevel[$x]	= $unRow["userid"];
 			$vlUnilevel[$x]	= $unRow["ttlvalue"];
@@ -121,7 +121,7 @@ echo nl2br($reqTxt).'<br/>';
 		//echo $finKkKecil." | ".$finKkBesar.'<br/>';
 		
 		$jrTxt	= "SELECT * FROM g_jranking WHERE status = '1' ORDER BY (reqvl*1) DESC";
-		$jrQry	= mysql_query( $jrTxt );
+		$jrQry	= mysqli_query( $jrTxt );
 		
 		$stQualified = 0;
 		$vlQualified = 0;
@@ -130,7 +130,7 @@ echo nl2br($reqTxt).'<br/>';
 		$idQualified = '';
 		$ijQualified = 1;
 		
-		while( $jrRow = mysql_fetch_array( $jrQry ) and $stQualified==0 ) {
+		while( $jrRow = mysqli_fetch_array( $jrQry ) and $stQualified==0 ) {
 			if( $finKkKecil>=$jrRow["reqvl"] ) {
 				$stQualified = 1;
 				$vlQualified = $jrRow["reqvl"];
@@ -147,7 +147,7 @@ echo nl2br($reqTxt).'<br/>';
 		//echo $ijQualified.": ".$stQualified." | ".$vlQualified." | ".$idQualified.'<br/>';
 		
 		$updPassNextTxt	= "UPDATE g_passnext SET status='1' WHERE userid='".$sponsor."' AND tglinput < '".$dt."'";
-		$updPassNextQry = mysql_query( $updPassNextTxt );
+		$updPassNextQry = mysqli_query( $updPassNextTxt );
 
 		if( $stQualified == 1 ) {
 				$tqry1 = "
@@ -197,11 +197,11 @@ echo nl2br($reqTxt).'<br/>';
 
 			//if( $tEcho == '1' ) 	
 		//echo $tqry1.'<br/>';
-			$simpan1 = mysql_query($tqry1);
+			$simpan1 = mysqli_query($tqry1);
 			$xid1	 = mysql_insert_id();
 			$refno1	 = $refno.$xid1; 
 			$uQry1	 = "UPDATE g_wfund SET refno='".$refno1."' WHERE id='".$xid1."'";
-			$update1 = mysql_query($uQry1);
+			$update1 = mysqli_query($uQry1);
 			if($simpan1 and $update1) $tError = 0; else $tError = 1;
 			if($tEcho=='1') echo $sTxt."<br/>";	
 			
@@ -247,7 +247,7 @@ echo nl2br($reqTxt).'<br/>';
 						'0'
 					)
 					";
-				$pnQry	= mysql_query($pnTxt);
+				$pnQry	= mysqli_query($pnTxt);
 				}
 			}
 			}
@@ -276,7 +276,7 @@ echo nl2br($reqTxt).'<br/>';
 						'0'
 					)
 					";
-				$pnQry	= mysql_query($pnTxt);
+				$pnQry	= mysqli_query($pnTxt);
 			}
 			
 			}		
@@ -308,7 +308,7 @@ echo nl2br($reqTxt).'<br/>';
 						'0'
 					)
 					";
-				$pnQry	= mysql_query($pnTxt);
+				$pnQry	= mysqli_query($pnTxt);
 				}
 			}
 			

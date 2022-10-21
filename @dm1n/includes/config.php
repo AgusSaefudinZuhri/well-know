@@ -21,12 +21,12 @@ if (!$db_selected) {
 
 /*
 function get_woption_value ($z) {
-	$vow=mysql_fetch_array(mysql_query("SELECT * FROM w_option WHERE id='".$z."'"));
+	$vow=mysqli_fetch_array(mysqli_query("SELECT * FROM w_option WHERE id='".$z."'"));
 	return $vow["optvalue"];
 }
 
 function get_woption_header ($z) {
-	$vow=mysql_fetch_array(mysql_query("SELECT * FROM w_option WHERE id='".$z."'"));
+	$vow=mysqli_fetch_array(mysqli_query("SELECT * FROM w_option WHERE id='".$z."'"));
 	return $vow["optheader"];
 }
 */
@@ -51,32 +51,32 @@ function ubahangka($angka) {
 
 /*
 function get_woption($id) {
-	$ncek=mysql_fetch_array(mysql_query("SELECT * FROM w_option WHERE id='".$id."'"));
+	$ncek=mysqli_fetch_array(mysqli_query("SELECT * FROM w_option WHERE id='".$id."'"));
 	return $ncek["optvalue"];
 }
 */
 
 function get_goption($id) {
-	$ncek=mysql_fetch_array(mysql_query("SELECT * FROM g_option WHERE id='".$id."'"));
+	$ncek=mysqli_fetch_array(mysqli_query(new mysqli("localhost","root","","extrogat_trading"), "SELECT * FROM g_option WHERE id='".$id."'"));
 	return $ncek["optvalue"];
 }
 
 function get_woption($id) {
-	$ncek=mysql_fetch_array(mysql_query("SELECT * FROM w_option WHERE id='".$id."'"));
+	$ncek=mysqli_fetch_array(mysqli_query(new mysqli("localhost","root","","extrogat_trading"), "SELECT * FROM w_option WHERE id='".$id."'"));
 	return $ncek["optvalue"];
 }
 function get_woption_value ($z) {
-	$vow=mysql_fetch_array(mysql_query("SELECT * FROM w_option WHERE id='".$z."'"));
+	$vow=mysqli_fetch_array(mysqli_query(new mysqli("localhost","root","","extrogat_trading"), "SELECT * FROM w_option WHERE id='".$z."'"));
 	return $vow["optvalue"];
 }
 
 function get_woption_header ($z) {
-	$vow=mysql_fetch_array(mysql_query("SELECT * FROM w_option WHERE id='".$z."'"));
+	$vow=mysqli_fetch_array(mysqli_query(new mysqli("localhost","root","","extrogat_trading"), "SELECT * FROM w_option WHERE id='".$z."'"));
 	return $vow["optheader"];
 }
 
 function xNumber($x) {
-	return str_replace(",","", mysql_real_escape_string($x));
+	return str_replace(",","", mysqli_real_escape_string(new mysqli("localhost","root","","extrogat_trading"), $x));
 }
 
 function defCustStatus($x) {
@@ -102,7 +102,7 @@ switch( $x ) {
 		while($ok!=1) {
 			$Allowed_Charaters	= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 			$novoucher			= substr(str_shuffle($Allowed_Charaters), 0, 10);
-			$cek=mysql_num_rows(mysql_query("SELECT * FROM g_card WHERE novoucher='".$novoucher."'"));
+			$cek=mysqli_num_rows(mysqli_query("SELECT * FROM g_card WHERE novoucher='".$novoucher."'"));
 			if($cek==0) $ok=1;
 		}		
 		return $novoucher;	

@@ -30,7 +30,7 @@ include('includes/config.php');
 					status 
 					) 
 				VALUES(
-					'".mysql_real_escape_string($_POST["nmjunilevel"])."', 
+					'".mysqli_real_escape_string($_POST["nmjunilevel"])."', 
 					'".xNumber($_POST["minsponsor"])."', 
 					'".xNumber($_POST["lvl01"])."',
 					'".xNumber($_POST["lvl02"])."',
@@ -56,7 +56,7 @@ include('includes/config.php');
 					)
 				";
 			//echo $txt;
-			$simpan=mysql_query($txt);
+			$simpan=mysqli_query($txt);
 		
 			if($simpan) echo 'success';
 			else echo $errTxt;		
@@ -66,7 +66,7 @@ include('includes/config.php');
 			$txt = "
 				UPDATE g_junilevel 
 				SET 
-					nmjunilevel	= '".mysql_real_escape_string($_POST["nmjunilevel"])."', 
+					nmjunilevel	= '".mysqli_real_escape_string($_POST["nmjunilevel"])."', 
 					minsponsor	= '".xNumber($_POST["minsponsor"])."', 
 					lvl01		= '".xNumber($_POST["lvl01"])."',
 					lvl02		= '".xNumber($_POST["lvl02"])."',
@@ -91,7 +91,7 @@ include('includes/config.php');
 					
 				WHERE id='".$_GET["id"]."'";
 			//echo $txt;
-			$simpan=mysql_query($txt);
+			$simpan=mysqli_query($txt);
 			
 			if($simpan) echo 'success';
 			else echo $errTxt;		

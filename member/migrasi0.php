@@ -9,9 +9,9 @@
 			AND jtransaksi = '0'
 			AND status='1'"; 
 			
-	$cQry	= mysql_query( $cTxt );
+	$cQry	= mysqli_query( $cTxt );
 	
-	while( $cRow = mysql_fetch_array( $cQry ) ) {
+	while( $cRow = mysqli_fetch_array( $cQry ) ) {
 		
 		$tqry = "
 			INSERT INTO g_wfund (
@@ -48,12 +48,12 @@
 			);
 		";
 			
-		$insQry	= mysql_query( $tqry );
+		$insQry	= mysqli_query( $tqry );
 		
 		$id		= mysql_insert_id();
 		$refno1	= date('YmdHis', strtotime($cRow["tglupload"]." ".$cRow["waktuupload"])).$id;
 		$updTxt3= "UPDATE g_wfund SET refno='".$refno1."' WHERE id='".$id."'";
-		$updQry3= mysql_query( $updTxt3 );
+		$updQry3= mysqli_query( $updTxt3 );
 	}
 			
 			
@@ -66,9 +66,9 @@
 			AND a.jtransaksi = '1'
 			AND a.status='1'"; 
 			
-	$cQry	= mysql_query( $cTxt );
+	$cQry	= mysqli_query( $cTxt );
 	
-	while( $cRow = mysql_fetch_array( $cQry ) ) {
+	while( $cRow = mysqli_fetch_array( $cQry ) ) {
 		
 		$tqry = "
 			INSERT INTO g_wfund (
@@ -105,10 +105,10 @@
 			);
 		";
 			
-		$insQry	= mysql_query( $tqry );
+		$insQry	= mysqli_query( $tqry );
 		
 		$id		= mysql_insert_id();
 		$refno1	= date('YmdHis', strtotime($cRow["tglupload"]." ".$cRow["waktuupload"])).$id;
 		$updTxt3= "UPDATE g_wfund SET refno='".$refno1."' WHERE id='".$id."'";
-		$updQry3= mysql_query( $updTxt3 );
+		$updQry3= mysqli_query( $updTxt3 );
 	}		

@@ -12,7 +12,7 @@ include('includes/config.php');
 
 		}
 
-		$hapus=mysql_query("DELETE FROM ".$table." WHERE ".$id."='".$_GET["id"]."'");
+		$hapus=mysqli_query("DELETE FROM ".$table." WHERE ".$id."='".$_GET["id"]."'");
 //echo "DELETE FROM ".$table." WHERE ".$id."='".$_GET["id"]."'";
 //echo "DELETE FROM ".$table." WHERE ".$id."='".$_GET["id"]."'";
 		if($hapus) echo 'success';

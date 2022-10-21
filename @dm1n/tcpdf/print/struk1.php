@@ -3,12 +3,12 @@ session_start();
 require_once('tcpdf_include.php');
 include('../../includes/config.php');
 
-$qry1=mysql_query("select a.*, b.menu_name,  b.harga, (a.qty*b.harga) jml from t_detail a left join menu b on a.menu_id=b.id where a.parent='".$_GET["id"]."' order by a.id ASC");
+$qry1=mysqli_query("select a.*, b.menu_name,  b.harga, (a.qty*b.harga) jml from t_detail a left join menu b on a.menu_id=b.id where a.parent='".$_GET["id"]."' order by a.id ASC");
 
-$qrz=mysql_fetch_array(mysql_query("select * from t_order where id=".$_GET["id"]));
+$qrz=mysqli_fetch_array(mysqli_query("select * from t_order where id=".$_GET["id"]));
 
 
-$jrow=mysql_num_rows($qry1);
+$jrow=mysqli_num_rows($qry1);
 
 
 $pdf = new TCPDF('P', 'cm', array(8, (9+($jrow*.8))), true, 'UTF-8', false);
@@ -61,7 +61,7 @@ $pdf->AddPage();
 	$subtotal1=0;
 	$jitem=0;
 	$echo='';
-	while($rowx=mysql_fetch_array($qry1)) {
+	while($rowx=mysqli_fetch_array($qry1)) {
 	$echo.= '<tr>
 <td style="text-align: left;">'.sprintf('%06d',$rowx["id"]).'</td>
 <td style="text-align: right;">'.number_format($rowx["harga"]).'</td>

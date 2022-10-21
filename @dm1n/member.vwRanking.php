@@ -38,7 +38,7 @@ $tTxt = "
 	WHERE a.status !='99' AND a.parentid='".$_GET["id"]."'  ".$where."
 ";
 	//echo $tTxt;
-$tBonus = mysql_fetch_array(mysql_query($tTxt));
+$tBonus = mysqli_fetch_array(mysqli_query($tTxt));
 ?>
 <tr>
     <td style="width: 20%;"><?php echo T_("Full Name");?></td>

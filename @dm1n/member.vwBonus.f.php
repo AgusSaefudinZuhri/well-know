@@ -52,15 +52,15 @@ $tqry="
 	FROM ".$table." a
 	WHERE a.status >='0' AND jtransaksi='0' AND a.parentid='".$_GET["id"]."' ".$where;
 		
-$qry0	= mysql_query($tqry);
-$jml0	= mysql_num_rows($qry0);
+$qry0	= mysqli_query($tqry);
+$jml0	= mysqli_num_rows($qry0);
 $pages	= ceil($jml0/$perpage);
 
-$qry=mysql_query($tqry.$limit);
+$qry=mysqli_query($tqry.$limit);
 //echo $tqry.$limit;
 if(isset($_GET["pg"])) $x=($_GET["pg"]-1)*$perpage+1; else $x=1;
 
-while($row=mysql_fetch_array($qry)) { ?>
+while($row=mysqli_fetch_array($qry)) { ?>
 <tr class="tContent <?php if(($x-1)%2) echo 'genap';?>" style="<?php if($row["jtransaksi"]=='1') echo 'font-style: italic; color: red;';?>" >
 <td style="text-align:center;"><?php echo $x; ?></td>
 <td style="text-align:center;"><?php echo date('d M Y H:i:s', strtotime($row["tglproses"]." ".$row["waktuproses"])); ?></td>
